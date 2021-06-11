@@ -2,7 +2,7 @@ import React from 'react';
 
 function teste() {
     return (
-        <p> testes testes</p>
+        <p> Logado</p>
     )
 }
 export default teste;

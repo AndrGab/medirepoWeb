@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { useUserState } from "./context/UserContext";
-import teste from './pages/patients/teste'
-
+import Bulletin from './pages/patients/Bulletin';
 import Login from "./pages/patients/Login";
 
 
@@ -13,9 +12,11 @@ export default function Routes() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/" render={() => <Redirect to="/app" />} />
-                <PrivateRoute path="/app" component={teste} />
-                <PublicRoute path="/login" component={Login} />
+                <Route exact path="/" render={() => <Redirect to="/pacients/bulletin" />} />
+                <PrivateRoute path="/app" component={Bulletin} />
+
+                <PrivateRoute path="/pacients/bulletin" component={Bulletin} />
+                <PublicRoute path="/pacients/login" component={Login} />
             </Switch>
         </BrowserRouter>
     );
@@ -23,9 +24,6 @@ export default function Routes() {
     // #######################################################################
 
     function PrivateRoute({ component, ...rest }) {
-        console.log({ component })
-        console.log({ ...rest })
-        console.log(isAuthenticated)
         return (
             <Route
                 {...rest}
@@ -35,7 +33,7 @@ export default function Routes() {
                     ) : (
                         <Redirect
                             to={{
-                                pathname: "/login",
+                                pathname: "/pacients/login",
                                 state: {
                                     from: props.location,
                                 },
@@ -48,10 +46,6 @@ export default function Routes() {
     }
 
     function PublicRoute({ component, ...rest }) {
-        console.log({ component })
-        console.log({ ...rest })
-        console.log(isAuthenticated)
-
         return (
 
 
@@ -62,7 +56,7 @@ export default function Routes() {
                         isAuthenticated ? (
                             < Redirect
                                 to={{
-                                    pathname: "/app",
+                                    pathname: "/pacients/bulletin",
                                 }}
                             />
                         ) : (

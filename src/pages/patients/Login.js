@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useHistory, withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import Fade from '@material-ui/core/Fade';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import Link from '@material-ui/core/Link';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Grid from '@material-ui/core/Grid';
 import MedirepoIcon from '../../assets/medirepo.png';
 import Typography from '@material-ui/core/Typography';
@@ -17,6 +18,7 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { useUserDispatch, loginUser } from '../../context/UserContext'
+import api from '../../services/Api';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,14 +34,14 @@ const useStyles = makeStyles((theme) => ({
 
     },
     form: {
-        width: '100%', // Fix IE 11 issue.
+        width: '100%',
         marginTop: theme.spacing(1),
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
     formControl: {
-        width: '100%', // Fix IE 11 issue.
+        width: '100%',
         marginTop: theme.spacing(1),
         minWidth: 120,
     },
@@ -52,12 +54,18 @@ const useStyles = makeStyles((theme) => ({
     errormsg: {
         color: '#f72314',
         textAlign: 'center',
-        marginTop: theme.spacing(1),
+        marginTop: theme.spacing(5),
+
+
     },
+    progress: {
+        marginTop: theme.spacing(1),
+
+    }
 
 }));
 
-export default function SignIn() {
+function SignIn() {
 
     var userDispatch = useUserDispatch();
 
@@ -68,12 +76,21 @@ export default function SignIn() {
     var [password, setPassword] = useState("");
     var [dt_nasc, setDtnasc] = useState("");
     var [id, setHospital] = useState("");
+    var [listHosps, setlistHosp] = useState([]);
+
 
     const history = useHistory();
 
-    function handleLogin(e) {
-        e.preventDefault();
+    useEffect(() => {
+        api
+            .get("/hospitals/list")
+            .then(response => {
+                setlistHosp(response.data.hospital);
+            });
+    }, []);
 
+    async function handleLogin(e) {
+        e.preventDefault();
 
         const data = {
             login,
@@ -82,18 +99,31 @@ export default function SignIn() {
             id
         };
 
-        loginUser(
-            userDispatch,
-            data,
-            history,
-            setIsLoading,
-            setError,
-        )
+        if (!!login && !!password && !!dt_nasc && !!id) {
+            setError(false);
+            setIsLoading(true);
+            try {
+                const response = await api.post('patients/signin', data);
+                var token = response.data.token;
 
+                loginUser(
+                    userDispatch,
+                    token
+                );
+                setError(null);
+                setIsLoading(false);
+                history.push('/pacients/bulletin');
+
+            } catch (err) {
+                console.log(err);
+                setError(true);
+                setIsLoading(false);
+            }
+        }
     }
 
     return (
-        <>
+        <div>
             <div className={classes.root}>
                 <AppBar color='inherit' position="static">
                     <Toolbar>
@@ -103,7 +133,8 @@ export default function SignIn() {
             </div>
             <Container component="main" maxWidth="xs">
                 <div className={classes.paper}>
-                    <Typography color='primary' component="h6" variant="h6">
+                    <ExitToAppIcon color='primary' />
+                    <Typography color='primary' component="h6" variant="button">
                         LOGIN
                     </Typography>
                     <form className={classes.form} noValidate onSubmit={handleLogin}>
@@ -115,7 +146,6 @@ export default function SignIn() {
                             id="cod_pac"
                             label="Código do Paciente"
                             name="cod_pac"
-                            autoComplete="email"
                             autoFocus
                             onChange={e => setCodpac(e.target.value)}
 
@@ -166,21 +196,17 @@ export default function SignIn() {
                                         name="age"
                                         id="simple-select-outline"
                                     />
-
-
                                 }
                                 onChange={e => setHospital(e.target.value)}
-
-
                             >
                                 <option aria-label="None" value="" />
-                                <option value={"bc4b53a9-4d42-4d62-be11-1078775b967b"}>Santa Casa de Londrina</option>
-                                <option value={20}>Hospital Evangélico</option>
-                                <option value={30}>Hospital San Francisco</option>
+                                {listHosps.map(listHosp => (
+                                    <option value={listHosp.id}> {listHosp.name} </option>
+                                ))}
                             </Select>
                         </FormControl>
                         {isLoading ? (
-                            <CircularProgress size={26} />
+                            <LinearProgress className={classes.progress} />
                         ) : (
                             <Button
                                 type="submit"
@@ -196,7 +222,7 @@ export default function SignIn() {
                             <Grid item xs>
                                 <Link href="#" variant="body2">
                                     Esqueceu a Senha?
-              </Link>
+                                </Link>
                             </Grid>
                             <Grid item>
                                 <Link href="#" variant="body2">
@@ -206,13 +232,15 @@ export default function SignIn() {
                         </Grid>
                         <Fade in={error}>
                             <Typography className={classes.errormsg}>
-                                Algo de errado com o código ou senha :(
-                </Typography>
+                                Algo de errado com seu login ou senha
+                            </Typography>
                         </Fade>
                     </form>
                 </div>
 
             </Container>
-        </>
+        </div>
     );
 }
+
+export default withRouter(SignIn);
