@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import Fade from '@material-ui/core/Fade';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -19,6 +18,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { useUserDispatch, loginUser } from '../../context/UserContext'
 import api from '../../services/Api';
+import { toast } from 'react-toastify';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -51,13 +51,6 @@ const useStyles = makeStyles((theme) => ({
     title: {
         flexGrow: 1,
     },
-    errormsg: {
-        color: '#f72314',
-        textAlign: 'center',
-        marginTop: theme.spacing(5),
-
-
-    },
     progress: {
         marginTop: theme.spacing(1),
 
@@ -65,13 +58,14 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+const notify = () => toast.info("O Login e Senha são informados no momento da internação. Procure a Recepção do Hospital");
+
 function SignIn() {
 
     var userDispatch = useUserDispatch();
 
     const classes = useStyles();
     var [isLoading, setIsLoading] = useState(false);
-    var [error, setError] = useState(null);
     var [login, setCodpac] = useState("");
     var [password, setPassword] = useState("");
     var [dt_nasc, setDtnasc] = useState("");
@@ -86,7 +80,12 @@ function SignIn() {
             .get("/hospitals/list")
             .then(response => {
                 setlistHosp(response.data.hospital);
-            });
+            })
+            .catch(err => {
+                console.log(err);
+                toast.dark("Não foi possível carregar a lista de Hospitais. Tente mais tarde.");
+                // setError(true);
+            })
     }, []);
 
     async function handleLogin(e) {
@@ -100,7 +99,6 @@ function SignIn() {
         };
 
         if (!!login && !!password && !!dt_nasc && !!id) {
-            setError(false);
             setIsLoading(true);
             try {
                 const response = await api.post('patients/signin', data);
@@ -110,137 +108,110 @@ function SignIn() {
                     userDispatch,
                     token
                 );
-                setError(null);
                 setIsLoading(false);
-                history.push('/pacients/bulletin');
+                history.push('/patients/bulletin');
 
             } catch (err) {
                 console.log(err);
-                setError(true);
                 setIsLoading(false);
+                toast.dark("Algo de errado com o Login ou Senha")
             }
         }
     }
 
-    return (
-        <div>
-            <div className={classes.root}>
-                <AppBar color='inherit' position="static">
-                    <Toolbar>
-                        <img src={MedirepoIcon} className={classes.img} alt="MediRepo" />
-                    </Toolbar>
-                </AppBar>
-            </div>
-            <Container component="main" maxWidth="xs">
-                <div className={classes.paper}>
-                    <ExitToAppIcon color='primary' />
-                    <Typography color='primary' component="h6" variant="button">
-                        LOGIN
-                    </Typography>
-                    <form className={classes.form} noValidate onSubmit={handleLogin}>
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="cod_pac"
-                            label="Código do Paciente"
-                            name="cod_pac"
-                            autoFocus
-                            onChange={e => setCodpac(e.target.value)}
+    return (<        div >
+        <div className={classes.root} >
+            <AppBar color='inherit'
+                position="static" >
+                < Toolbar >
+                    <
+                        img src={MedirepoIcon}
+                        className={classes.img}
+                        alt="MediRepo" />
+                </Toolbar> </AppBar> </div> <Container component="main"
+                    maxWidth="xs" >
+            <div className={classes.paper} >
+                <ExitToAppIcon color='primary' />
+                <Typography color='primary'
+                    component="h6"
+                    variant="button" >
+                    LOGIN </Typography> <form className={classes.form}
+                        noValidate onSubmit={handleLogin} >
+                    <TextField variant="outlined"
+                        margin="normal"
+                        required fullWidth id="cod_pac"
+                        label="Código do Paciente"
+                        name="cod_pac"
+                        autoFocus onChange={e => setCodpac(e.target.value)}
 
-                        />
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="senha"
-                            label="Senha"
-                            type="password"
-                            id="password"
-                            autoComplete="current-password"
-                            onChange={e => setPassword(e.target.value)}
+                    /> <TextField variant="outlined"
+                        margin="normal"
+                        required fullWidth name="senha"
+                        label="Senha"
+                        type="password"
+                        id="password"
+                        autoComplete="current-password"
+                        onChange={e => setPassword(e.target.value)}
 
-                        />
-                        <TextField
-                            InputLabelProps={{ shrink: true }}
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="data_nasc"
-                            label="Data de Nascimento"
-                            type="date"
-                            id="data_nasc"
-                            autoComplete="data de nascimento"
-                            onChange={e => setDtnasc(e.target.value)}
+                    /> <TextField InputLabelProps={
+                        { shrink: true }}
+                        variant="outlined"
+                        margin="normal"
+                        required fullWidth name="data_nasc"
+                        label="Data de Nascimento"
+                        type="date"
+                        id="data_nasc"
+                        autoComplete="data de nascimento"
+                        onChange={e => setDtnasc(e.target.value)}
 
-                        />
+                    />
 
-                        <FormControl className={classes.formControl} variant="outlined">
-                            <InputLabel htmlFor='nascimento' id="simple-select-outlined-label">Hospital</InputLabel>
-                            <Select
-                                labelId="simple-select-outlined-label"
-                                id="simple-select-outlined"
-                                native
-                                required
-                                inputProps={{
+                    <FormControl className={classes.formControl}
+                        variant="outlined" >
+                        <InputLabel htmlFor='nascimento'
+                            id="simple-select-outlined-label" >Hospital </InputLabel>
+                        <Select labelId="simple-select-outlined-label"
+                            id="simple-select-outlined"
+                            native required inputProps={
+                                {
                                     name: 'hospital',
                                     id: 'hospital_id',
-                                }}
-                                input={
-                                    <OutlinedInput
-                                        shrink="true"
-                                        labelWidth={62}
-                                        name="age"
-                                        id="simple-select-outline"
-                                    />
                                 }
-                                onChange={e => setHospital(e.target.value)}
-                            >
-                                <option aria-label="None" value="" />
-                                {listHosps.map(listHosp => (
-                                    <option value={listHosp.id}> {listHosp.name} </option>
-                                ))}
-                            </Select>
-                        </FormControl>
-                        {isLoading ? (
-                            <LinearProgress className={classes.progress} />
-                        ) : (
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                className={classes.submit}
-                            >
-                                ACESSAR
-                            </Button>
-                        )}
-                        <Grid alignItems='center' container>
-                            <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    Esqueceu a Senha?
-                                </Link>
-                            </Grid>
-                            <Grid item>
-                                <Link href="#" variant="body2">
-                                    {"Login para Hospitais, clique aqui"}
-                                </Link>
-                            </Grid>
+                            }
+                            input={
+                                <OutlinedInput shrink="true"
+                                    labelWidth={62}
+                                    name="age"
+                                    id="simple-select-outline" />
+                            }
+                            onChange={e => setHospital(e.target.value)} >
+                            <option aria-label="None" value="" />
+                            {listHosps.map(listHosp =>
+                                (<option value={listHosp.id} > {listHosp.name} </option>))}
+                        </Select>
+                    </FormControl>
+                    {isLoading ? (<LinearProgress className={classes.progress}
+                    />) : (<Button type="submit"
+                        fullWidth variant="contained"
+                        color="primary"
+                        className={classes.submit} >
+                        ACESSAR </Button>)
+                    } <Grid alignItems='center' container ><Grid item xs ><Link href="#"
+                        onClick={notify}
+                        variant="body2" >
+                        Esqueceu a Senha ?
+                    </Link>
+                    </Grid>
+                        <Grid item >
+                            <Link href="/hospitals/login"
+                                variant="body2" >
+                                Login para Hospitais, clique aqui </Link>
                         </Grid>
-                        <Fade in={error}>
-                            <Typography className={classes.errormsg}>
-                                Algo de errado com seu login ou senha
-                            </Typography>
-                        </Fade>
-                    </form>
-                </div>
+                    </Grid>
+                </form>
+            </div>
 
-            </Container>
-        </div>
+        </Container> </div>
     );
 }
-
 export default withRouter(SignIn);

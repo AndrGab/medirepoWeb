@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import MedirepoIcon from '../../assets/medirepo.png';
 import Typography from '@material-ui/core/Typography';
@@ -9,8 +9,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { useUserDispatch, logoutUser } from '../../context/UserContext'
+import { useUserDispatch, signOut } from '../../context/UserContext'
 import api from '../../services/Api';
+import { toast } from 'react-toastify';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -22,20 +24,8 @@ const useStyles = makeStyles((theme) => ({
   },
   img: {
     width: 150,
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(4),
 
-  },
-  form: {
-    width: '100%',
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-  formControl: {
-    width: '100%',
-    marginTop: theme.spacing(1),
-    minWidth: 120,
   },
   root: {
     flexGrow: 1,
@@ -43,18 +33,6 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-  errormsg: {
-    color: '#f72314',
-    textAlign: 'center',
-    marginTop: theme.spacing(5),
-
-
-  },
-  progress: {
-    marginTop: theme.spacing(1),
-
-  }
-
 }));
 
 function BulletinView() {
@@ -68,18 +46,30 @@ function BulletinView() {
 
 
   useEffect(() => {
-    async function fechData() {
+    api
+      .get("/patients/view", {
+        headers: {
+          'Authorization': 'Bearer ' + token
+        }
+      })
+      .then(response => {
+        setlistBulletin([response.data.bulletin]);
+      })
+      .catch(error => {
+        toast.dark("Autenticação necessária. Use o Login/Senha recebido.");
 
-      try {
-        const response = await api.get("/pacients/view")
-        setlistBulletin(response.data.bulletin);
-      } catch (err) {
-        console.log(err)
-      }
+        if (error.response) {
+          console.log(error.response.status);
 
-    }
-    fechData();
-  });
+        } else if (error.request) {
+          console.log(error.request);
+
+        } else {
+          console.log('Error', error.message);
+        }
+        console.log(error.config);
+      });
+  }, [token]);
 
 
   return (
@@ -88,116 +78,137 @@ function BulletinView() {
         <AppBar color='inherit' position="static">
           <Toolbar>
             <img src={MedirepoIcon} className={classes.img} alt="MediRepo" />
+            <Typography variant="h6" className={classes.title}>
+              Boletim Médico
+            </Typography>
+            <Button onClick={e => signOut(userDispatch, history)} color="inherit">Sair</Button>
           </Toolbar>
         </AppBar>
       </div>
-      <Container component="main" maxWidth="xl">
+      <Container component="main" maxWidth="md">
         <div className={classes.paper}>
-          <ExitToAppIcon color='primary' />
-          <Typography color='primary' component="h6" variant="button">
-            BOLETIM MÉDICO
-          </Typography>
-          <Typography variant="h6" gutterBottom>
-            Shipping address
-          </Typography>
           {listBulletin.map(listBul => (
             <Grid container spacing={3}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  variant="outlined"
                   id="Nome"
                   name="Nome"
                   label="Nome do Paciente"
                   fullWidth
+                  variant="outlined"
+                  disabled
                   value={listBul.nome} />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  required
                   id="dtnasc"
                   name="dtnasc"
+                  type="date"
                   label="Data de Nascimento"
                   fullWidth
+                  variant="outlined"
+                  disabled
+                  value={listBul.dt_nascimento}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
-                  required
                   id="geral"
                   name="gera"
                   label="Estado Geral"
                   fullWidth
+                  variant="outlined"
+                  disabled
+                  value={listBul.geral}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   id="pressao"
                   name="pressao"
                   label="Pressão Arterial"
                   fullWidth
+                  variant="outlined"
+                  disabled
+                  value={listBul.pressao}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  required
                   id="consciencia"
                   name="consciencia"
                   label="Nível de Consciencia"
                   fullWidth
+                  variant="outlined"
+                  disabled
+                  value={listBul.consciencia}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  required
                   id="febre"
                   name="febre"
                   label="Febre"
                   fullWidth
+                  variant="outlined"
+                  disabled
+                  value={listBul.febre}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  required
                   id="respiracao"
                   name="respiracao"
                   label="Respiração"
                   fullWidth
+                  variant="outlined"
+                  disabled
+                  value={listBul.respiracao}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  required
                   id="diurese"
                   name="diurese"
                   label="Diurese"
                   fullWidth
+                  variant="outlined"
+                  disabled
+                  value={listBul.diurese}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
-                  required
                   id="obs"
                   name="obs"
                   label="Observações"
                   fullWidth
+                  variant="outlined"
+                  disabled
+                  value={listBul.obs}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  required
                   id="medico"
                   name="medico"
                   label="Nome do Médico"
                   fullWidth
+                  variant="outlined"
+                  disabled
+                  value={listBul.medico}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  required
                   id="data"
                   name="data"
                   label="Data do Boletim"
                   fullWidth
+                  type="date"
+                  variant="outlined"
+                  disabled
+                  value={listBul.dt_assinatura}
                 />
               </Grid>
             </Grid>
