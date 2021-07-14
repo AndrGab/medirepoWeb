@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory, withRouter } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { Card, CardHeader, Box } from "@material-ui/core";
@@ -55,11 +55,12 @@ function Account() {
 
     var userDispatch = useUserDispatch();
     const history = useHistory();
-
+    const token = localStorage.getItem("token");
     const classes = useStyles();
     var [isLoading, setIsLoading] = useState(false);
     var [name, setName] = useState("");
     var [email, setEmail] = useState("");
+    var [hospitalData, setHospitalData] = useState("");
 
 
     async function handleRegister(e) {
@@ -105,6 +106,35 @@ function Account() {
         }
     }
 
+    
+  useEffect(() => {
+    api
+      .get("hospitals", {
+        headers: {
+          'Authorization': 'Bearer ' + token
+        }
+      })
+      .then(response => {
+        setHospitalData(response.data.hospital);
+              })
+      .catch(error => {
+        toast.dark("Não foi possível carregar as informações cadastradas");
+
+        if (error.response) {
+          console.log(error.response.status);
+
+        } else if (error.request) {
+          console.log(error.request);
+
+        } else {
+          console.log('Error', error.message);
+        }
+        console.log(error.config);
+      });
+  }, [token]);
+
+console.log(hospitalData);
+
     return (
         <div>
             <Container component="main" maxWidth="md">
@@ -115,6 +145,7 @@ function Account() {
                             <CardHeader titleTypographyProps={{ variant: 'h6' }} title="CADASTRO" subheader="Alteração do Cadastro" />
 
                             <TextField
+                             InputLabelProps={{ shrink: true }}
                                 variant="outlined"
                                 margin="normal"
                                 required
@@ -123,9 +154,11 @@ function Account() {
                                 label="Nome do Hospital"
                                 name="name"
                                 autoFocus
+                                value = {hospitalData.name}
                                 onChange={(e) => setName(e.target.value)}
                             />
                             <TextField
+                             InputLabelProps={{ shrink: true }}
                                 variant="outlined"
                                 margin="normal"
                                 required
