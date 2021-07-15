@@ -55,7 +55,7 @@ function Account() {
 
     var userDispatch = useUserDispatch();
     const history = useHistory();
-
+    const token = localStorage.getItem("token");
     const classes = useStyles();
     var [isLoading, setIsLoading] = useState(false);
     var [name, setName] = useState("");
@@ -143,6 +143,35 @@ function Account() {
         }
     }
 
+    
+  useEffect(() => {
+    api
+      .get("hospitals", {
+        headers: {
+          'Authorization': 'Bearer ' + token
+        }
+      })
+      .then(response => {
+        setHospitalData(response.data.hospital);
+              })
+      .catch(error => {
+        toast.dark("Não foi possível carregar as informações cadastradas");
+
+        if (error.response) {
+          console.log(error.response.status);
+
+        } else if (error.request) {
+          console.log(error.request);
+
+        } else {
+          console.log('Error', error.message);
+        }
+        console.log(error.config);
+      });
+  }, [token]);
+
+console.log(hospitalData);
+
     return (
         <div>
             <Container component="main" maxWidth="md">
@@ -153,7 +182,11 @@ function Account() {
                             <CardHeader titleTypographyProps={{ variant: 'h6' }} title="CADASTRO" subheader="Alteração do Cadastro" />
 
                             <TextField
+<<<<<<< HEAD
+                             InputLabelProps={{ shrink: true }}
+=======
                                 InputLabelProps={{ shrink: true }}
+>>>>>>> 58c509d2a409e052c801b2b226728806aba4d0d7
                                 variant="outlined"
                                 margin="normal"
                                 required
@@ -162,11 +195,19 @@ function Account() {
                                 label="Nome do Hospital"
                                 name="name"
                                 autoFocus
+<<<<<<< HEAD
+                                value = {hospitalData.name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                            <TextField
+                             InputLabelProps={{ shrink: true }}
+=======
                                 defaultValue={hospitalData.name}
                                 onChange={(e) => setName(e.target.value)}
                             />
                             <TextField
                                 InputLabelProps={{ shrink: true }}
+>>>>>>> 58c509d2a409e052c801b2b226728806aba4d0d7
                                 variant="outlined"
                                 margin="normal"
                                 required

@@ -65,6 +65,7 @@ function Settings() {
     var [isLoading, setIsLoading] = useState(false);
     var [password, setPassword] = useState("");
     var [contraSenha, setContraSenha] = useState("");
+    const token = localStorage.getItem("token");
 
 
     async function handleRegister(e) {
@@ -80,7 +81,6 @@ function Settings() {
         }
 
         if (password === contraSenha && !!password) {
-            const token = localStorage.getItem("token");
             setIsLoading(true);
             try {
                 await api.put("hospitals", data, {
