@@ -130,8 +130,8 @@ function Settings() {
                                 name="senha"
                                 label="Senha"
                                 type="password"
-                                id="password"
-                                autoComplete="current-password"
+                                id="new-password"
+                                autoComplete="password"
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                             <TextField
@@ -143,6 +143,7 @@ function Settings() {
                                 label="Repita a senha"
                                 type="password"
                                 id="contrasenha"
+                                autoComplete="password"
                                 onChange={(e) => setContraSenha(e.target.value)}
                             />
                             {isLoading ? (

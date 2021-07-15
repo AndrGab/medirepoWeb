@@ -55,47 +55,13 @@ function Account() {
 
     var userDispatch = useUserDispatch();
     const history = useHistory();
-    const token = localStorage.getItem("token");
     const classes = useStyles();
     var [isLoading, setIsLoading] = useState(false);
     var [name, setName] = useState("");
     var [email, setEmail] = useState("");
     const token = localStorage.getItem("token");
-    var [hospitalData, setHospitalData] = useState({ name: "", email: "" });
-
-
-    useEffect(() => {
-
-        api
-            .get("hospitals", {
-                headers: {
-                    'Authorization': 'Bearer ' + token
-                }
-            })
-            .then(response => {
-
-                console.log(response.data.hospital);
-
-            })
-            .catch(error => {
-                toast.dark("Não foi possivel carregar as informações do Cadastro Atual");
-
-                if (error.response) {
-                    console.log(error.response.status);
-
-                } else if (error.request) {
-                    console.log(error.request);
-
-                } else {
-                    console.log('Error', error.message);
-                }
-                console.log(error.config);
-
-            });
-    }, [token]);
-
-
-
+  
+ 
     async function handleRegister(e) {
         e.preventDefault();
 
@@ -109,14 +75,13 @@ function Account() {
             const token = localStorage.getItem("token");
             setIsLoading(true);
             try {
-                const resp = await api.put("hospitals", data, {
+                await api.put("hospitals", data, {
                     headers: {
                         'Authorization': 'Bearer ' + token
                     }
                 });
-
-                setHospitalData(resp.data.hospital)
                 setIsLoading(false);
+                toast.success("Alteração gravada com sucesso");
 
             } catch (err) {
                 setIsLoading(false);
@@ -132,7 +97,6 @@ function Account() {
                 }
 
                 if (err.response.status === 401) {
-
                     toast.warning("Acesso Negado!");
                     signOut(userDispatch, history)
 
@@ -143,36 +107,39 @@ function Account() {
         }
     }
 
-    
-  useEffect(() => {
-    api
-      .get("hospitals", {
-        headers: {
-          'Authorization': 'Bearer ' + token
-        }
-      })
-      .then(response => {
-        setHospitalData(response.data.hospital);
-              })
-      .catch(error => {
-        toast.dark("Não foi possível carregar as informações cadastradas");
 
-        if (error.response) {
-          console.log(error.response.status);
+    useEffect(() => {
+   
+        api
+            .get("hospitals", {
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+            .then(response => {
+                setName(response.data.hospital.name);
+                setEmail(response.data.hospital.email);
 
-        } else if (error.request) {
-          console.log(error.request);
+            })
+            .catch(error => {
+                toast.dark("Não foi possível carregar as informações cadastradas");
 
-        } else {
-          console.log('Error', error.message);
-        }
-        console.log(error.config);
-      });
-  }, [token]);
+                if (error.response) {
+                    console.log(error.response.status);
+                    toast.warning("Acesso Negado!");
+                    signOut(userDispatch, history)
+     
+                } else if (error.request) {
+                    console.log(error.request);
 
-console.log(hospitalData);
+                } else {
+                    console.log('Error', error.message);
+                }
+                console.log(error.config);
+            });
+    }, [token, history, userDispatch]);
 
-    return (
+     return (
         <div>
             <Container component="main" maxWidth="md">
                 <div className={classes.paper}>
@@ -182,11 +149,7 @@ console.log(hospitalData);
                             <CardHeader titleTypographyProps={{ variant: 'h6' }} title="CADASTRO" subheader="Alteração do Cadastro" />
 
                             <TextField
-<<<<<<< HEAD
-                             InputLabelProps={{ shrink: true }}
-=======
                                 InputLabelProps={{ shrink: true }}
->>>>>>> 58c509d2a409e052c801b2b226728806aba4d0d7
                                 variant="outlined"
                                 margin="normal"
                                 required
@@ -195,19 +158,11 @@ console.log(hospitalData);
                                 label="Nome do Hospital"
                                 name="name"
                                 autoFocus
-<<<<<<< HEAD
-                                value = {hospitalData.name}
-                                onChange={(e) => setName(e.target.value)}
-                            />
-                            <TextField
-                             InputLabelProps={{ shrink: true }}
-=======
-                                defaultValue={hospitalData.name}
+                                value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
                             <TextField
                                 InputLabelProps={{ shrink: true }}
->>>>>>> 58c509d2a409e052c801b2b226728806aba4d0d7
                                 variant="outlined"
                                 margin="normal"
                                 required
@@ -216,7 +171,7 @@ console.log(hospitalData);
                                 type="email"
                                 label="E-mail"
                                 name="email"
-                                defaultValue={hospitalData.email}
+                                value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
 
