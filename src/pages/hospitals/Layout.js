@@ -197,7 +197,7 @@ export default function Layout() {
                         path="/hospitals/app/settings"
                         render={SettingsPage}
                     />
-                      <Route
+                    <Route
                         exact
                         path="/hospitals/app/account"
                         render={AccountPage}
