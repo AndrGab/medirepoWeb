@@ -60,7 +60,40 @@ function Account() {
     var [isLoading, setIsLoading] = useState(false);
     var [name, setName] = useState("");
     var [email, setEmail] = useState("");
-    var [hospitalData, setHospitalData] = useState("");
+    const token = localStorage.getItem("token");
+    var [hospitalData, setHospitalData] = useState({ name: "", email: "" });
+
+
+    useEffect(() => {
+
+        api
+            .get("hospitals", {
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+            .then(response => {
+
+                console.log(response.data.hospital);
+
+            })
+            .catch(error => {
+                toast.dark("Não foi possivel carregar as informações do Cadastro Atual");
+
+                if (error.response) {
+                    console.log(error.response.status);
+
+                } else if (error.request) {
+                    console.log(error.request);
+
+                } else {
+                    console.log('Error', error.message);
+                }
+                console.log(error.config);
+
+            });
+    }, [token]);
+
 
 
     async function handleRegister(e) {
@@ -76,11 +109,15 @@ function Account() {
             const token = localStorage.getItem("token");
             setIsLoading(true);
             try {
-                await api.put("hospitals", data, {
+                const resp = await api.put("hospitals", data, {
                     headers: {
                         'Authorization': 'Bearer ' + token
                     }
                 });
+
+                setHospitalData(resp.data.hospital)
+                setIsLoading(false);
+
             } catch (err) {
                 setIsLoading(false);
 
@@ -145,7 +182,11 @@ console.log(hospitalData);
                             <CardHeader titleTypographyProps={{ variant: 'h6' }} title="CADASTRO" subheader="Alteração do Cadastro" />
 
                             <TextField
+<<<<<<< HEAD
                              InputLabelProps={{ shrink: true }}
+=======
+                                InputLabelProps={{ shrink: true }}
+>>>>>>> 58c509d2a409e052c801b2b226728806aba4d0d7
                                 variant="outlined"
                                 margin="normal"
                                 required
@@ -154,11 +195,19 @@ console.log(hospitalData);
                                 label="Nome do Hospital"
                                 name="name"
                                 autoFocus
+<<<<<<< HEAD
                                 value = {hospitalData.name}
                                 onChange={(e) => setName(e.target.value)}
                             />
                             <TextField
                              InputLabelProps={{ shrink: true }}
+=======
+                                defaultValue={hospitalData.name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                            <TextField
+                                InputLabelProps={{ shrink: true }}
+>>>>>>> 58c509d2a409e052c801b2b226728806aba4d0d7
                                 variant="outlined"
                                 margin="normal"
                                 required
@@ -167,31 +216,32 @@ console.log(hospitalData);
                                 type="email"
                                 label="E-mail"
                                 name="email"
+                                defaultValue={hospitalData.email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
 
                             {isLoading ? (
                                 <LinearProgress className={classes.progress} />
                             ) : (
-                               <>
-                                 <Box
-                                 sx={{
-                                   display: 'flex',
-                                   justifyContent: 'flex-end',
-                                   p: 2
-                                 }}
-                               >
-                                 <Button
-                                     type="submit"
-                                     fullWidth
-                                     variant="contained"
-                                     color="primary"
-                                     className={classes.submit}
-                                 >
-                                   ATUALIZAR
-                                 </Button>
-                               </Box>
-                               </>
+                                <>
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            justifyContent: 'flex-end',
+                                            p: 2
+                                        }}
+                                    >
+                                        <Button
+                                            type="submit"
+                                            fullWidth
+                                            variant="contained"
+                                            color="primary"
+                                            className={classes.submit}
+                                        >
+                                            ATUALIZAR
+                                        </Button>
+                                    </Box>
+                                </>
 
                             )}
                         </Card>
