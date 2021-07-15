@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import { useHistory, Route, Switch, useLocation, Link as RouterLink, } from 'react-router-dom';
+import { useHistory, Route, Switch, useLocation, Link as RouterLink } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -18,10 +18,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MedirepoIcon from "../../assets/medirepo.png";
 import ExitToApp from '@material-ui/icons/ExitToApp';
-import { useUserDispatch, signOut } from '../../context/UserContext'
+import { useUserDispatch, signOut, useUserState} from '../../context/UserContext'
 import Icon from "@material-ui/core/Icon";
 import SettingsPage from './app/Settings';
 import AccountPage from './app/Account';
+import DashboardPage from './app/Dashboard';
 
 
 const drawerWidth = 240;
@@ -88,14 +89,25 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
 export default function Layout() {
     var userDispatch = useUserDispatch();
+    var { isAuthenticated } = useUserState();
     const { pathname } = useLocation();
-
+    const tokenID = localStorage.getItem("token_id");
     const history = useHistory();
     const classes = useStyles();
     const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
+
+    const [open, setOpen] = useState(false);
+    const [auth, setAuth] = useState(true);
+
+    useEffect (()=> {
+
+        setAuth(isAuthenticated);
+
+    }, [isAuthenticated]);
+
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -181,11 +193,13 @@ export default function Layout() {
                 })}
             >
                 <div className={classes.drawerHeader} />
+                { auth &&  !!tokenID ? (
+                
                 <Switch>
                     <Route
                         exact
                         path="/hospitals/app/dashboard"
-                        render={() => <h1>dashboard</h1>}
+                        render={DashboardPage}
                     />
                     <Route
                         exact
@@ -202,8 +216,11 @@ export default function Layout() {
                         path="/hospitals/app/account"
                         render={AccountPage}
                     />
-
+                    
                 </Switch>
+                ) : 
+                (   signOut(userDispatch, history))}
+
             </main>
         </div>
     );

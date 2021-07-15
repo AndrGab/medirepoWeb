@@ -71,7 +71,7 @@ export default function Routes() {
             <Redirect
               to={{
                 pathname:
-                  token_id === "1" ? "/patients/bulletin" : "/hospitals/app",
+                  token_id === "1" ? "/patients/bulletin" : "/hospitals/app/dashboard",
               }}
             />
           ) : (
