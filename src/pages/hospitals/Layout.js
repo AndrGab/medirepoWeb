@@ -23,6 +23,8 @@ import Icon from "@material-ui/core/Icon";
 import SettingsPage from './app/Settings';
 import AccountPage from './app/Account';
 import DashboardPage from './app/Dashboard';
+import BulletinPage from './app/Bulletin';
+
 
 
 const drawerWidth = 240;
@@ -204,7 +206,7 @@ export default function Layout() {
                     <Route
                         exact
                         path="/hospitals/app/bulletim"
-                        render={() => <h1>boletins</h1>}
+                        render={BulletinPage}
                     />
                     <Route
                         exact

@@ -16,6 +16,8 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        width: '100%',
+  
     },
     card: {
         paddingTop: '0px',
@@ -141,7 +143,7 @@ function Account() {
 
      return (
         <div>
-            <Container component="main" maxWidth="md">
+            <Container component="main">
                 <div className={classes.paper}>
 
                     <form className={classes.form} noValidate onSubmit={handleRegister}>
