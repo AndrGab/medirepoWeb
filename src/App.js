@@ -1,12 +1,13 @@
 import React from 'react';
 import Routes from './Routes';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core';
+import { ThemeProvider, createTheme } from '@material-ui/core';
+import { ptBR } from '@material-ui/core/locale';
 
 
 
 function App() {
 
-  const theme = createMuiTheme({
+  const theme = createTheme({
     
     spacing: 4,
     palette: {
@@ -17,7 +18,7 @@ function App() {
         main: '#262626',
       },
     },
-  });
+  }, ptBR);
 
   return (
     <ThemeProvider theme={theme}>
