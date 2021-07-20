@@ -7,7 +7,7 @@ import Container from "@material-ui/core/Container";
 import { useUserDispatch, signOut } from "../../../context/UserContext";
 import api from "../../../services/Api";
 import { toast } from "react-toastify";
-import MedirepoIcon from "../../../assets/medirepo.png";
+import LogoImg from "../../../assets/Medicine-cuate.svg";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -98,10 +98,10 @@ function Dashboard() {
                     <Card flexrow='true' className={classes.card}>
 
 
-                        <img src={MedirepoIcon} alt='MediRepo' />
+                        <img src={LogoImg} alt='MediRepo' />
                         <Typography align='center' variant='h6'> Bem-vindo, {name}</Typography>
 
-                        <Typography align='center'> Sua plataforma de gerenciamento de boletins médicos </Typography>
+                        <Typography align='center'>Sua plataforma de gerenciamento de boletins médicos </Typography>
                         
                         {isLoading && (
                             <LinearProgress className={classes.progress} />

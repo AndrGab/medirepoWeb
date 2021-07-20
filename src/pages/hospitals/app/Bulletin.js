@@ -24,6 +24,8 @@ import { toast } from 'react-toastify';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import PageviewOutlinedIcon from '@material-ui/icons/PageviewOutlined';
 import api from '../../../services/Api';
+import Modal from '@material-ui/core/Modal';
+import BulletinsView from '../../hospitals/app/components/BulletinView';
 
 
 function descendingComparator(a, b, orderBy) {
@@ -132,13 +134,43 @@ const useToolbarStyles = makeStyles((theme) => ({
   title: {
     flex: '1 1 100%',
   },
+  paper: {
+    position: 'absolute',
+    width: 600,
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
 }));
+
+function getModalStyle() {
+  return {
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+  };
+}
 
 const EnhancedTableToolbar = (props) => {
   const classes = useToolbarStyles();
-  const { numSelected } = props;
+  const { numSelected, selected } = props;
+  const [modalStyle] = React.useState(getModalStyle);
+  const [open, setOpen] = React.useState(false);
+
+
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
 
   return (
+    <>
     <Toolbar
       className={clsx(classes.root, {
         [classes.highlight]: numSelected > 0,
@@ -156,7 +188,7 @@ const EnhancedTableToolbar = (props) => {
 
       {numSelected === 1 && (
         <Tooltip title="Visualizar Boletim">
-          <IconButton aria-label="filter list">
+          <IconButton aria-label="filter list" onClick={handleOpen}>
             <PageviewOutlinedIcon />
           </IconButton>
         </Tooltip>)}
@@ -178,6 +210,17 @@ const EnhancedTableToolbar = (props) => {
 
       )}
     </Toolbar>
+    <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        <div style={modalStyle} className={classes.paper}>
+        <BulletinsView bulletinId={selected} />
+        </div>
+      </Modal>
+    </>
   );
 };
 
@@ -220,7 +263,6 @@ function Bulletin() {
   const token = localStorage.getItem("token");
   var [rows, setRows] = React.useState([]);
 
-
   React.useEffect(() => {
     api
       .get("/bulletins/list", {
@@ -246,9 +288,6 @@ function Bulletin() {
         console.log(error.config);
       });
   }, [token]);
-
-  console.log(rows);
-
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -305,7 +344,7 @@ function Bulletin() {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar numSelected={selected.length} selected={selected} />
         <TableContainer>
           <Table
             className={classes.table}
@@ -336,7 +375,7 @@ function Bulletin() {
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.name}
+                      key={row.id}
                       selected={isItemSelected}
                     >
                       <TableCell padding="checkbox">
@@ -364,7 +403,7 @@ function Bulletin() {
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={[5, 10, 25, 50, 100]}
           component="div"
           count={rows.length}
           rowsPerPage={rowsPerPage}
