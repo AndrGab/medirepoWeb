@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import {  withRouter } from 'react-router-dom';
+import { withRouter, useHistory } from 'react-router-dom';
 import { TextField, Card, CardHeader } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import api from '../../../../services/Api';
 import { toast } from 'react-toastify';
+import { useUserDispatch, signOut } from "../../../../context/UserContext";
 
 
 
@@ -37,8 +38,9 @@ const useStyles = makeStyles((theme) => ({
 
 function BulletinView(props) {
 
-const { bulletinId } = props;
-
+  const { bulletinId } = props;
+  var userDispatch = useUserDispatch();
+  const history = useHistory();
   const classes = useStyles();
   const token = localStorage.getItem("token");
   var [listBulletin, setlistBulletin] = useState([]);
@@ -59,6 +61,12 @@ const { bulletinId } = props;
 
         if (error.response) {
           console.log(error.response.status);
+          if (error.response.status === 401) {
+            toast.warning("Acesso Negado!");
+            signOut(userDispatch, history)
+
+          }
+
 
         } else if (error.request) {
           console.log(error.request);
@@ -68,12 +76,12 @@ const { bulletinId } = props;
         }
         console.log(error.config);
       });
-  }, [token, bulletinId]);
+  }, [token, bulletinId, userDispatch, history]);
 
 
   return (
     <div>
-  
+
       <Container component="main" maxWidth="md">
         <div className={classes.paper}>
           <Card className={classes.card}>
