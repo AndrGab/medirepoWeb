@@ -20,10 +20,9 @@ import Tooltip from '@material-ui/core/Tooltip';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/DeleteOutlineOutlined';
-import { toast } from 'react-toastify';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import PageviewOutlinedIcon from '@material-ui/icons/PageviewOutlined';
-import api from '../../../services/Api';
+import { useBulletinsList } from '../../hospitals/app/hooks/useBulletinsList';
 import Modal from '@material-ui/core/Modal';
 import BulletinsView from '../../hospitals/app/components/BulletinView';
 
@@ -260,34 +259,7 @@ function Bulletin() {
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const token = localStorage.getItem("token");
-  var [rows, setRows] = React.useState([]);
-
-  React.useEffect(() => {
-    api
-      .get("/bulletins/list", {
-        headers: {
-          'Authorization': 'Bearer ' + token
-        }
-      })
-      .then(response => {
-        setRows(response.data.bulletin);
-      })
-      .catch(error => {
-        toast.dark("Autenticação necessária. Use o Login/Senha recebido.");
-
-        if (error.response) {
-          console.log(error.response.status);
-
-        } else if (error.request) {
-          console.log(error.request);
-
-        } else {
-          console.log('Error', error.message);
-        }
-        console.log(error.config);
-      });
-  }, [token]);
+  const { rows } = useBulletinsList();
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
