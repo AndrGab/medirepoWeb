@@ -164,7 +164,7 @@ export default function Layout() {
                 <List>
                     {[
                         { url: "dashboard", text: "Dashboard", icon: "dashboard" },
-                        { url: "bulletim", text: "Boletins", icon: "assignment" },
+                        { url: "bulletin", text: "Boletins", icon: "assignment" },
                         { url: "account", text: "Conta", icon: "person" },
                         { url: "settings", text: "Configurações", icon: "settings" },
                     ].map(({ url, text, icon }, index) => (
@@ -205,7 +205,7 @@ export default function Layout() {
                     />
                     <Route
                         exact
-                        path="/hospitals/app/bulletim"
+                        path="/hospitals/app/bulletin"
                         render={BulletinPage}
                     />
                     <Route
