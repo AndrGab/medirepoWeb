@@ -26,14 +26,13 @@ export function useBulletinsList() {
         setRows(response.data.bulletin);
       })
       .catch(error => {
-        toast.dark("Autenticação necessária. Use o Login/Senha recebido.");
-
         if (error.response) {
-          console.log(error.response.status);
           if (error.response.status === 401) {
             toast.warning("Acesso Negado!");
             signOut(userDispatch, history)
-
+          }
+          if (error.response.status === 404) {
+            toast.warning("Não há boletins cadastrados!");
           }
 
         } else if (error.request) {

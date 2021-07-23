@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import clsx from 'clsx';
 import { lighten, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -25,6 +25,7 @@ import PageviewOutlinedIcon from '@material-ui/icons/PageviewOutlined';
 import { useBulletinsList } from '../../hospitals/app/hooks/useBulletinsList';
 import Modal from '@material-ui/core/Modal';
 import BulletinsView from '../../hospitals/app/components/BulletinView';
+import BulletinsDelete from '../../hospitals/app/components/BulletinDelete';
 
 
 function descendingComparator(a, b, orderBy) {
@@ -156,6 +157,7 @@ const EnhancedTableToolbar = (props) => {
   const { numSelected, selected } = props;
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
+  const history = useHistory();
 
 
 
@@ -167,58 +169,64 @@ const EnhancedTableToolbar = (props) => {
     setOpen(false);
   };
 
+  const handleOpenDelete = () => {
+    BulletinsDelete(selected);
+    history.push('/hospitals/app/bulletin');
+  };
+
 
   return (
     <>
-    <Toolbar
-      className={clsx(classes.root, {
-        [classes.highlight]: numSelected > 0,
-      })}
-    >
-      {numSelected > 0 ? (
-        <Typography className={classes.title} color="inherit" variant="subtitle1" component="div">
-          {numSelected} selecionado(s)
-        </Typography>
-      ) : (
-        <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-          Boletins
-        </Typography>
-      )}
+      <Toolbar
+        className={clsx(classes.root, {
+          [classes.highlight]: numSelected > 0,
+        })}
+      >
+        {numSelected > 0 ? (
+          <Typography className={classes.title} color="inherit" variant="subtitle1" component="div">
+            {numSelected} selecionado(s)
+          </Typography>
+        ) : (
+          <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
+            Boletins
+          </Typography>
+        )}
 
-      {numSelected === 1 && (
-        <Tooltip title="Visualizar Boletim">
-          <IconButton aria-label="filter list" onClick={handleOpen}>
-            <PageviewOutlinedIcon />
-          </IconButton>
-        </Tooltip>)}
+        {numSelected === 1 && (
+          <Tooltip title="Visualizar Boletim">
+            <IconButton aria-label="filter list" onClick={handleOpen}>
+              <PageviewOutlinedIcon />
+            </IconButton>
+          </Tooltip>)}
 
-      {numSelected > 0 ? (
+        {numSelected > 0 ? (
 
-        <Tooltip title="Apagar">
-          <IconButton aria-label="delete">
-            <DeleteIcon />
-          </IconButton>
-        </Tooltip>
+          <Tooltip title="Apagar">
+            <IconButton aria-label="delete" onClick={handleOpenDelete}>
+              <DeleteIcon />
+            </IconButton>
+          </Tooltip>
 
-      ) : (
-        <Tooltip title="Adicionar Boletim">
-          <IconButton aria-label="filter list">
-            <AddCircleOutlineIcon />
-          </IconButton>
-        </Tooltip>
+        ) : (
+          <Tooltip title="Adicionar Boletim">
+            <IconButton aria-label="filter list">
+              <AddCircleOutlineIcon />
+            </IconButton>
+          </Tooltip>
 
-      )}
-    </Toolbar>
-    <Modal
+        )}
+      </Toolbar>
+      <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
         <div style={modalStyle} className={classes.paper}>
-        <BulletinsView bulletinId={selected} />
+          <BulletinsView bulletinId={selected} />
         </div>
       </Modal>
+
     </>
   );
 };
@@ -259,7 +267,13 @@ function Bulletin() {
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  // const [rows, setRows] = React.useState([]);
   const { rows } = useBulletinsList();
+  // setRows(listBulletins);
+
+  // useEffect(() => {
+  //   setRows(listBulletins);
+  // }, [listBulletins]);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
