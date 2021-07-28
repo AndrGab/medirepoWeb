@@ -80,10 +80,9 @@ function SignIn() {
       })
       .catch((err) => {
         console.log(err);
-        toast.dark(
+        toast.error(
           "Não foi possível carregar a lista de Hospitais. Tente mais tarde."
         );
-        // setError(true);
       });
   }, []);
 
@@ -186,7 +185,7 @@ function SignIn() {
                   <OutlinedInput
                     shrink="true"
                     labelWidth={62}
-                    name="age"
+                    name="hospital"
                     id="simple-select-outline"
                   />
                 }

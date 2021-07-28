@@ -8,11 +8,10 @@ import MUIDataTable from "mui-datatables";
 import Modal from '@material-ui/core/Modal';
 import BulletinsView from "./components/BulletinView";
 import { makeStyles } from '@material-ui/core/styles';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+import CustomToolbarAdd from "./components/CustomToolbarAdd";
 
 const useModalStyles = makeStyles((theme) => ({
- 
+
   title: {
     flex: '1 1 100%',
   },
@@ -23,12 +22,6 @@ const useModalStyles = makeStyles((theme) => ({
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-  },
-  floatIcon: {
-    marginRight: theme.spacing(1),
-    position: 'fixed',
-    right: '10px',
-    bottom: '55px',
   },
 
 }));
@@ -45,7 +38,7 @@ function Bulletin() {
   const [open, setOpen] = React.useState(false);
   const [selected, setSelected] = React.useState('');
   const classes = useModalStyles();
- 
+
 
   const handleOpen = () => {
     setOpen(true);
@@ -154,7 +147,7 @@ function Bulletin() {
   const options = {
     filterType: "dropdown",
     serverSide: false,
-  onRowClick: (rowData, rowMeta) => {
+    onRowClick: (rowData, rowMeta) => {
       const rowsValue = rows[rowMeta.dataIndex];
       setSelected(rowsValue.id);
       console.log(selected);
@@ -201,6 +194,11 @@ function Bulletin() {
         deleteAria: "Apagar Linhas Selecionadas",
       },
     },
+    customToolbar: () => {
+      return (
+        <CustomToolbarAdd />
+      );
+    }
   };
 
   const columns = [
@@ -272,10 +270,7 @@ function Bulletin() {
         columns={columns}
         options={options}
       />
-       <Fab color="primary" aria-label="add" className={classes.floatIcon}>
-        <AddIcon />
-      </Fab>
-        <Modal
+      <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="simple-modal-title"
