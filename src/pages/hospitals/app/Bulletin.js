@@ -36,6 +36,7 @@ function Bulletin() {
   var bulletinList = [];
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
+  const [openAdd, setOpenAdd] = React.useState(false);
   const [selected, setSelected] = React.useState('');
   const classes = useModalStyles();
 
@@ -48,37 +49,13 @@ function Bulletin() {
     setOpen(false);
   };
 
-  React.useEffect(() => {
-    setIsLoading(true);
-    api
-      .get("/bulletins/list", {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      })
-      .then((response) => {
-        setRows(response.data.bulletin);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        if (error.response) {
-          if (error.response.status === 401) {
-            toast.error("Acesso Negado!");
-            signOut(userDispatch, history);
-          }
-          if (error.response.status === 404) {
-            toast.warning("Não há boletins cadastrados!");
-          }
-        } else if (error.request) {
-          console.log(error.request);
-        } else {
-          console.log("Error", error.message);
-        }
-        console.log(error.config);
-        setIsLoading(false);
-      })
-  }, [history, token, userDispatch]);
+  const handleOpenAdd = () => {
+    setOpenAdd(true);
+  };
 
+  const handleCloseAdd = () => {
+    setOpenAdd(false);
+  };
 
   async function BulletinsDelete(list) {
     const token = localStorage.getItem("token");
@@ -147,6 +124,9 @@ function Bulletin() {
   const options = {
     filterType: "dropdown",
     serverSide: false,
+    onTableInit: () => {
+      fetchData();
+    },
     onRowClick: (rowData, rowMeta) => {
       const rowsValue = rows[rowMeta.dataIndex];
       setSelected(rowsValue.id);
@@ -196,7 +176,7 @@ function Bulletin() {
     },
     customToolbar: () => {
       return (
-        <CustomToolbarAdd />
+        <CustomToolbarAdd data={handleOpen}/>
       );
     }
   };
@@ -278,6 +258,16 @@ function Bulletin() {
       >
         <div style={modalStyle} className={classes.paper}>
           <BulletinsView bulletinId={selected} />
+        </div>
+      </Modal>
+      <Modal
+        open={openAdd}
+        onClose={handleCloseAdd}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        <div style={modalStyle} className={classes.paper}>
+          <BulletinsAdd />
         </div>
       </Modal>
     </div>

@@ -2,9 +2,9 @@ import React from "react";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import AddIcon from "@material-ui/icons/Add";
-import Modal from '@material-ui/core/Modal';
+// import Modal from '@material-ui/core/Modal';
 import { withStyles } from "@material-ui/core/styles";
-import BulletinAdd from "./BulletinAdd";
+// import BulletinAdd from "./BulletinAdd";
 // import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -30,45 +30,45 @@ const defaultToolbarStyles = {
 // }));
 
 class CustomToolbarAdd extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            open: false,
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         open: false,
+    //     };
+    // }
 
-    handleOpen = () => {
-        this.setState({ open: true });
-    };
+    // handleOpen = () => {
+    //     this.setState({ open: true });
+    // };
 
-    handleClose = () => {
-        this.setState({ open: false });
-    };
+    // handleClose = () => {
+    //     this.setState({ open: false });
+    // };
 
 
     handleClick = () => {
         console.log("clicked on icon!");
     }
 
-    getModalStyle() {
-        return {
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-        };
-    }
+    // getModalStyle() {
+    //     return {
+    //         top: '50%',
+    //         left: '50%',
+    //         transform: 'translate(-50%, -50%)',
+    //     };
+    // }
 
     render() {
-        const { classes } = this.props;
-
+        const { classes, data } = this.props;
+console.log(this.props);
         return (
             <React.Fragment>
                 <Tooltip title={"Adicionar"}>
-                    <IconButton className={classes.iconButton} onClick={this.handleOpen}>
+                    <IconButton className={classes.iconButton} onClick={data}>
                         <AddIcon className={classes.deleteIcon} />
                     </IconButton>
                 </Tooltip>
-                <Modal
+                {/* <Modal
                     open={() => this.handleOpen}
                     onClose={this.handleClose}
                     aria-labelledby="simple-modal-title"
@@ -77,7 +77,7 @@ class CustomToolbarAdd extends React.Component {
                     <div className={classes.paper}>
                         <BulletinAdd />
                     </div>
-                </Modal>
+                </Modal> */}
             </React.Fragment>
         );
     }
