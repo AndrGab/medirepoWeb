@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { withRouter, useHistory } from 'react-router-dom';
-import { TextField, Card, CardHeader } from '@material-ui/core';
+import { TextField, Card, CardHeader, Box } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -11,6 +11,8 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
+import Button from "@material-ui/core/Button";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 
 
@@ -22,11 +24,17 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
     },
+    formControl: {
+        width: "100%",
+        marginTop: theme.spacing(0),
+        minWidth: 120,
+    },
+
     card: {
-        paddingTop: '10px',
+        paddingTop: '0px',
         paddingLeft: '20px',
         paddingRight: '20px',
-        paddingBottom: '20px',
+        paddingBottom: '10px',
     },
     img: {
         width: 150,
@@ -39,16 +47,21 @@ const useStyles = makeStyles((theme) => ({
     title: {
         flexGrow: 1,
     },
+    submit: {
+        width: '120px',
+        margin: theme.spacing(1, 0, 0),
+    },
 }));
 
 function BulletinAdd() {
 
+    var [isLoading, setIsLoading] = useState(false);
     var userDispatch = useUserDispatch();
     const history = useHistory();
     const classes = useStyles();
     const token = localStorage.getItem("token");
     var [nome, setNome] = useState("");
-    var [dt_nasc, setDtnasc] = useState("");
+    var [dt_nascimento, setDtnasc] = useState("");
     var [geral, setGeral] = useState("");
     var [pressao, setPressao] = useState("");
     var [consciencia, setConsciencia] = useState("");
@@ -57,35 +70,37 @@ function BulletinAdd() {
     var [diurese, setDiurese] = useState("");
     var [obs, setObs] = useState("");
     var [medico, setMedico] = useState("");
-    var [dtassinatura, setDtassinatura] = useState("");
-    var [atendime, setAtendime] = useState("");
-    var [codpac, setCodpac] = useState("");
+    var [dt_assinatura, setDtassinatura] = useState("");
+    var [atendimento, setAtendime] = useState(0);
+    var [cd_paciente, setCodpac] = useState(0);
 
     async function handleRegisterBulletin(e) {
         e.preventDefault();
 
         const data = {
             nome,
-            dt_nasc,
+            dt_nascimento,
             geral, pressao, consciencia, febre, respiracao,
-            diurese, obs, medico, dtassinatura, atendime, codpac
+            diurese, obs, medico, dt_assinatura, atendimento, cd_paciente
         };
 
 
-        if (!!nome && !!dt_nasc && !!atendime && !!codpac) {
+        if (!!atendimento && !!cd_paciente) {
+            setIsLoading(true);
             try {
                 const response = await api.post("bulletins", data, {
                     headers: { 'Authorization': 'Bearer ' + token },
                 });
                 if (response.status === 201) {
-                    toast.success(response.data.message);
+                    setIsLoading(false);
+                    toast.success('Boletim Criado com Sucesso!');
                 }
             } catch (err) {
-
+                setIsLoading(false);
                 if (!!err.response.data.message.atendimento) {
                     toast.warning("O Código do Atendimento deve ser numérico");
                 }
-                if (!!err.response.data.message.cod_paciente) {
+                if (!!err.response.data.message.cd_paciente) {
                     toast.warning("O Código do paciente deve ser numérico");
                 }
                 if (!!err.response.data.message.nome) {
@@ -93,15 +108,22 @@ function BulletinAdd() {
                 }
                 if (!!err.response.data.message.obs) {
                     toast.warning("A observação deve ter pelo menos 6 caracteres");
+                } else {
+                    toast.error("Ocorreu um erro ao criar o boletim: " +
+                        JSON.stringify(err.response.data.message));
+
                 }
+
                 if (err.response.status === 401) {
                     toast.warning("Acesso Negado!");
                     signOut(userDispatch, history)
-        
-                  }
+
+                }
 
                 console.log(err);
             }
+        } else {
+            toast.error("Preencha Código de Paciente e Atendimento");
         }
     }
 
@@ -113,11 +135,12 @@ function BulletinAdd() {
             <Container component="main" maxWidth="md">
                 <div className={classes.paper}>
                     <Card className={classes.card}>
-                        <CardHeader titleTypographyProps={{ variant: 'h6' }} title="BOLETIM MÉDICO" subheader="Boletim Diário do Paciente" />
+                        <CardHeader titleTypographyProps={{ variant: 'h6' }} title="BOLETIM MÉDICO" />
                         <form className={classes.form} noValidate onSubmit={handleRegisterBulletin}>
                             <Grid container spacing={3}>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12} sm={4}>
                                     <TextField
+                                        InputLabelProps={{ shrink: true }}
                                         variant="outlined"
                                         margin="normal"
                                         required
@@ -129,8 +152,9 @@ function BulletinAdd() {
                                         onChange={(e) => setCodpac(e.target.value)}
                                     />
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12} sm={4}>
                                     <TextField
+                                        InputLabelProps={{ shrink: true }}
                                         variant="outlined"
                                         margin="normal"
                                         required
@@ -138,24 +162,10 @@ function BulletinAdd() {
                                         id="atendime"
                                         label="Código do Atendimento"
                                         name="atendime"
-                                        autoFocus
                                         onChange={(e) => setAtendime(e.target.value)}
                                     />
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
-                                    <TextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        required
-                                        fullWidth
-                                        id="nome"
-                                        label="Nome do Paciente"
-                                        name="nome"
-                                        autoFocus
-                                        onChange={(e) => setNome(e.target.value)}
-                                    />
-                                </Grid>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12} sm={4}>
                                     <TextField
                                         InputLabelProps={{ shrink: true }}
                                         variant="outlined"
@@ -170,7 +180,21 @@ function BulletinAdd() {
                                         onChange={(e) => setDtnasc(e.target.value)}
                                     />
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        InputLabelProps={{ shrink: true }}
+                                        variant="outlined"
+                                        margin="normal"
+                                        required
+                                        fullWidth
+                                        id="nome"
+                                        label="Nome do Paciente"
+                                        name="nome"
+                                        onChange={(e) => setNome(e.target.value)}
+                                    />
+                                </Grid>
+
+                                <Grid item xs={12} sm={4}>
                                     <FormControl className={classes.formControl} variant="outlined">
                                         <InputLabel
                                             htmlFor="Estado Geral"
@@ -205,7 +229,7 @@ function BulletinAdd() {
                                         </Select>
                                     </FormControl>
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12} sm={4}>
                                     <FormControl className={classes.formControl} variant="outlined">
                                         <InputLabel
                                             htmlFor="Pressão"
@@ -239,7 +263,7 @@ function BulletinAdd() {
                                         </Select>
                                     </FormControl>
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12} sm={4}>
                                     <FormControl className={classes.formControl} variant="outlined">
                                         <InputLabel
                                             htmlFor="Consciência"
@@ -272,7 +296,7 @@ function BulletinAdd() {
                                         </Select>
                                     </FormControl>
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12} sm={4}>
                                     <FormControl className={classes.formControl} variant="outlined">
                                         <InputLabel
                                             htmlFor="febre"
@@ -305,7 +329,7 @@ function BulletinAdd() {
                                         </Select>
                                     </FormControl>
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12} sm={4}>
                                     <FormControl className={classes.formControl} variant="outlined">
                                         <InputLabel
                                             htmlFor="respiracao"
@@ -339,7 +363,7 @@ function BulletinAdd() {
                                         </Select>
                                     </FormControl>
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12} sm={4}>
                                     <FormControl className={classes.formControl} variant="outlined">
                                         <InputLabel
                                             htmlFor="diurese"
@@ -382,7 +406,6 @@ function BulletinAdd() {
                                         id="obs"
                                         label="Observações"
                                         name="obs"
-                                        autoFocus
                                         onChange={(e) => setObs(e.target.value)}
                                     />
                                 </Grid>
@@ -395,7 +418,6 @@ function BulletinAdd() {
                                         id="medico"
                                         label="Nome do Médico"
                                         name="medico"
-                                        autoFocus
                                         onChange={(e) => setMedico(e.target.value)}
                                     />
                                 </Grid>
@@ -415,6 +437,28 @@ function BulletinAdd() {
                                     />
                                 </Grid>
                             </Grid>
+                            {isLoading ? (
+                                <LinearProgress className={classes.progress} />
+                            ) : (
+                                <Box
+                                    sx={{
+                                        display: 'flex',
+                                        justifyContent: 'flex-end',
+                                        p: 2
+                                    }}
+                                >
+                                    <Button
+                                        type="submit"
+                                        fullWidth
+                                        variant="contained"
+                                        color="primary"
+                                        className={classes.submit}
+                                    >
+                                        CADASTRAR
+                                    </Button>
+                                </Box>
+
+                            )}
                         </form>
 
                     </Card>

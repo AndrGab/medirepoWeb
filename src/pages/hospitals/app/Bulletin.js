@@ -7,6 +7,7 @@ import { useUserDispatch, signOut } from "../../../context/UserContext";
 import MUIDataTable from "mui-datatables";
 import Modal from '@material-ui/core/Modal';
 import BulletinsView from "./components/BulletinView";
+import BulletinsAdd from "./components/BulletinAdd";
 import { makeStyles } from '@material-ui/core/styles';
 import CustomToolbarAdd from "./components/CustomToolbarAdd";
 
@@ -17,7 +18,7 @@ const useModalStyles = makeStyles((theme) => ({
   },
   paper: {
     position: 'absolute',
-    width: 600,
+    width: '80%',
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
@@ -55,6 +56,7 @@ function Bulletin() {
 
   const handleCloseAdd = () => {
     setOpenAdd(false);
+    fetchData();
   };
 
   async function BulletinsDelete(list) {
@@ -176,7 +178,7 @@ function Bulletin() {
     },
     customToolbar: () => {
       return (
-        <CustomToolbarAdd data={handleOpen}/>
+        <CustomToolbarAdd data={handleOpenAdd} />
       );
     }
   };
@@ -229,6 +231,7 @@ function Bulletin() {
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
+      position: 'absolute'
     };
   }
 
@@ -255,6 +258,8 @@ function Bulletin() {
         onClose={handleClose}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
+        style={{ overflow: 'scroll' }}
+
       >
         <div style={modalStyle} className={classes.paper}>
           <BulletinsView bulletinId={selected} />
@@ -265,6 +270,7 @@ function Bulletin() {
         onClose={handleCloseAdd}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
+        style={{ overflow: 'scroll' }}
       >
         <div style={modalStyle} className={classes.paper}>
           <BulletinsAdd />

@@ -74,8 +74,6 @@ function Dashboard() {
             })
             .catch(error => {
                 setIsLoading(false);
-                toast.dark("Não foi possível carregar as informações cadastradas");
-
                 if (error.response) {
                     console.log(error.response.status);
                     toast.warning("Acesso Negado!");

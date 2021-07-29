@@ -34,6 +34,11 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  formControl: {
+    width: "100%",
+    marginTop: theme.spacing(1),
+    minWidth: 120,
+  },
 }));
 
 function BulletinView(props) {
@@ -57,8 +62,6 @@ function BulletinView(props) {
         setlistBulletin([response.data.bulletin]);
       })
       .catch(error => {
-        toast.dark("Autenticação necessária. Use o Login/Senha recebido.");
-
         if (error.response) {
           console.log(error.response.status);
           if (error.response.status === 401) {

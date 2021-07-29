@@ -8,7 +8,7 @@ import { ptBR } from '@material-ui/core/locale';
 function App() {
 
   const theme = createTheme({
-    
+
     spacing: 4,
     palette: {
       primary: {

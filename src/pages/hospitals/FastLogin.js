@@ -85,7 +85,6 @@ function FastLogin() {
                     console.log(err);
                     toast.dark("Algo de Errado com seu ID ou Token");
                     history.push('/');
-                    // setError(true);
                 })
         }
     }

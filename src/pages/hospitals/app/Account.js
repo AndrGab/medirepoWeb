@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         alignItems: "center",
         width: '100%',
-  
+
     },
     card: {
         paddingTop: '0px',
@@ -62,8 +62,8 @@ function Account() {
     var [name, setName] = useState("");
     var [email, setEmail] = useState("");
     const token = localStorage.getItem("token");
-  
- 
+
+
     async function handleRegister(e) {
         e.preventDefault();
 
@@ -111,7 +111,7 @@ function Account() {
 
 
     useEffect(() => {
-   
+
         api
             .get("hospitals", {
                 headers: {
@@ -124,13 +124,12 @@ function Account() {
 
             })
             .catch(error => {
-                toast.dark("Não foi possível carregar as informações cadastradas");
 
                 if (error.response) {
                     console.log(error.response.status);
                     toast.warning("Acesso Negado!");
                     signOut(userDispatch, history)
-     
+
                 } else if (error.request) {
                     console.log(error.request);
 
@@ -141,7 +140,7 @@ function Account() {
             });
     }, [token, history, userDispatch]);
 
-     return (
+    return (
         <div>
             <Container component="main">
                 <div className={classes.paper}>

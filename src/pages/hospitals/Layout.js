@@ -18,7 +18,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MedirepoIcon from "../../assets/medirepo.png";
 import ExitToApp from '@material-ui/icons/ExitToApp';
-import { useUserDispatch, signOut, useUserState} from '../../context/UserContext'
+import { useUserDispatch, signOut, useUserState } from '../../context/UserContext'
 import Icon from "@material-ui/core/Icon";
 import SettingsPage from './app/Settings';
 import AccountPage from './app/Account';
@@ -32,6 +32,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+
     },
     appBar: {
         transition: theme.transitions.create(['margin', 'width'], {
@@ -104,7 +105,7 @@ export default function Layout() {
     const [open, setOpen] = useState(false);
     const [auth, setAuth] = useState(true);
 
-    useEffect (()=> {
+    useEffect(() => {
 
         setAuth(isAuthenticated);
 
@@ -195,33 +196,33 @@ export default function Layout() {
                 })}
             >
                 <div className={classes.drawerHeader} />
-                { auth &&  !!tokenID ? (
-                
-                <Switch>
-                    <Route
-                        exact
-                        path="/hospitals/app/dashboard"
-                        render={DashboardPage}
-                    />
-                    <Route
-                        exact
-                        path="/hospitals/app/bulletin"
-                        render={BulletinPage}
-                    />
-                    <Route
-                        exact
-                        path="/hospitals/app/settings"
-                        render={SettingsPage}
-                    />
-                    <Route
-                        exact
-                        path="/hospitals/app/account"
-                        render={AccountPage}
-                    />
-                    
-                </Switch>
-                ) : 
-                (   signOut(userDispatch, history))}
+                {auth && !!tokenID ? (
+
+                    <Switch>
+                        <Route
+                            exact
+                            path="/hospitals/app/dashboard"
+                            render={DashboardPage}
+                        />
+                        <Route
+                            exact
+                            path="/hospitals/app/bulletin"
+                            render={BulletinPage}
+                        />
+                        <Route
+                            exact
+                            path="/hospitals/app/settings"
+                            render={SettingsPage}
+                        />
+                        <Route
+                            exact
+                            path="/hospitals/app/account"
+                            render={AccountPage}
+                        />
+
+                    </Switch>
+                ) :
+                    (signOut(userDispatch, history))}
 
             </main>
         </div>
