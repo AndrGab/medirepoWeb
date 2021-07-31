@@ -44,6 +44,15 @@ destes pacientes.
 Most hospitals are restricting visitors for COVID-19 Patients.
 This is a personal project to help hospitals sharing Daily Medical Reports with those patients family.
 
+## LIVE DEMO
+
+Acesse a aplicação de demostração:
+
+<a href="https://medirepo.vercel.app/" target="_blank" rel="noopener noreferrer">
+    https://medirepo.vercel.app/
+  </a>
+  
+
 ## Features
 
 Com Medirepo, os hospitais podem se cadastrar e adicionar na plataforma relatórios diários sobre os pacientes.
