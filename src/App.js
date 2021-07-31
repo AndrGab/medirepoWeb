@@ -1,27 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Routes from './Routes';
 import { ThemeProvider, createTheme } from '@material-ui/core';
+import { CssBaseline } from '@material-ui/core';
 import { ptBR } from '@material-ui/core/locale';
+import { ThemeContext } from "../src/context/ThemeContext";
+
 
 
 
 function App() {
 
-  const theme = createTheme({
+  const themeDark = useContext(ThemeContext);
+  const darkMode = themeDark.state.darkMode;
 
+  const theme = createTheme({
     spacing: 4,
     palette: {
-      primary: {
-        main: '#262626',
-      },
-      secondary: {
-        main: '#262626',
-      },
+      type: darkMode ? 'dark' : 'light',
     },
   }, ptBR);
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Routes />
     </ThemeProvider>
 
