@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import Grid from '@material-ui/core/Grid';
-import MedirepoIcon from '../../assets/medirepo.png';
+import MedirepoIcon from '../../assets/medirepo.svg';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
     },
     img: {
-        width: 150,
+        width: 100,
         marginRight: theme.spacing(2),
 
     },

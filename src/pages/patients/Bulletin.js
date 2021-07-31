@@ -3,7 +3,7 @@ import { useHistory, withRouter } from 'react-router-dom';
 import { TextField, Card, CardHeader } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import MedirepoIcon from '../../assets/medirepo.png';
+import MedirepoIcon from '../../assets/medirepo.svg';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: '20px',
   },
   img: {
-    width: 150,
+    width: 100,
     marginRight: theme.spacing(4),
 
   },

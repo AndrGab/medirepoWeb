@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: '10px',
     },
     img: {
-        width: 150,
+        width: 100,
         marginRight: theme.spacing(4),
 
     },
@@ -214,7 +214,7 @@ function BulletinAdd() {
                                             input={
                                                 <OutlinedInput
                                                     shrink="true"
-                                                    labelWidth={62}
+                                                    labelWidth={92}
                                                     name="geral"
                                                     id="simple-select-outline"
                                                 />
@@ -225,7 +225,7 @@ function BulletinAdd() {
                                             <option value='Normal'> Normal  </option>
                                             <option value='Grave'> Grave  </option>
                                             <option value='Estável'> Estável  </option>
-                                            <option value='Bom'> Alto  </option>
+                                            <option value='Bom'> Bom  </option>
                                         </Select>
                                     </FormControl>
                                 </Grid>
@@ -249,7 +249,7 @@ function BulletinAdd() {
                                             input={
                                                 <OutlinedInput
                                                     shrink="true"
-                                                    labelWidth={62}
+                                                    labelWidth={120}
                                                     name="pressao"
                                                     id="simple-select-outline"
                                                 />
@@ -283,7 +283,7 @@ function BulletinAdd() {
                                             input={
                                                 <OutlinedInput
                                                     shrink="true"
-                                                    labelWidth={62}
+                                                    labelWidth={150}
                                                     name="consciencia"
                                                     id="simple-select-outline"
                                                 />
@@ -291,8 +291,8 @@ function BulletinAdd() {
                                             onChange={(e) => setConsciencia(e.target.value)}
                                         >
                                             <option aria-label="None" value="" />
-                                            <option value='Consciente'> Normal  </option>
-                                            <option value='Sedado'> Grave  </option>
+                                            <option value='Consciente'> Consciente  </option>
+                                            <option value='Sedado'> Sedado  </option>
                                         </Select>
                                     </FormControl>
                                 </Grid>
@@ -316,7 +316,7 @@ function BulletinAdd() {
                                             input={
                                                 <OutlinedInput
                                                     shrink="true"
-                                                    labelWidth={62}
+                                                    labelWidth={45}
                                                     name="febre"
                                                     id="simple-select-outline"
                                                 />
@@ -324,8 +324,8 @@ function BulletinAdd() {
                                             onChange={(e) => setFebre(e.target.value)}
                                         >
                                             <option aria-label="None" value="" />
-                                            <option value='Ausente'> Normal  </option>
-                                            <option value='Presente'> Grave  </option>
+                                            <option value='Ausente'> Ausente  </option>
+                                            <option value='Presente'> Presente  </option>
                                         </Select>
                                     </FormControl>
                                 </Grid>
@@ -349,7 +349,7 @@ function BulletinAdd() {
                                             input={
                                                 <OutlinedInput
                                                     shrink="true"
-                                                    labelWidth={62}
+                                                    labelWidth={85}
                                                     name="respiracao"
                                                     id="simple-select-outline"
                                                 />
@@ -358,7 +358,7 @@ function BulletinAdd() {
                                         >
                                             <option aria-label="None" value="" />
                                             <option value='Normal'> Normal  </option>
-                                            <option value='Por Aparelhos'> Grave  </option>
+                                            <option value='Por Aparelhos'> Por Aparelhos  </option>
 
                                         </Select>
                                     </FormControl>
@@ -391,8 +391,8 @@ function BulletinAdd() {
                                             onChange={(e) => setDiurese(e.target.value)}
                                         >
                                             <option aria-label="None" value="" />
-                                            <option value='Aumentada'> Normal  </option>
-                                            <option value='Diminuida'> Grave  </option>
+                                            <option value='Aumentada'>Aumentada</option>
+                                            <option value='Diminuida'> Diminuida  </option>
 
                                         </Select>
                                     </FormControl>

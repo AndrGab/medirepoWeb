@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: '20px',
   },
   img: {
-    width: 150,
+    width: 100,
     marginRight: theme.spacing(4),
 
   },

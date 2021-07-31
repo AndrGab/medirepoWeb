@@ -6,7 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
-import MedirepoIcon from "../../assets/medirepo.png";
+import MedirepoIcon from "../../assets/medirepo.svg";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: "center",
     },
     img: {
-        width: 150,
+        width: 100,
         marginRight: theme.spacing(2),
     },
     form: {
@@ -117,14 +117,14 @@ function RegisterHospital() {
                     <Typography color="primary" component="h6" variant="h6">
                         REGISTRO DE NOVO HOSPITAL
                     </Typography>
-                 
-                  <Typography
-                    color="textSecondary"
-                    gutterBottom
-                    variant="body2"
-                  >
-                    Use seu e-mail corporativo para criar uma nova conta
-                  </Typography>
+
+                    <Typography
+                        color="textSecondary"
+                        gutterBottom
+                        variant="body2"
+                    >
+                        Use seu e-mail corporativo para criar uma nova conta
+                    </Typography>
                     <form className={classes.form} noValidate onSubmit={handleRegister}>
                         <TextField
                             variant="outlined"
@@ -183,7 +183,7 @@ function RegisterHospital() {
                             >
                                 REGISTRAR
                             </Button>
-                            
+
                         )}
                         <Grid alignItems='center' container>
                             <Grid item>

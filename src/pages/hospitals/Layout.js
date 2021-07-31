@@ -7,7 +7,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -16,7 +15,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MedirepoIcon from "../../assets/medirepo.png";
+import MedirepoIcon from "../../assets/medirepo.svg";
 import ExitToApp from '@material-ui/icons/ExitToApp';
 import { useUserDispatch, signOut, useUserState } from '../../context/UserContext'
 import Icon from "@material-ui/core/Icon";
@@ -86,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: 0,
     },
     img: {
-        width: 150,
+        width: 100,
         marginRight: theme.spacing(2),
 
     },
@@ -141,9 +140,6 @@ export default function Layout() {
                         <MenuIcon />
                     </IconButton>
                     <img src={MedirepoIcon} className={classes.img} alt="MediRepo" />
-                    <Typography variant="h6" noWrap>
-                        Gerenciamento de Boletins Médicos
-                    </Typography>
                 </Toolbar>
             </AppBar>
             <Drawer
