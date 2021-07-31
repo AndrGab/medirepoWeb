@@ -9,7 +9,6 @@
 <p align="center">Essa aplicação front-end faz parte de um projeto pessoal chamado <b>MediREpo</b></p>
 
 
-
 <h3 align="center">
   React Application for Daily Medical Reports
 </h3>
@@ -45,6 +44,14 @@ destes pacientes.
 Most hospitals are restricting visitors for COVID-19 Patients.
 This is a personal project to help hospitals sharing Daily Medical Reports with those patients family.
 
+## Features
+
+Com Medirepo, os hospitais podem se cadastrar e adicionar na plataforma relatórios diários sobre os pacientes.
+No momento da internação é só fornecer o Código do Paciente e a Senha para que os familiares tenham acesso a essas informações.
+- Sempre o último boletim ficará disponível.
+- Através da plataforma é possível incluir novos boletins, excluir, tirar relatórios...
+- Extras: Modo Escuro para melhor visualização da plataforma.
+
 ## Technologies
 
 Technologies used to write this Application:
@@ -56,11 +63,35 @@ Technologies used to write this Application:
 
 ## Screenshots
 
+Login para Pacientes:
+
+![image](https://user-images.githubusercontent.com/57791712/127754661-4279dcd2-8252-45ac-adea-3684f0e28972.png)
+
+Visualização de Boletins:
+
+![image](https://user-images.githubusercontent.com/57791712/127754690-51a1033e-eb33-4c91-8ea2-08270263678a.png)
+
+
+Aplicação em funcionamento:
+
+![medirepo](https://user-images.githubusercontent.com/57791712/127754803-54cae4a3-7161-4fe6-989c-c4d6f962ec25.gif)
+
+
+Registro de Novos Hospitais:
+
+![image](https://user-images.githubusercontent.com/57791712/127754708-11d59452-8848-4e54-92cc-b3c18ff9e7d5.png)
+
+Dark Mode:
+
+![image](https://user-images.githubusercontent.com/57791712/127754886-bd8a0c29-ba86-4988-a139-fd13ba1ac602.png)
+
+
 ## Lessons Learned
 
-- JWT Authetication;
-- PostgreSQL query;
-- Changeset validation;
+- Material-UI;
+- Axios;
+- React-Context;
+- React-State;
 
 ## Feedback
 
