@@ -5,15 +5,15 @@
 <h3 align="center">
   Aplicação em React para distribuição de Boletins Médicos
 </h3>
+<p align="center">MediRepo faz a comunicação ser mais fácil entre o Hospital e os familiares dos pacientes</p>
+<p align="center">Essa aplicação front-end faz parte de um projeto pessoal chamado <b>MediREpo</b></p>
+
+
+
 <h3 align="center">
   React Application for Daily Medical Reports
 </h3>
-
-<p align="center">MediRepo faz a comunicação ser mais fácil entre o Hospital e os familiares dos pacientes</p>
-
 <p align="center">Making communication easier for Hospitals and Pacients Family</p>
-
-<p align="center">Essa aplicação front-end faz parte de um projeto pessoal chamado <b>MediREpo</b></p>
 <p align="center">This front-end application is part of my personal Project called <b>MediRepo</b></p>
 
 <p align="center">
@@ -65,6 +65,10 @@ Technologies used to write this Application:
 ## Feedback
 
 If you have any feedback, please reach out to me at andrgab@gmail.com
+
+## Credits
+
+<a href="https://storyset.com/medical">Medical illustrations by Storyset</a>
 
 ## Author
 
