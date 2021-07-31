@@ -15,7 +15,7 @@ function userReducer(state, action) {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
   }
-}
+} 
 
 function UserProvider({ children }) {
   var [state, dispatch] = React.useReducer(userReducer, {

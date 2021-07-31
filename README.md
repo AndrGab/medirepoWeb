@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+<h1 align="center">
+  <img alt="Logo" src="https://user-images.githubusercontent.com/57791712/119592166-52709080-bdae-11eb-8bfe-f9b0a68f4950.png">
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center">
+  Aplicação em React para distribuição de Boletins Médicos
+</h3>
+<h3 align="center">
+  React Application for Daily Medical Reports
+</h3>
 
-## Available Scripts
+<p align="center">MediRepo faz a comunicação ser mais fácil entre o Hospital e os familiares dos pacientes</p>
 
-In the project directory, you can run:
+<p align="center">Making communication easier for Hospitals and Pacients Family</p>
 
-### `yarn start`
+<p align="center">Essa aplicação front-end faz parte de um projeto pessoal chamado <b>MediREpo</b></p>
+<p align="center">This front-end application is part of my personal Project called <b>MediRepo</b></p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Andrgab/medirepoWeb?color=6485e3&logo=React">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  <a href="https://www.linkedin.com/in/andrgab/" target="_blank" rel="noopener noreferrer">
+    <img alt="Made by" src="https://img.shields.io/badge/made%20by-Andre%20Gabriel-ff69b4?logo=linkedin">
+  </a>
+  
+  <a href="https://img.shields.io/github/deployments/andrgab/medirepoWeb/Production?label=Vercel&logo=Vercel" target="_blank" rel="noopener noreferrer">
+    <img alt="vercel" src="https://img.shields.io/github/deployments/andrgab/medirepoWeb/Production?label=Vercel&logo=Vercel">
+  </a>
+  
+  <img alt="GitHub" src="https://img.shields.io/github/license/Andrgab/medirepoWeb?color=ff69b4">
+</p>
 
-### `yarn test`
+# Medirepo - Daily Medical Report API
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Veja a documentação da API desta aplicação no postman
 
-### `yarn build`
+[![postman](https://img.shields.io/badge/documentation%20in-postman-orange?logo=postman)](https://documenter.getpostman.com/view/15643514/TzXwFJdM)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## MediRepo
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A maioria dos hospitais hoje tem restrições de visitas para pacientes internados com COVID-19,
+Este é um projeto pessoal para facilitar o compartilhamento dos boletins médicos com os familiares
+destes pacientes.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Most hospitals are restricting visitors for COVID-19 Patients.
+This is a personal project to help hospitals sharing Daily Medical Reports with those patients family.
 
-### `yarn eject`
+## Technologies
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Technologies used to write this Application:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- React;
+- Material-UI;
+- React-toastify;
+- Vercel;
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Screenshots
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Lessons Learned
 
-## Learn More
+- JWT Authetication;
+- PostgreSQL query;
+- Changeset validation;
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Feedback
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you have any feedback, please reach out to me at andrgab@gmail.com
 
-### Code Splitting
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Made with :purple_heart: by [@andrgab](https://www.github.com/andrgab)

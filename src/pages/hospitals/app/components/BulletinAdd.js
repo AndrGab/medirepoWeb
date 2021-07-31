@@ -36,11 +36,6 @@ const useStyles = makeStyles((theme) => ({
         paddingRight: '20px',
         paddingBottom: '10px',
     },
-    img: {
-        width: 100,
-        marginRight: theme.spacing(4),
-
-    },
     root: {
         flexGrow: 1,
     },

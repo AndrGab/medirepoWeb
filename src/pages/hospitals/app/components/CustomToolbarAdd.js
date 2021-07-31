@@ -13,7 +13,6 @@ class CustomToolbarAdd extends React.Component {
 
     render() {
         const { classes, data } = this.props;
-        console.log(this.props);
         return (
             <React.Fragment>
                 <Tooltip title={"Adicionar"}>

@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { TextField, Card, CardHeader } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import MedirepoIcon from '../../assets/medirepo.svg';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import { useUserDispatch, signOut } from '../../context/UserContext'
 import api from '../../services/Api';
 import { toast } from 'react-toastify';
-
+import AppBarMediRepo from '../components/AppBarMediRepo';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -42,9 +36,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function BulletinView() {
-
-  var userDispatch = useUserDispatch();
-  const history = useHistory();
 
   const classes = useStyles();
   const token = localStorage.getItem("token");
@@ -81,15 +72,7 @@ function BulletinView() {
   return (
     <div>
       <div className={classes.root}>
-        <AppBar color='inherit' position="static">
-          <Toolbar>
-            <img src={MedirepoIcon} className={classes.img} alt="MediRepo" />
-            <Typography variant="h6" className={classes.title}>
-              Boletim Médico
-            </Typography>
-            <Button onClick={e => signOut(userDispatch, history)} color="inherit">Sair</Button>
-          </Toolbar>
-        </AppBar>
+        <AppBarMediRepo />
       </div>
       <Container component="main" maxWidth="md">
         <div className={classes.paper}>

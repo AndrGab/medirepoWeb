@@ -6,16 +6,12 @@ import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import Grid from '@material-ui/core/Grid';
-import MedirepoIcon from '../../assets/medirepo.svg';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import api from '../../services/Api';
 import { toast } from 'react-toastify';
-
-
+import AppBarMediRepo from '../components/AppBarMediRepo';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -87,11 +83,7 @@ function ResetToken() {
     return (
         <div>
             <div className={classes.root}>
-                <AppBar color='inherit' position="static">
-                    <Toolbar>
-                        <img src={MedirepoIcon} className={classes.img} alt="MediRepo" />
-                    </Toolbar>
-                </AppBar>
+                <AppBarMediRepo />
             </div>
             <Container component="main" maxWidth="xs">
                 <div className={classes.paper}>

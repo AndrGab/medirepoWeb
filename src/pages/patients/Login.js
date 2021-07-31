@@ -9,16 +9,14 @@ import Select from "@material-ui/core/Select";
 import Link from "@material-ui/core/Link";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Grid from "@material-ui/core/Grid";
-import MedirepoIcon from "../../assets/medirepo.svg";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import { useUserDispatch, loginUser } from "../../context/UserContext";
 import api from "../../services/Api";
 import { toast } from "react-toastify";
+import AppBarMediRepo from '../components/AppBarMediRepo';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -116,11 +114,7 @@ function SignIn() {
   return (
     <div>
       <div className={classes.root}>
-        <AppBar color="inherit" position="static">
-          <Toolbar>
-            <img src={MedirepoIcon} className={classes.img} alt="MediRepo" />
-          </Toolbar>{" "}
-        </AppBar>{" "}
+       <AppBarMediRepo />
       </div>{" "}
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>

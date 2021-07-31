@@ -12,10 +12,11 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
+import { ListItem } from '@material-ui/core';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MedirepoIcon from "../../assets/medirepo.svg";
+import MedirepoIconW from '../../assets/medirepo-white.png';
+import MedirepoIconB from '../../assets/medirepo-black.png';
 import ExitToApp from '@material-ui/icons/ExitToApp';
 import { useUserDispatch, signOut, useUserState } from '../../context/UserContext'
 import Icon from "@material-ui/core/Icon";
@@ -23,6 +24,7 @@ import SettingsPage from './app/Settings';
 import AccountPage from './app/Account';
 import DashboardPage from './app/Dashboard';
 import BulletinPage from './app/Bulletin';
+import { useDarkState } from '../../context/ThemeContext';
 
 
 
@@ -94,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Layout() {
     var userDispatch = useUserDispatch();
+    const { darkMode } = useDarkState();
     var { isAuthenticated } = useUserState();
     const { pathname } = useLocation();
     const tokenID = localStorage.getItem("token_id");
@@ -139,7 +142,11 @@ export default function Layout() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <img src={MedirepoIcon} className={classes.img} alt="MediRepo" />
+                    {darkMode ?
+                        <img className={classes.img} src={MedirepoIconW} alt="Medirepo" /> :
+                        <img className={classes.img} src={MedirepoIconB} alt="Medirepo" />
+                    }
+
                 </Toolbar>
             </AppBar>
             <Drawer

@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
 import { useHistory, withRouter, useParams } from 'react-router-dom';
-import MedirepoIcon from '../../assets/medirepo.svg';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import { useUserDispatch, loginHosp } from '../../context/UserContext'
 import api from '../../services/Api';
-import Link from '@material-ui/core/Link';
+import AppBarMediRepo from '../components/AppBarMediRepo';
+
 
 import { toast } from 'react-toastify';
 
@@ -93,13 +91,7 @@ function FastLogin() {
     return (
         <div>
             <div className={classes.root}>
-                <AppBar color='inherit' position="static">
-                    <Toolbar>
-                        <Link href="/">
-                            <img src={MedirepoIcon} className={classes.img} alt="MediRepo" />
-                        </Link>
-                    </Toolbar>
-                </AppBar>
+               <AppBarMediRepo />
             </div>
             <Container component="main" maxWidth="xs">
                 <div className={classes.paper}>

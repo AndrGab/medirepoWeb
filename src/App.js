@@ -17,6 +17,12 @@ function App() {
     spacing: 4,
     palette: {
       type: darkMode ? 'dark' : 'light',
+      primary: {
+        main: darkMode ? '#e3dede' : '#242424',
+      },
+      secondary: {
+        main: darkMode ? '#e3dede' : '#242424',
+      },
     },
   }, ptBR);
 
