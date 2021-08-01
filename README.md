@@ -31,9 +31,16 @@
 
 # Medirepo - Daily Medical Report API
 
-Veja a documentação da API desta aplicação no postman
+Veja a documentação da API desta aplicação no postman:
 
 [![postman](https://img.shields.io/badge/documentation%20in-postman-orange?logo=postman)](https://documenter.getpostman.com/view/15643514/TzXwFJdM)
+
+Acesse o repositório da API:
+
+<a href="https://github.com/AndrGab/MediRepo" target="_blank" rel="noopener noreferrer">
+https://github.com/AndrGab/MediRepo
+  </a>
+
 
 ## MediRepo
 
