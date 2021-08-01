@@ -53,7 +53,7 @@ This is a personal project to help hospitals sharing Daily Medical Reports with 
 
 ## LIVE DEMO
 
-Acesse a aplicação de demostração:
+Acesse a aplicação de demonstração:
 
 <a href="https://medirepo.vercel.app/" target="_blank" rel="noopener noreferrer">
     https://medirepo.vercel.app/
