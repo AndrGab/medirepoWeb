@@ -3,7 +3,7 @@ import React, { createContext, useReducer } from "react";
 export const ThemeContext = createContext();
 
 const initialState = {
-    darkMode: !!localStorage.getItem("theme") ? true : false,
+    darkMode: localStorage.getItem("theme") === true ? true : false,
 };
 
 const themeReducer = (state, action) => {
@@ -30,6 +30,7 @@ function useDarkState() {
     if (context === undefined) {
         throw new Error("Text must be used within a ThemeProvider");
     }
+    
     return context.state;
 }
 

@@ -33,6 +33,7 @@ function AppBarMediRepo(props) {
     var { isAuthenticated } = useUserState();
     const history = useHistory();
     const classes = useStyles();
+
     return (
         <AppBar color='inherit' position="static" >
             <Toolbar>

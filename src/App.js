@@ -1,17 +1,16 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Routes from './Routes';
 import { ThemeProvider, createTheme } from '@material-ui/core';
 import { CssBaseline } from '@material-ui/core';
 import { ptBR } from '@material-ui/core/locale';
-import { ThemeContext } from "../src/context/ThemeContext";
+import { useDarkState } from "../src/context/ThemeContext";
 
 
 
 
 function App() {
 
-  const themeDark = useContext(ThemeContext);
-  const darkMode = themeDark.state.darkMode;
+  const { darkMode } = useDarkState();
 
   const theme = createTheme({
     spacing: 4,
@@ -25,6 +24,7 @@ function App() {
       },
     },
   }, ptBR);
+
 
   return (
     <ThemeProvider theme={theme}>

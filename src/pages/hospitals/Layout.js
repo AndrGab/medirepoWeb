@@ -107,6 +107,7 @@ export default function Layout() {
     const [open, setOpen] = useState(false);
     const [auth, setAuth] = useState(true);
 
+
     useEffect(() => {
 
         setAuth(isAuthenticated);
