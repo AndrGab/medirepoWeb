@@ -6,14 +6,14 @@
   Aplicação em React para distribuição de Boletins Médicos
 </h3>
 <p align="center">MediRepo faz a comunicação ser mais fácil entre o Hospital e os familiares dos pacientes</p>
-<p align="center">Essa aplicação front-end faz parte de um projeto pessoal chamado <b>MediREpo</b></p>
+<p align="center">Essa aplicação front-end faz parte de um projeto pessoal chamado <b>MediREpo</b> que consome uma API escrita em Elixir criada para praticar a programação funcional.</p>
 
 
 <h3 align="center">
   React Application for Daily Medical Reports
 </h3>
 <p align="center">Making communication easier for Hospitals and Pacients Family</p>
-<p align="center">This front-end application is part of my personal Project called <b>MediRepo</b></p>
+<p align="center">This front-end application is part of my personal Project called <b>MediRepo</b> what consumes an Elixir API for practicing this functional language.</p>
 
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Andrgab/medirepoWeb?color=6485e3&logo=React">
@@ -31,9 +31,16 @@
 
 # Medirepo - Daily Medical Report API
 
-Veja a documentação da API desta aplicação no postman
+Veja a documentação da API desta aplicação no postman:
 
 [![postman](https://img.shields.io/badge/documentation%20in-postman-orange?logo=postman)](https://documenter.getpostman.com/view/15643514/TzXwFJdM)
+
+Acesse o repositório da API:
+
+<a href="https://github.com/AndrGab/MediRepo" target="_blank" rel="noopener noreferrer">
+https://github.com/AndrGab/MediRepo
+  </a>
+
 
 ## MediRepo
 
@@ -46,7 +53,7 @@ This is a personal project to help hospitals sharing Daily Medical Reports with 
 
 ## LIVE DEMO
 
-Acesse a aplicação de demostração:
+Acesse a aplicação de demonstração:
 
 <a href="https://medirepo.vercel.app/" target="_blank" rel="noopener noreferrer">
     https://medirepo.vercel.app/
