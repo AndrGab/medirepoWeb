@@ -74,6 +74,7 @@ function loginHosp(dispatch, token) {
 function signOut(dispatch, history) {
   localStorage.removeItem('token');
   localStorage.removeItem('token_id');
+  localStorage.removeItem('theme');
   dispatch({ type: "SIGN_OUT_SUCCESS" });
   history.push("/");
 }
