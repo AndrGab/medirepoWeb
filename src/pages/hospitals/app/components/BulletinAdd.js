@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { withRouter, useHistory } from 'react-router-dom';
 import { TextField, Card, CardHeader, Box } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
@@ -68,7 +68,7 @@ function BulletinAdd() {
     var [dt_assinatura, setDtassinatura] = useState("");
     var [atendimento, setAtendime] = useState(0);
     var [cd_paciente, setCodpac] = useState(0);
-
+    
     async function handleRegisterBulletin(e) {
         e.preventDefault();
 
@@ -122,7 +122,27 @@ function BulletinAdd() {
         }
     }
 
-
+    function getActualDate() {
+        var data = new Date();
+        var dia = data.getDate();
+        var mes = data.getMonth() + 1;
+        var ano = data.getFullYear();
+        if (dia < 10) {
+            dia = "0" + dia;
+        }
+        if (mes < 10) {
+            mes = "0" + mes;
+        }
+        data = `${ano}-${mes}-${dia}`;
+        console.log(data);
+        return data;
+    }
+    
+    useEffect(() => {
+        const date = getActualDate()
+        setDtassinatura(date);
+        console.warn('DATE=>',date)
+    },[])
 
     return (
         <div>
@@ -424,10 +444,14 @@ function BulletinAdd() {
                                         required
                                         fullWidth
                                         name="data"
+                                        
                                         label="Data do Boletim"
-                                        type="date"
+                                        InputProps={{
+                                            readOnly: true,
+                                          }}
                                         id="dt_assinatura"
-                                        autoComplete="data de assinatura"
+                                        value={dt_assinatura}
+                                        autoComplete="data assinatura"                                        
                                         onChange={(e) => setDtassinatura(e.target.value)}
                                     />
                                 </Grid>
