@@ -175,7 +175,7 @@ export default function Layout() {
                     ].map(({ url, text, icon }, index) => (
                         <ListItem
                             component={RouterLink}
-                            selected={pathname === `/${url}`}
+                            selected={pathname === `/hospitals/app/${url}`}
                             to={`/hospitals/app/${url}`}
                             button
                             key={text}
