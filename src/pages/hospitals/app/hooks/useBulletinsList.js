@@ -12,6 +12,7 @@ export function useBulletinsList() {
   var [rows, setRows] = useState([]);
   var userDispatch = useUserDispatch();
   const history = useHistory();
+  var bulletinsNumber = 0;
 
 
 
@@ -24,6 +25,7 @@ export function useBulletinsList() {
       })
       .then(response => {
         setRows(response.data.bulletin);
+
       })
       .catch(error => {
         if (error.response) {
@@ -45,6 +47,7 @@ export function useBulletinsList() {
       });
   }, [token, userDispatch, history])
 
-  return { rows }
+  bulletinsNumber = rows.length;
+  return { bulletinsNumber }
 
 }
