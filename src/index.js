@@ -10,21 +10,21 @@ import 'react-toastify/dist/ReactToastify.css'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider>
     <UserProvider>
-      <CssBaseline />
-      <App />
-      <ToastContainer
-        position="bottom-center"
-        autoClose={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-      />
+      <ThemeProvider>
+        <CssBaseline />
+        <App />
+        <ToastContainer
+          position="bottom-center"
+          autoClose={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+        />
+      </ThemeProvider>
     </UserProvider>
-    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
