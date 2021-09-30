@@ -8,6 +8,7 @@ import { useUserDispatch, signOut } from "../../../context/UserContext";
 import api from "../../../services/Api";
 import { toast } from "react-toastify";
 import LogoImg from "../../../assets/Medicine-cuate.svg";
+import { useBulletinsList } from './hooks/useBulletinsList';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -58,6 +59,7 @@ function Dashboard() {
     var [isLoading, setIsLoading] = useState(false);
     var [name, setName] = useState("");
     const token = localStorage.getItem("token");
+    const { bulletinsNumber } = useBulletinsList();
 
 
     useEffect(() => {
@@ -100,6 +102,7 @@ function Dashboard() {
                         <Typography align='center' variant='h6'> Bem-vindo, {name}</Typography>
 
                         <Typography align='center'>Sua plataforma de gerenciamento de boletins médicos </Typography>
+                        <Typography align='center'>Número de Boletins Médicos Ativos: {bulletinsNumber} </Typography>
 
                         {isLoading && (
                             <LinearProgress className={classes.progress} />
