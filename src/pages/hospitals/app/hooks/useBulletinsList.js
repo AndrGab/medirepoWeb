@@ -26,6 +26,7 @@ export function useBulletinsList() {
       .then(response => {
         setRows(response.data.bulletin);
 
+        
       })
       .catch(error => {
         if (error.response) {
