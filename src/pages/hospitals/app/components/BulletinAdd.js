@@ -101,14 +101,30 @@ function BulletinAdd() {
                 if (!!err.response.data.message.nome) {
                     toast.warning("O nome deve ter pelo menos 2 caracteres");
                 }
+                if (!!err.response.data.message.consciencia) {
+                    toast.warning("Nível de Consciencia não pode estar em branco");
+                }
+                if (!!err.response.data.message.diurese) {
+                    toast.warning("Diurese não pode estar em branco");
+                }
+                if (!!err.response.data.message.febre) {
+                    toast.warning("Febre não pode estar em branco");
+                }
+                if (!!err.response.data.message.geral) {
+                    toast.warning("Estado Geral não pode estar em branco");
+                }
+                if (!!err.response.data.message.medico) {
+                    toast.warning("Nome do Médico não pode estar em branco");
+                }
+                if (!!err.response.data.message.pressao) {
+                    toast.warning("Pressão Arterial não pode estar em branco");
+                }
+                if (!!err.response.data.message.respiracao) {
+                    toast.warning("Respiração não pode estar em branco");
+                }
                 if (!!err.response.data.message.obs) {
                     toast.warning("A observação deve ter pelo menos 6 caracteres");
-                } else {
-                    toast.error("Ocorreu um erro ao criar o boletim: " +
-                        JSON.stringify(err.response.data.message));
-
-                }
-
+                } 
                 if (err.response.status === 401) {
                     toast.warning("Acesso Negado!");
                     signOut(userDispatch, history)
@@ -134,14 +150,12 @@ function BulletinAdd() {
             mes = "0" + mes;
         }
         data = `${ano}-${mes}-${dia}`;
-        console.log(data);
         return data;
     }
     
     useEffect(() => {
         const date = getActualDate()
         setDtassinatura(date);
-        console.warn('DATE=>',date)
     },[])
 
     return (
