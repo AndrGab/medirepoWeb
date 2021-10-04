@@ -96,7 +96,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Layout() {
     var userDispatch = useUserDispatch();
-    const { darkMode } = useDarkState();
+    const { state } = useDarkState();
+    const { darkMode } = state
     var { isAuthenticated } = useUserState();
     const { pathname } = useLocation();
     const tokenID = localStorage.getItem("token_id");

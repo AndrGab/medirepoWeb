@@ -28,7 +28,8 @@ const useStyles = makeStyles((theme) => ({
 
 function AppBarMediRepo(props) {
 
-    const { darkMode } = useDarkState();
+    const { state } = useDarkState();
+    const { darkMode } = state
     var userDispatch = useUserDispatch();
     var { isAuthenticated } = useUserState();
     const history = useHistory();

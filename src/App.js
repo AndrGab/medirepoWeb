@@ -10,8 +10,8 @@ import { useDarkState } from "../src/context/ThemeContext";
 
 function App() {
 
-  const { darkMode } = useDarkState();
-
+  const { state } = useDarkState();
+  const { darkMode } = state
   const theme = createTheme({
     spacing: 4,
     palette: {
