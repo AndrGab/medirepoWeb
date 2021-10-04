@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useHistory, withRouter } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import LinearProgress from "@material-ui/core/LinearProgress";
@@ -9,7 +9,7 @@ import Card from "@material-ui/core/Card";
 import api from "../../../services/Api";
 import { toast } from "react-toastify";
 import { useUserDispatch, signOut } from "../../../context/UserContext";
-import { ThemeContext } from "../../../context/ThemeContext";
+import { useDarkState } from "../../../context/ThemeContext";
 import { CardHeader, Box, Switch, Icon, Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -65,14 +65,13 @@ function Settings() {
     var [password, setPassword] = useState("");
     var [contraSenha, setContraSenha] = useState("");
     const token = localStorage.getItem("token");
-    const theme = useContext(ThemeContext);
-    const darkMode = theme.state.darkMode;
-
+    const { state, dispatch } = useDarkState()
+    const { darkMode } = state
     const onClick = () => {
         if (darkMode) {
-            theme.dispatch({ type: "LIGHTMODE" });
+            dispatch({ type: "LIGHTMODE" });
         } else {
-            theme.dispatch({ type: "DARKMODE" });
+            dispatch({ type: "DARKMODE" });
         }
     };
 

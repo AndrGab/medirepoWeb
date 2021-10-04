@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useEffect, useReducer } from "react";
 
 export const ThemeContext = createContext();
 
@@ -20,9 +20,21 @@ const themeReducer = (state, action) => {
     }
 };
 
-export function ThemeProvider(props) {
+export function ThemeProvider( { children }) {
     const [state, dispatch] = useReducer(themeReducer, initialState);
-    return <ThemeContext.Provider value={{ state, dispatch }}>{props.children}</ThemeContext.Provider>;
+
+    useEffect(()=>{
+        const Theme = localStorage.getItem('theme')
+        if( Theme && Theme === "true" ){
+            dispatch({ type : "DARKMODE"})
+        }
+    },[])
+
+    return  (
+        <ThemeContext.Provider value={{ state, dispatch }}>
+            {children}
+        </ThemeContext.Provider>
+    );
 }
 
 function useDarkState() {
@@ -31,7 +43,7 @@ function useDarkState() {
         throw new Error("Text must be used within a ThemeProvider");
     }
     
-    return context.state;
+    return context;
 }
 
 export { useDarkState };
