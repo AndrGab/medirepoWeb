@@ -89,7 +89,7 @@ function Account() {
                 setIsLoading(false);
 
                 if (!!err.response.data.message.email) {
-                    toast.warning("Formato do e-mail inválido");
+                    toast.warning("Erro ao salvar e-mail: formato inválido ou utilizado por outra empresa");
                 }
                 if (!!err.response.data.message.name) {
                     toast.warning("O nome deve ter pelo menos 2 caracteres");
