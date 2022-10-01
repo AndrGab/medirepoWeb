@@ -118,6 +118,13 @@ No momento da internação é só fornecer o Código do Paciente e a Senha para 
 - Através da plataforma é possível incluir novos boletins, excluir, tirar relatórios...
 - Extras: Modo Escuro para melhor visualização da plataforma.
 
+With Medirepo, hospitals can register and add daily patient reports to the platform.
+At the time of admission, it is necessary to provide the Patient Code and Password to family members have access to this bulletins.
+
+- The latest bulletin will always be available.
+- Through the platform it is possible to include new bulletins, delete, print reports...
+- Extras: Dark Mode for better viewing of the platform.
+
 ## Screenshots
 
 Login para Pacientes:
