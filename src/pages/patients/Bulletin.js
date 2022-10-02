@@ -1,31 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
-import { TextField, Card, CardHeader } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import api from '../../services/Api';
-import { toast } from 'react-toastify';
-import AppBarMediRepo from '../components/AppBarMediRepo';
-
+import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router-dom";
+import { TextField, Card, CardHeader } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import api from "../../services/Api";
+import { toast } from "react-toastify";
+import AppBarMediRepo from "../components/AppBarMediRepo";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   card: {
-    paddingTop: '10px',
-    paddingLeft: '20px',
-    paddingRight: '20px',
-    paddingBottom: '20px',
+    paddingTop: "10px",
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    paddingBottom: "20px",
   },
   img: {
     width: 100,
     marginRight: theme.spacing(4),
-
   },
   root: {
     flexGrow: 1,
@@ -36,38 +34,33 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function BulletinView() {
-
   const classes = useStyles();
   const token = localStorage.getItem("token");
   var [listBulletin, setlistBulletin] = useState([]);
-
 
   useEffect(() => {
     api
       .get("/patients/view", {
         headers: {
-          'Authorization': 'Bearer ' + token
-        }
+          Authorization: "Bearer " + token,
+        },
       })
-      .then(response => {
+      .then((response) => {
         setlistBulletin([response.data.bulletin]);
       })
-      .catch(error => {
+      .catch((error) => {
         toast.dark("Autenticação necessária. Use o Login/Senha recebido.");
 
         if (error.response) {
           console.log(error.response.status);
-
         } else if (error.request) {
           console.log(error.request);
-
         } else {
-          console.log('Error', error.message);
+          console.log("Error", error.message);
         }
         console.log(error.config);
       });
   }, [token]);
-
 
   return (
     <div>
@@ -77,10 +70,13 @@ function BulletinView() {
       <Container component="main" maxWidth="md">
         <div className={classes.paper}>
           <Card className={classes.card}>
-            <CardHeader titleTypographyProps={{ variant: 'h6' }} title="BOLETIM MÉDICO" subheader="Boletim Diário do Paciente" />
+            <CardHeader
+              titleTypographyProps={{ variant: "h6" }}
+              title="BOLETIM MÉDICO"
+              subheader="Boletim Diário do Paciente"
+            />
 
-
-            {listBulletin.map(listBul => (
+            {listBulletin.map((listBul) => (
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -92,7 +88,8 @@ function BulletinView() {
                     InputProps={{
                       readOnly: true,
                     }}
-                    value={listBul.nome} />
+                    value={listBul.nome}
+                  />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -228,11 +225,9 @@ function BulletinView() {
                 </Grid>
               </Grid>
             ))}
-
           </Card>
         </div>
       </Container>
-
     </div>
   );
 }

@@ -16,7 +16,7 @@ import OutlinedInput from "@material-ui/core/OutlinedInput";
 import { useUserDispatch, loginUser } from "../../context/UserContext";
 import api from "../../services/Api";
 import { toast } from "react-toastify";
-import AppBarMediRepo from '../components/AppBarMediRepo';
+import AppBarMediRepo from "../components/AppBarMediRepo";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -114,7 +114,7 @@ function SignIn() {
   return (
     <div>
       <div className={classes.root}>
-       <AppBarMediRepo />
+        <AppBarMediRepo />
       </div>{" "}
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
