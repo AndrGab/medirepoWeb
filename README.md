@@ -11,8 +11,8 @@
 <h3 align="center">
   React Application for Daily Medical Reports
 </h3>
-<p align="center">Making communication easier for Hospitals and Pacients Family</p>
-<p align="center">This front-end application is part of my personal Project called <b>MediRepo</b> what consumes an Elixir API for practicing this functional language.</p>
+<p align="center">Making communication easier for Hospitals and Patients' Families.</p>
+<p align="center">This front-end application is part of my personal project called MediRepo which consumes an Elixir API for practising this functional language.</p>
 
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Andrgab/medirepoWeb?color=6485e3&logo=React">
@@ -47,7 +47,7 @@ Este é um projeto pessoal para facilitar o compartilhamento dos boletins médic
 destes pacientes.
 
 Most hospitals are restricting visitors for COVID-19 Patients.
-This is a personal project to help hospitals sharing Daily Medical Reports with those patients family.
+This is a personal project to help hospitals to share Daily Medical Reports with those patients' families.
 
 ## LIVE DEMO
 
@@ -76,7 +76,7 @@ Feel free to contribute!
 
 ## What is Hacktoberfest?
 
-🎃 HacktoberFest is digitalocean’s annual event that encourages people to contribute to open source throughout october. Much of modern tech infrastructure—including some of digitalocean’s own products—relies on open-source projects built and maintained by passionate people who often don’t have the staff or budgets to do much more than keep the project alive. 🎃 HacktoberFest is all about giving back to those projects, sharpening skills, and celebrating all things open source, especially the people that make open source so special.
+🎃 HacktoberFest is digitalocean’s annual event that encourages people to contribute to open source throughout October. Much of modern tech infrastructure—including some of digitalocean’s own products—relies on open-source projects built and maintained by passionate people who often don’t have the staff or budgets to do much more than keeping the project alive. 🎃 HacktoberFest is all about giving back to those projects, sharpening skills, and celebrating all things open source, especially the people that make open source so special.
 
 [https://hacktoberfest.com/](https://hacktoberfest.com/)
 
@@ -119,27 +119,27 @@ No momento da internação é só fornecer o Código do Paciente e a Senha para 
 - Extras: Modo Escuro para melhor visualização da plataforma.
 
 With Medirepo, hospitals can register and add daily patient reports to the platform.
-At the time of admission, it is necessary to provide the Patient Code and Password to family members have access to this bulletins.
+At the time of admission, it is necessary to provide the Patient Code and Password to family members to have access to these bulletins.
 
 - The latest bulletin will always be available.
-- Through the platform it is possible to include new bulletins, delete, print reports...
+- Through the platform, it is possible to include new bulletins, delete, print reports...
 - Extras: Dark Mode for better viewing of the platform.
 
 ## Screenshots
 
-Login para Pacientes:
+Login para Pacientes: / Patient Login:
 
 ![image](https://user-images.githubusercontent.com/57791712/127754661-4279dcd2-8252-45ac-adea-3684f0e28972.png)
 
-Visualização de Boletins:
+Visualização de Boletins: / Viewing Bulletins:
 
 ![image](https://user-images.githubusercontent.com/57791712/127754690-51a1033e-eb33-4c91-8ea2-08270263678a.png)
 
-Aplicação em funcionamento:
+Aplicação em funcionamento: / Application in operation:
 
 ![medirepo](https://user-images.githubusercontent.com/57791712/127754803-54cae4a3-7161-4fe6-989c-c4d6f962ec25.gif)
 
-Registro de Novos Hospitais:
+Registro de Novos Hospitais: / Registration of New Hospitals:
 
 ![image](https://user-images.githubusercontent.com/57791712/127754708-11d59452-8848-4e54-92cc-b3c18ff9e7d5.png)
 
