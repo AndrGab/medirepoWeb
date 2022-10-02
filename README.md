@@ -161,7 +161,7 @@ Made with :purple_heart: by [@andrgab](https://www.github.com/andrgab)
 
 ## Contributors
 
-<a href="https://github.com/andrgab/medirepo/graphs/contributors">
+<a href="https://github.com/andrgab/medirepoWeb/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=andrgab/medirepoWeb" />
 </a>
 
