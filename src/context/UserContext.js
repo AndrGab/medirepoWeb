@@ -15,7 +15,7 @@ function userReducer(state, action) {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
   }
-} 
+}
 
 function UserProvider({ children }) {
   var [state, dispatch] = React.useReducer(userReducer, {
@@ -47,33 +47,40 @@ function useUserDispatch() {
   return context;
 }
 
-export { UserProvider, useUserState, useUserDispatch, loginUser, loginHosp, signOut };
+export {
+  UserProvider,
+  useUserState,
+  useUserDispatch,
+  loginUser,
+  loginHosp,
+  signOut,
+};
 
 // ###########################################################
 
 function loginUser(dispatch, token) {
   if (!!token) {
-    localStorage.setItem('token', token)
-    localStorage.setItem('token_id', 1)
-    dispatch({ type: 'LOGIN_SUCCESS' })
+    localStorage.setItem("token", token);
+    localStorage.setItem("token_id", 1);
+    dispatch({ type: "LOGIN_SUCCESS" });
   } else {
-    dispatch({ type: 'LOGIN_FAILURE' });
+    dispatch({ type: "LOGIN_FAILURE" });
   }
 }
 
 function loginHosp(dispatch, token) {
   if (!!token) {
-    localStorage.setItem('token', token)
-    localStorage.setItem('token_id', 2)
-    dispatch({ type: 'LOGIN_SUCCESS' })
+    localStorage.setItem("token", token);
+    localStorage.setItem("token_id", 2);
+    dispatch({ type: "LOGIN_SUCCESS" });
   } else {
-    dispatch({ type: 'LOGIN_FAILURE' });
+    dispatch({ type: "LOGIN_FAILURE" });
   }
 }
 
 function signOut(dispatch, history) {
-  localStorage.removeItem('token');
-  localStorage.removeItem('token_id');
+  localStorage.removeItem("token");
+  localStorage.removeItem("token_id");
   dispatch({ type: "SIGN_OUT_SUCCESS" });
   history.push("/");
 }

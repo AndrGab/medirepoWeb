@@ -46,7 +46,7 @@ A maioria dos hospitais hoje tem restrições de visitas para pacientes internad
 Este é um projeto pessoal para facilitar o compartilhamento dos boletins médicos com os familiares
 destes pacientes.
 
-Most hospitals are restricting visitors for COVID-19 Patients. 
+Most hospitals are restricting visitors for COVID-19 Patients.
 This is a personal project to help hospitals to share Daily Medical Reports with those patients' families.
 
 ## LIVE DEMO
@@ -158,3 +158,11 @@ If you have any feedback, please reach out to me at andrgab@gmail.com
 ## Author
 
 Made with :purple_heart: by [@andrgab](https://www.github.com/andrgab)
+
+## Contributors
+
+<a href="https://github.com/andrgab/medirepo/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=andrgab/medirepo" />
+</a>
+
+Contributors image made with [contrib.rocks](https://contrib.rocks).
