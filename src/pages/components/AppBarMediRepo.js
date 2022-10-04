@@ -13,6 +13,7 @@ import {
   useUserState,
 } from "../../context/UserContext";
 import { useDarkState } from "../../context/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   img: {
@@ -32,6 +33,7 @@ function AppBarMediRepo(props) {
   var { isAuthenticated } = useUserState();
   const history = useHistory();
   const classes = useStyles();
+  const { t } = useTranslation();
 
   return (
     <AppBar color="inherit" position="static">
@@ -42,14 +44,14 @@ function AppBarMediRepo(props) {
           <img className={classes.img} src={MedirepoIconB} alt="Medirepo" />
         )}
         <Typography variant="h6" className={classes.title}>
-          Boletim Médico
+          {t("medicalReport")}
         </Typography>
         {isAuthenticated && (
           <Button
             onClick={(e) => signOut(userDispatch, history)}
             color="inherit"
           >
-            Sair
+            {t("logout")}
           </Button>
         )}
       </Toolbar>

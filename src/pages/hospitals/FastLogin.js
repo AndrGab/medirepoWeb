@@ -6,7 +6,7 @@ import Container from "@material-ui/core/Container";
 import { useUserDispatch, loginHosp } from "../../context/UserContext";
 import api from "../../services/Api";
 import AppBarMediRepo from "../components/AppBarMediRepo";
-
+import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 
 const useStyles = makeStyles((theme) => ({
@@ -50,6 +50,8 @@ function FastLogin() {
 
   const history = useHistory();
 
+  const { t } = useTranslation();
+
   const data = {
     id,
     reset_token,
@@ -69,7 +71,7 @@ function FastLogin() {
 
         .catch((err) => {
           console.log(err);
-          toast.dark("Algo de Errado com seu ID ou Token");
+          toast.dark(t("wrongIDOrToken"));
           history.push("/");
         });
     }

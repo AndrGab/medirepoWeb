@@ -6,6 +6,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { UserProvider } from "./context/UserContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import { ToastContainer } from "react-toastify";
+import "./i18n";
 import "react-toastify/dist/ReactToastify.css";
 
 ReactDOM.render(

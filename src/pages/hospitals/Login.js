@@ -13,6 +13,7 @@ import { useUserDispatch, loginHosp } from "../../context/UserContext";
 import api from "../../services/Api";
 import { toast } from "react-toastify";
 import AppBarMediRepo from "../components/AppBarMediRepo";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -54,6 +55,7 @@ function Login() {
   var [isLoading, setIsLoading] = useState(false);
   var [email, setEmail] = useState("");
   var [password, setPassword] = useState("");
+  const { t } = useTranslation();
 
   const history = useHistory();
 
@@ -76,7 +78,7 @@ function Login() {
         history.push("/");
       } catch (err) {
         console.log(err);
-        toast.dark("Algo de errado com seu e-mail ou senha");
+        toast.dark(t("wrongEmailOrPass"));
         setIsLoading(false);
       }
     }
@@ -100,7 +102,7 @@ function Login() {
               required
               fullWidth
               id="email"
-              label="E-mail"
+              label={t("email")}
               name="email"
               autoFocus
               onChange={(e) => setEmail(e.target.value)}
@@ -111,7 +113,7 @@ function Login() {
               required
               fullWidth
               name="senha"
-              label="Senha"
+              label={t("password")}
               type="password"
               id="password"
               autoComplete="current-password"
@@ -127,23 +129,23 @@ function Login() {
                 color="primary"
                 className={classes.submit}
               >
-                ACESSAR
+                {t("login")}
               </Button>
             )}
             <Grid alignItems="center" container>
               <Grid item xs={12}>
                 <Link href="/hospitals/reset" variant="body2">
-                  Esqueceu a Senha?
+                  {t("forgotPassword")}
                 </Link>
               </Grid>
               <Grid item xs={12}>
                 <Link href="/hospitals/register" variant="body2">
-                  Cadastrar Novo Hospital
+                  {t("addHospital")}
                 </Link>
               </Grid>
               <Grid item xs={12}>
                 <Link href="/patients/login" variant="body2">
-                  Login para Pacientes, clique aqui
+                  {t("patientFamilyLogin")}
                 </Link>
               </Grid>
             </Grid>
