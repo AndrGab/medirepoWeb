@@ -55,7 +55,7 @@ This is a personal project to help hospitals to share Daily Medical Reports with
     https://medirepo.vercel.app/
   </a>
   
-## Steps to run locally
+## Guide to set up locally
 
 1. Fork the project and then clone it to your computer
 ```
