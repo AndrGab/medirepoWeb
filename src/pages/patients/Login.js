@@ -102,7 +102,7 @@ function SignIn() {
       } catch (err) {
         console.log(err);
         setIsLoading(false);
-        toast.dark(t("wrongEmailOrPass"));
+        toast.dark(t("authenticationRequired"));
       }
     }
   }
