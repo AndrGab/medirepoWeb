@@ -4,6 +4,7 @@ import { useUserState } from "./context/UserContext";
 import Bulletin from "./pages/patients/Bulletin";
 import Login from "./pages/patients/Login";
 import LoginHosp from "./pages/hospitals/Login";
+import NotFound from "./pages/NotFound";
 import Layout from "./pages/hospitals/Layout";
 import ResetToken from "./pages/hospitals/ResetToken";
 import FastLogin from "./pages/hospitals/FastLogin";
@@ -21,6 +22,7 @@ export default function Routes() {
           path="/"
           render={() => <Redirect to="/patients/login" />}
         />
+        <Route exact path="*" render={() => <NotFound />} />
 
         <PrivateRoute path="/patients/bulletin" component={Bulletin} />
         <PrivateRoute path="/hospitals/app" component={Layout} />
