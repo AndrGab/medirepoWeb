@@ -35,6 +35,7 @@ import AccountPage from "./app/Account";
 import DashboardPage from "./app/Dashboard";
 import BulletinPage from "./app/Bulletin";
 import { useDarkState } from "../../context/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 const drawerWidth = 240;
 
@@ -112,6 +113,7 @@ export default function Layout() {
 
   const [open, setOpen] = useState(false);
   const [auth, setAuth] = useState(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setAuth(isAuthenticated);
@@ -175,9 +177,9 @@ export default function Layout() {
         <List>
           {[
             { url: "dashboard", text: "Dashboard", icon: "dashboard" },
-            { url: "bulletin", text: "Boletins", icon: "assignment" },
-            { url: "account", text: "Conta", icon: "person" },
-            { url: "settings", text: "Configurações", icon: "settings" },
+            { url: "bulletin", text: t("bulletins"), icon: "assignment" },
+            { url: "account", text: t("account"), icon: "person" },
+            { url: "settings", text: t("settings"), icon: "settings" },
           ].map(({ url, text, icon }, index) => (
             <ListItem
               component={RouterLink}
@@ -194,13 +196,13 @@ export default function Layout() {
           ))}
           <ListItem
             button
-            key="Sair"
+            key={t("logout")}
             onClick={(e) => signOut(userDispatch, history)}
           >
             <ListItemIcon>
               <ExitToApp />
             </ListItemIcon>
-            <ListItemText primary="Sair" />
+            <ListItemText primary={t("logout")} />
           </ListItem>
         </List>
       </Drawer>

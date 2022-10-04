@@ -13,6 +13,7 @@ import { useUserDispatch, loginHosp } from "../../context/UserContext";
 import api from "../../services/Api";
 import AppBarMediRepo from "../components/AppBarMediRepo";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -57,6 +58,7 @@ function RegisterHospital() {
   var [password, setPassword] = useState("");
   var [contraSenha, setContraSenha] = useState("");
   var [email, setEmail] = useState("");
+  const { t } = useTranslation();
 
   const history = useHistory();
 
@@ -70,7 +72,7 @@ function RegisterHospital() {
     };
 
     if (password !== contraSenha) {
-      toast.warning("As senhas são diferentes");
+      toast.warning(t("differentPassword"));
     }
 
     if (!!name && password === contraSenha && !!email && !!password) {
@@ -86,13 +88,13 @@ function RegisterHospital() {
         setIsLoading(false);
 
         if (!!err.response.data.message.email) {
-          toast.warning("Formato do e-mail inválido");
+          toast.warning(t("emailSavingError"));
         }
         if (!!err.response.data.message.name) {
-          toast.warning("O nome deve ter pelo menos 2 caracteres");
+          toast.warning(t("nameSize"));
         }
         if (!!err.response.data.message.password) {
-          toast.warning("A senha deve ter pelo menos 6 caracteres");
+          toast.warning(t("passwordSize"));
         }
 
         console.log(err);
@@ -109,11 +111,11 @@ function RegisterHospital() {
         <div className={classes.paper}>
           <ExitToAppIcon color="primary" />
           <Typography color="primary" component="h6" variant="h6">
-            REGISTRO DE NOVO HOSPITAL
+            {t("addHospital")}
           </Typography>
 
           <Typography color="textSecondary" gutterBottom variant="body2">
-            Use seu e-mail corporativo para criar uma nova conta
+            {t("corporateEmail")}
           </Typography>
           <form className={classes.form} noValidate onSubmit={handleRegister}>
             <TextField
@@ -122,7 +124,7 @@ function RegisterHospital() {
               required
               fullWidth
               id="name"
-              label="Nome do Hospital"
+              label={t("hospitalName")}
               name="name"
               autoFocus
               onChange={(e) => setName(e.target.value)}
@@ -134,7 +136,7 @@ function RegisterHospital() {
               fullWidth
               id="email"
               type="email"
-              label="E-mail"
+              label={t("email")}
               name="email"
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -144,7 +146,7 @@ function RegisterHospital() {
               required
               fullWidth
               name="senha"
-              label="Senha"
+              label={t("password")}
               type="password"
               id="password"
               autoComplete="current-password"
@@ -156,7 +158,7 @@ function RegisterHospital() {
               required
               fullWidth
               name="contrasenha"
-              label="Repita a senha"
+              label={t("repeatPassword")}
               type="password"
               id="contrasenha"
               onChange={(e) => setContraSenha(e.target.value)}
@@ -171,13 +173,13 @@ function RegisterHospital() {
                 color="primary"
                 className={classes.submit}
               >
-                REGISTRAR
+                {t("add")}
               </Button>
             )}
             <Grid alignItems="center" container>
               <Grid item>
                 <Link href="/hospitals/login" variant="body2">
-                  {"Já tem conta? Logar aqui"}
+                  {t("alreadyHaveLogin")}
                 </Link>
               </Grid>
             </Grid>

@@ -12,6 +12,7 @@ import Container from "@material-ui/core/Container";
 import api from "../../services/Api";
 import { toast } from "react-toastify";
 import AppBarMediRepo from "../components/AppBarMediRepo";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -51,6 +52,7 @@ function ResetToken() {
   const classes = useStyles();
   var [isLoading, setIsLoading] = useState(false);
   var [email, setEmail] = useState("");
+  const { t } = useTranslation();
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -64,11 +66,11 @@ function ResetToken() {
       try {
         const response = await api.post("hospitals/reset", data);
         setIsLoading(false);
-        toast.success("Um Token para login rápido foi enviado ao seu e-mail");
+        toast.success(t("accessTokenSent"));
         console.log(response.data.message);
       } catch (err) {
         console.log(err);
-        toast.dark("Algo de errado com seu e-mail");
+        toast.dark(t("wrongEmail"));
         setIsLoading(false);
       }
     }
@@ -92,7 +94,7 @@ function ResetToken() {
               required
               fullWidth
               id="email"
-              label="E-mail"
+              label={t("email")}
               name="email"
               autoFocus
               onChange={(e) => setEmail(e.target.value)}
@@ -107,13 +109,13 @@ function ResetToken() {
                 color="primary"
                 className={classes.submit}
               >
-                ENVIAR
+                {t("send")}
               </Button>
             )}
             <Grid alignItems="center" container>
               <Grid item>
                 <Link href="/hospitals/login" variant="body2">
-                  {"Login para Hospitais, clique aqui"}
+                  {t("hospitalLogin")}
                 </Link>
               </Grid>
             </Grid>
