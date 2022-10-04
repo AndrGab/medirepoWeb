@@ -1,5 +1,25 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+
+const options = {
+  order: [
+    "querystring",
+    "cookie",
+    "localStorage",
+    "sessionStorage",
+    "navigator",
+    "htmlTag",
+    "path",
+    "subdomain",
+  ],
+  lookupQuerystring: "lng",
+  lookupCookie: "i18next",
+  lookupLocalStorage: "i18nextLng",
+  lookupSessionStorage: "i18nextLng",
+  lookupFromPathIndex: 0,
+  lookupFromSubdomainIndex: 0,
+};
 
 const resources = {
   en: {
@@ -220,6 +240,7 @@ const resources = {
       bulletinsDeleted: "boletim(s) apagado(s) com sucesso",
       couldNotDelete: "Não foi possível apagar",
     },
+  },
   es: {
     translation: {
       medicalReport: "Informe médico",
@@ -237,7 +258,8 @@ const resources = {
       birthdayBlank: "La fecha de cumpleaños no puede estar vacía",
       obsSize: "Las observaciones deben tener como mínimo 6 caracteres",
       accessDenied: "Acceso denegado",
-      fillPatCodeAndAttendance: "Rellena el código del paciente y el código de asistencia",
+      fillPatCodeAndAttendance:
+        "Rellena el código del paciente y el código de asistencia",
       patientCode: "Código del paciente",
       attendanceCode: "Código de asistencia",
       birthday: "Fecha de cumpleaños",
@@ -267,9 +289,10 @@ const resources = {
       diminished: "Disminuida",
       dailyMedicalReport: "Informe médico diario del paciente",
       bulletinsNotFound: "No se han encontrado los boletines",
-      loadHospitalsError: "No se ha podido cargar la lista de hospitales. Inténtalo de nuevo más tarde",
+      loadHospitalsError:
+        "No se ha podido cargar la lista de hospitales. Inténtalo de nuevo más tarde",
       emailSavingError:
-      "Error guardando correo electrónico: formato inválido o utilizado por otra empresa",
+        "Error guardando correo electrónico: formato inválido o utilizado por otra empresa",
       passwordSize: "La contraseña debe tener como mínimo 6 caracteres",
       hospitalInfo: "Información del hospital",
       email: "Correo electrónico",
@@ -315,9 +338,11 @@ const resources = {
       addHospital: "Añadir nuevo hospital",
       patientFamilyLogin: "Inicio de sesión para familias de pacientes",
       login: "Iniciar sesión",
-      corporateEmail: "Utiliza tu correo electrónico de empresa para crear una nueva cuenta",
+      corporateEmail:
+        "Utiliza tu correo electrónico de empresa para crear una nueva cuenta",
       alreadyHaveLogin: "¿Ya tienes una cuenta? Inicia sesión aquí",
-      accessTokenSent: "Se ha enviado un token de accesoa tu correo electrónico",
+      accessTokenSent:
+        "Se ha enviado un token de accesoa tu correo electrónico",
       send: "Enviar",
       hospitalLogin: "Inicio de sesión para hospitales",
       authenticationRequired:
@@ -328,7 +353,6 @@ const resources = {
       bulletinsDeleted: "boletín/es eliminados correctamente",
       couldNotDelete: "No se ha podido eliminar.",
     },
-  },
   },
   fr: {
     translation: {
@@ -377,7 +401,8 @@ const resources = {
       diminished: "Diminué",
       dailyMedicalReport: "Rapport médical quotidien",
       bulletinsNotFound: "Bulletin introuvable",
-      loadHospitalsError: "Impossible de charger la liste des hôpitaux. Essayer plus tard.",
+      loadHospitalsError:
+        "Impossible de charger la liste des hôpitaux. Essayer plus tard.",
       emailSavingError:
         "Erreur lors de l'enregistrement de l'e-mail: format invalide ou utilisé par une autre société",
       passwordSize: "Mot de passe doit contenir au moins 6 caractères",
@@ -419,13 +444,15 @@ const resources = {
       wrongIDOrToken: "Il y a un problème avec votre ID ou votre jeton",
       account: "Compte",
       settings: "Réglages",
-      wrongEmailOrPass: "Quelque chose ne va pas avec votre e-mail ou votre mot de passe",
+      wrongEmailOrPass:
+        "Quelque chose ne va pas avec votre e-mail ou votre mot de passe",
       wrongEmail: "Quelque chose ne va pas avec votre e-mail",
       forgotPassword: "Mot de passe oublié",
       addHospital: "Ajouter un nouvel hôpital",
       patientFamilyLogin: "Connexion de la famille du patient, cliquez ici",
       login: "Connexion",
-      corporateEmail: "Utilisez votre e-mail d'entreprise pour créer un nouveau compte",
+      corporateEmail:
+        "Utilisez votre e-mail d'entreprise pour créer un nouveau compte",
       alreadyHaveLogin: "Vous avez déjà un compte? Connectez-vous ici",
       accessTokenSent: "Un jeton d'accès a été envoyé à votre adresse e-mail",
       send: "Envoyer",
@@ -438,15 +465,19 @@ const resources = {
       bulletinsDeleted: "bulletin(s) supprimé(s) avec succès",
       couldNotDelete: "Impossible de supprimer",
     },
-  }
+  },
 };
 
-i18n.use(initReactI18next).init({
-  resources,
-  lng: "en",
-  interpolation: {
-    escapeValue: false,
-  },
-});
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    resources,
+    // lng: "en",
+    interpolation: {
+      escapeValue: false,
+    },
+    detection: options,
+  });
 
 export default i18n;
