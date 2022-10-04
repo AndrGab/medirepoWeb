@@ -3,12 +3,6 @@
 </h1>
 
 <h3 align="center">
-  Aplicação em React para distribuição de Boletins Médicos
-</h3>
-<p align="center">MediRepo faz a comunicação ser mais fácil entre o Hospital e os familiares dos pacientes</p>
-<p align="center">Essa aplicação front-end faz parte de um projeto pessoal chamado <b>MediREpo</b> que consome uma API escrita em Elixir criada para praticar a programação funcional.</p>
-
-<h3 align="center">
   React Application for Daily Medical Reports
 </h3>
 <p align="center">Making communication easier for Hospitals and Patients' Families.</p>
@@ -41,10 +35,6 @@ https://github.com/AndrGab/MediRepo
   </a>
 
 ## MediRepo
-
-A maioria dos hospitais hoje tem restrições de visitas para pacientes internados com COVID-19,
-Este é um projeto pessoal para facilitar o compartilhamento dos boletins médicos com os familiares
-destes pacientes.
 
 Most hospitals are restricting visitors for COVID-19 Patients.
 This is a personal project to help hospitals to share Daily Medical Reports with those patients' families.
@@ -107,16 +97,9 @@ git push origin branch-name
 - Create a new pull request from your forked repository (Click the `New Pull Request` button located at the top of your repo)
 - Wait for your PR review and merge approval!
 
-- **Please STAR this repository** if you had fun!
+- **Please ⭐️ STAR this repository** if you had fun!
 
 ## Features
-
-Com Medirepo, os hospitais podem se cadastrar e adicionar na plataforma relatórios diários sobre os pacientes.
-No momento da internação é só fornecer o Código do Paciente e a Senha para que os familiares tenham acesso a essas informações.
-
-- Sempre o último boletim ficará disponível.
-- Através da plataforma é possível incluir novos boletins, excluir, tirar relatórios...
-- Extras: Modo Escuro para melhor visualização da plataforma.
 
 With Medirepo, hospitals can register and add daily patient reports to the platform.
 At the time of admission, it is necessary to provide the Patient Code and Password to family members to have access to these bulletins.
@@ -127,19 +110,19 @@ At the time of admission, it is necessary to provide the Patient Code and Passwo
 
 ## Screenshots
 
-Login para Pacientes: / Patient Login:
+Patient Login:
 
 ![image](https://user-images.githubusercontent.com/57791712/127754661-4279dcd2-8252-45ac-adea-3684f0e28972.png)
 
-Visualização de Boletins: / Viewing Bulletins:
+Viewing Bulletins:
 
 ![image](https://user-images.githubusercontent.com/57791712/127754690-51a1033e-eb33-4c91-8ea2-08270263678a.png)
 
-Aplicação em funcionamento: / Application in operation:
+Application in operation:
 
 ![medirepo](https://user-images.githubusercontent.com/57791712/127754803-54cae4a3-7161-4fe6-989c-c4d6f962ec25.gif)
 
-Registro de Novos Hospitais: / Registration of New Hospitals:
+Registration of New Hospitals:
 
 ![image](https://user-images.githubusercontent.com/57791712/127754708-11d59452-8848-4e54-92cc-b3c18ff9e7d5.png)
 
