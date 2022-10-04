@@ -16,7 +16,8 @@ import OutlinedInput from "@material-ui/core/OutlinedInput";
 import { useUserDispatch, loginUser } from "../../context/UserContext";
 import api from "../../services/Api";
 import { toast } from "react-toastify";
-import AppBarMediRepo from '../components/AppBarMediRepo';
+import AppBarMediRepo from "../components/AppBarMediRepo";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -52,11 +53,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const notify = () =>
-  toast.info(
-    "O Login e Senha são informados no momento da internação. Procure a Recepção do Hospital"
-  );
-
 function SignIn() {
   var userDispatch = useUserDispatch();
 
@@ -67,6 +63,8 @@ function SignIn() {
   var [dt_nasc, setDtnasc] = useState("");
   var [id, setHospital] = useState("");
   var [listHosps, setlistHosp] = useState([]);
+  const { t } = useTranslation();
+  const notify = () => toast.info(t("askPatientLogin"));
 
   const history = useHistory();
 
@@ -78,11 +76,9 @@ function SignIn() {
       })
       .catch((err) => {
         console.log(err);
-        toast.error(
-          "Não foi possível carregar a lista de Hospitais. Tente mais tarde."
-        );
+        toast.error(t("loadHospitalsError"));
       });
-  }, []);
+  }, [t]);
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -106,7 +102,7 @@ function SignIn() {
       } catch (err) {
         console.log(err);
         setIsLoading(false);
-        toast.dark("Algo de errado com o Login ou Senha");
+        toast.dark(t("wrongEmailOrPass"));
       }
     }
   }
@@ -114,13 +110,13 @@ function SignIn() {
   return (
     <div>
       <div className={classes.root}>
-       <AppBarMediRepo />
+        <AppBarMediRepo />
       </div>{" "}
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           <ExitToAppIcon color="primary" />
           <Typography color="primary" component="h6" variant="button">
-            LOGIN{" "}
+            LOGIN
           </Typography>{" "}
           <form className={classes.form} noValidate onSubmit={handleLogin}>
             <TextField
@@ -129,7 +125,7 @@ function SignIn() {
               required
               fullWidth
               id="cod_pac"
-              label="Código do Paciente"
+              label={t("patientCode")}
               name="cod_pac"
               autoFocus
               onChange={(e) => setCodpac(e.target.value)}
@@ -140,7 +136,7 @@ function SignIn() {
               required
               fullWidth
               name="senha"
-              label="Senha"
+              label={t("password")}
               type="password"
               id="password"
               autoComplete="current-password"
@@ -153,10 +149,10 @@ function SignIn() {
               required
               fullWidth
               name="data_nasc"
-              label="Data de Nascimento"
+              label={t("birthday")}
               type="date"
               id="data_nasc"
-              autoComplete="data de nascimento"
+              autoComplete={t("birthday")}
               onChange={(e) => setDtnasc(e.target.value)}
             />
             <FormControl className={classes.formControl} variant="outlined">
@@ -201,18 +197,18 @@ function SignIn() {
                 color="primary"
                 className={classes.submit}
               >
-                ACESSAR{" "}
+                {t("login")}
               </Button>
             )}{" "}
             <Grid alignItems="center" container>
               <Grid item xs>
                 <Link href="#" onClick={notify} variant="body2">
-                  Esqueceu a Senha ?
+                  {t("forgotPassword")}?
                 </Link>
               </Grid>
               <Grid item>
                 <Link href="/hospitals/login" variant="body2">
-                  Login para Hospitais, clique aqui{" "}
+                  {t("hospitalLogin")}
                 </Link>
               </Grid>
             </Grid>

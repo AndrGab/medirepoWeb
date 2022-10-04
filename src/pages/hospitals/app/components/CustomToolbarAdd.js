@@ -5,25 +5,24 @@ import AddIcon from "@material-ui/icons/Add";
 import { withStyles } from "@material-ui/core/styles";
 
 const defaultToolbarStyles = {
-    iconButton: {
-    },
+  iconButton: {},
 };
 
 class CustomToolbarAdd extends React.Component {
-
-    render() {
-        const { classes, data } = this.props;
-        return (
-            <React.Fragment>
-                <Tooltip title={"Adicionar"}>
-                    <IconButton className={classes.iconButton} onClick={data}>
-                        <AddIcon className={classes.deleteIcon} />
-                    </IconButton>
-                </Tooltip>
-            </React.Fragment>
-        );
-    }
-
+  render() {
+    const { classes, data, toolTip } = this.props;
+    return (
+      <React.Fragment>
+        <Tooltip title={toolTip}>
+          <IconButton className={classes.iconButton} onClick={data}>
+            <AddIcon className={classes.deleteIcon} />
+          </IconButton>
+        </Tooltip>
+      </React.Fragment>
+    );
+  }
 }
 
-export default withStyles(defaultToolbarStyles, { name: "CustomToolbarAdd" })(CustomToolbarAdd);
+export default withStyles(defaultToolbarStyles, { name: "CustomToolbarAdd" })(
+  CustomToolbarAdd
+);

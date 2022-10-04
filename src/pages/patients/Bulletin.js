@@ -1,31 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
-import { TextField, Card, CardHeader } from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import api from '../../services/Api';
-import { toast } from 'react-toastify';
-import AppBarMediRepo from '../components/AppBarMediRepo';
-
+import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router-dom";
+import { TextField, Card, CardHeader } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import api from "../../services/Api";
+import { toast } from "react-toastify";
+import AppBarMediRepo from "../components/AppBarMediRepo";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   card: {
-    paddingTop: '10px',
-    paddingLeft: '20px',
-    paddingRight: '20px',
-    paddingBottom: '20px',
+    paddingTop: "10px",
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    paddingBottom: "20px",
   },
   img: {
     width: 100,
     marginRight: theme.spacing(4),
-
   },
   root: {
     flexGrow: 1,
@@ -36,38 +35,34 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function BulletinView() {
-
   const classes = useStyles();
   const token = localStorage.getItem("token");
   var [listBulletin, setlistBulletin] = useState([]);
-
+  const { t } = useTranslation();
 
   useEffect(() => {
     api
       .get("/patients/view", {
         headers: {
-          'Authorization': 'Bearer ' + token
-        }
+          Authorization: "Bearer " + token,
+        },
       })
-      .then(response => {
+      .then((response) => {
         setlistBulletin([response.data.bulletin]);
       })
-      .catch(error => {
-        toast.dark("Autenticação necessária. Use o Login/Senha recebido.");
+      .catch((error) => {
+        toast.dark(t("authenticationRequired"));
 
         if (error.response) {
           console.log(error.response.status);
-
         } else if (error.request) {
           console.log(error.request);
-
         } else {
-          console.log('Error', error.message);
+          console.log("Error", error.message);
         }
         console.log(error.config);
       });
-  }, [token]);
-
+  }, [token, t]);
 
   return (
     <div>
@@ -77,107 +72,110 @@ function BulletinView() {
       <Container component="main" maxWidth="md">
         <div className={classes.paper}>
           <Card className={classes.card}>
-            <CardHeader titleTypographyProps={{ variant: 'h6' }} title="BOLETIM MÉDICO" subheader="Boletim Diário do Paciente" />
+            <CardHeader
+              titleTypographyProps={{ variant: "h6" }}
+              title={t("medicalReport")}
+              subheader={t("dailyMedicalReport")}
+            />
 
-
-            {listBulletin.map(listBul => (
+            {listBulletin.map((listBul) => (
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     id="Nome"
                     name="Nome"
-                    label="Nome do Paciente"
+                    label={t("patientName")}
                     fullWidth
                     variant="outlined"
                     InputProps={{
                       readOnly: true,
                     }}
-                    value={listBul.nome} />
+                    value={listBul.name}
+                  />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     id="dtnasc"
                     name="dtnasc"
                     type="date"
-                    label="Data de Nascimento"
+                    label={t("birthday")}
                     fullWidth
                     variant="outlined"
                     InputProps={{
                       readOnly: true,
                     }}
-                    value={listBul.dt_nascimento}
+                    value={listBul.dt_birth}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     id="geral"
                     name="gera"
-                    label="Estado Geral"
+                    label={t("generalCondition")}
                     fullWidth
                     variant="outlined"
                     InputProps={{
                       readOnly: true,
                     }}
-                    value={listBul.geral}
+                    value={listBul.general}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     id="pressao"
                     name="pressao"
-                    label="Pressão Arterial"
+                    label={t("bloodPressure")}
                     fullWidth
                     variant="outlined"
                     InputProps={{
                       readOnly: true,
                     }}
-                    value={listBul.pressao}
+                    value={listBul.pressure}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     id="consciencia"
                     name="consciencia"
-                    label="Nível de Consciencia"
+                    label={t("consciousnessLevel")}
                     fullWidth
                     variant="outlined"
                     InputProps={{
                       readOnly: true,
                     }}
-                    value={listBul.consciencia}
+                    value={listBul.conscience}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     id="febre"
                     name="febre"
-                    label="Febre"
+                    label={t("fever")}
                     fullWidth
                     variant="outlined"
                     InputProps={{
                       readOnly: true,
                     }}
-                    value={listBul.febre}
+                    value={listBul.fever}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
-                    id="respiracao"
-                    name="respiracao"
-                    label="Respiração"
+                    id="respiracafecao"
+                    label={t("respiration")}
                     fullWidth
                     variant="outlined"
                     InputProps={{
                       readOnly: true,
                     }}
-                    value={listBul.respiracao}
+                    value={listBul.respiration}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     id="diurese"
                     name="diurese"
-                    label="Diurese"
+                    label={t("diuresis")}
                     fullWidth
                     variant="outlined"
                     InputProps={{
@@ -190,49 +188,47 @@ function BulletinView() {
                   <TextField
                     id="obs"
                     name="obs"
-                    label="Observações"
+                    label={t("observations")}
                     fullWidth
                     variant="outlined"
                     InputProps={{
                       readOnly: true,
                     }}
-                    value={listBul.obs}
+                    value={listBul.notes}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     id="medico"
                     name="medico"
-                    label="Nome do Médico"
+                    label={t("doctorName")}
                     fullWidth
                     variant="outlined"
                     InputProps={{
                       readOnly: true,
                     }}
-                    value={listBul.medico}
+                    value={listBul.doctor}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     id="data"
                     name="data"
-                    label="Data do Boletim"
+                    label={t("signedAt")}
                     fullWidth
                     type="date"
                     variant="outlined"
                     InputProps={{
                       readOnly: true,
                     }}
-                    value={listBul.dt_assinatura}
+                    value={listBul.dt_signature}
                   />
                 </Grid>
               </Grid>
             ))}
-
           </Card>
         </div>
       </Container>
-
     </div>
   );
 }

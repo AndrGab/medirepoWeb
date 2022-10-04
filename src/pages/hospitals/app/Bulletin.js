@@ -5,28 +5,26 @@ import { toast } from "react-toastify";
 import api from "../../../services/Api";
 import { useUserDispatch, signOut } from "../../../context/UserContext";
 import MUIDataTable from "mui-datatables";
-import Modal from '@material-ui/core/Modal';
+import Modal from "@material-ui/core/Modal";
 import BulletinsView from "./components/BulletinView";
 import BulletinsAdd from "./components/BulletinAdd";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 import CustomToolbarAdd from "./components/CustomToolbarAdd";
+import { useTranslation } from "react-i18next";
 
 const useModalStyles = makeStyles((theme) => ({
-
   title: {
-    flex: '1 1 100%',
+    flex: "1 1 100%",
   },
   paper: {
-    position: 'absolute',
-    width: '80%',
+    position: "absolute",
+    width: "80%",
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
-
 }));
-
 
 function Bulletin() {
   const [rows, setRows] = React.useState([]);
@@ -38,9 +36,9 @@ function Bulletin() {
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
   const [openAdd, setOpenAdd] = React.useState(false);
-  const [selected, setSelected] = React.useState('');
+  const [selected, setSelected] = React.useState("");
   const classes = useModalStyles();
-
+  const { t } = useTranslation();
 
   const handleOpen = () => {
     setOpen(true);
@@ -84,10 +82,12 @@ function Bulletin() {
     console.log(rejected);
 
     if (fulfilled.length > 0) {
-      toast.success(fulfilled.length + " boletim(s) apagado(s) com sucesso");
+      toast.success(fulfilled.length + " " + t("bulletinsDeleted"));
     }
     if (rejected.length > 0) {
-      toast.error("Não foi possível apagar " + rejected.length + " boletim(s)");
+      toast.error(
+        t("couldNotDelete") + " " + rejected.length + " " + t("bulletins")
+      );
     }
     fetchData();
   }
@@ -107,11 +107,11 @@ function Bulletin() {
       .catch((error) => {
         if (error.response) {
           if (error.response.status === 401) {
-            toast.error("Acesso Negado!");
+            toast.error(t("accessDenied"));
             signOut(userDispatch, history);
           }
           if (error.response.status === 404) {
-            toast.warning("Não há boletins cadastrados!");
+            toast.warning(t("bulletinsNotFound"));
           }
         } else if (error.request) {
           console.log(error.request);
@@ -144,81 +144,79 @@ function Bulletin() {
     },
     textLabels: {
       body: {
-        noMatch: "Desculpe, nenhum boletim encontrado",
-        toolTip: "Ordenar",
-        columnHeaderTooltip: (column) => `Ordernar por ${column.label}`,
+        noMatch: t("bulletinsNotFound"),
+        toolTip: t("sort"),
+        columnHeaderTooltip: (column) => `${t("sortBy")} ${column.label}`,
       },
       pagination: {
-        next: "Próxima Página",
-        previous: "Página Anterior",
-        rowsPerPage: "Linhas por Página:",
-        displayRows: "de",
+        next: t("nextPage"),
+        previous: t("previousPage"),
+        rowsPerPage: t("rowsPerPage"),
+        displayRows: t("of"),
       },
       toolbar: {
-        search: "Buscar",
-        downloadCsv: "Download CSV",
-        print: "Imprimir",
-        viewColumns: "Visualizar Colunas",
-        filterTable: "Filtrar Tabela",
+        search: t("search"),
+        downloadCsv: t("downloadCsv"),
+        print: t("print"),
+        viewColumns: t("viewColumns"),
+        filterTable: t("filterTable"),
       },
       filter: {
-        all: "Todos",
-        title: "FILTROS",
-        reset: "LIMPAR",
+        all: t("all"),
+        title: t("filters"),
+        reset: t("reset"),
       },
       viewColumns: {
-        title: "Mostrar Colunas",
-        titleAria: "Esconder/Mostrar Colunas",
+        title: t("viewColumns"),
+        titleAria: t("viewHideColumns"),
       },
       selectedRows: {
-        text: "linha(s) selecionada(s)",
-        delete: "Apagar",
-        deleteAria: "Apagar Linhas Selecionadas",
+        text: t("selectedRows"),
+        delete: t("delete"),
+        deleteAria: t("deleteSelectedRows"),
       },
     },
     customToolbar: () => {
-      return (
-        <CustomToolbarAdd data={handleOpenAdd} />
-      );
-    }
+      return <CustomToolbarAdd data={handleOpenAdd} toolTip={t("add")} />;
+    },
   };
 
   const columns = [
     {
-      name: "cd_paciente",
-      label: "Código Prontuário",
+      name: "cd_patient",
+      label: t("patientCode"),
       options: {
         filter: true,
         sort: true,
       },
     },
     {
-      name: "atendimento",
-      label: "Código Atendimento",
+      name: "attendance",
+      label: t("attendanceCode"),
       options: {
         filter: true,
         sort: true,
       },
     },
     {
-      name: "nome",
-      label: "Nome do Paciente",
+      name: "name",
+      label: t("patientName"),
       options: {
         filter: true,
         sort: true,
       },
     },
     {
-      name: "dt_nascimento",
-      label: "Data Nascimento",
+      name: "dt_birth",
+      label: t("birthday"),
       options: {
         filter: true,
         sort: true,
       },
     },
     {
-      name: "dt_assinatura",
-      label: "Data Boletim",
+      name: "dt_signature",
+      label: t("signedAt"),
       options: {
         filter: true,
         sort: true,
@@ -228,10 +226,10 @@ function Bulletin() {
 
   function getModalStyle() {
     return {
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      position: 'absolute'
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      position: "absolute",
     };
   }
 
@@ -240,7 +238,7 @@ function Bulletin() {
       <MUIDataTable
         title={
           <Typography variant="h6">
-            Boletins{" "}
+            {t("bulletins")}
             {isLoading && (
               <CircularProgress
                 size={24}
@@ -258,8 +256,7 @@ function Bulletin() {
         onClose={handleClose}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
-        style={{ overflow: 'scroll' }}
-
+        style={{ overflow: "scroll" }}
       >
         <div style={modalStyle} className={classes.paper}>
           <BulletinsView bulletinId={selected} />
@@ -270,7 +267,7 @@ function Bulletin() {
         onClose={handleCloseAdd}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
-        style={{ overflow: 'scroll' }}
+        style={{ overflow: "scroll" }}
       >
         <div style={modalStyle} className={classes.paper}>
           <BulletinsAdd />
