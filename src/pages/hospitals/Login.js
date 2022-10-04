@@ -93,7 +93,7 @@ function Login() {
         <div className={classes.paper}>
           <ExitToAppIcon color="primary" />
           <Typography color="primary" component="h6" variant="button">
-            LOGIN
+            {t("login")}
           </Typography>
           <form className={classes.form} noValidate onSubmit={handleLogin}>
             <TextField
