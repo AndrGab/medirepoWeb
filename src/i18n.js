@@ -4,6 +4,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import contentCn from './locales/cn/content.json';
 import contentDe from './locales/de/content.json';
 import contentEn from './locales/en/content.json';
+import contentEo from './locales/eo/content.json';
 import contentEs from './locales/es/content.json';
 import contentFi from './locales/fi/content.json';
 import contentFr from './locales/fr/content.json';
@@ -49,6 +50,7 @@ const resources = {
   cn: contentCn,
   de: contentDe,
   en: contentEn,
+  eo: contentEo,
   es: contentEs,
   fi: contentFi,
   fr: contentFr,
@@ -90,6 +92,7 @@ export const localesList = [
   { locale: 'de', description: 'German' },
   { locale: 'nl', description: 'Dutch' },
   { locale: 'en', description: 'English' },
+  { locale: 'eo', description: 'Esperanto' },
   { locale: 'es', description: 'Español' },
   { locale: 'fi', description: 'Finnish' },
   { locale: 'fr', description: 'Français' },
