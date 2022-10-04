@@ -25,8 +25,14 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: "20px",
     paddingBottom: "10px",
   },
+  div: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   img: {
-    width: 100,
+    width: "50%",
     marginRight: theme.spacing(2),
   },
   form: {
@@ -96,7 +102,9 @@ function Dashboard() {
       <Container component="main" maxWidth="md">
         <div className={classes.paper}>
           <Card flexrow="true" className={classes.card}>
-            <img src={LogoImg} alt="MediRepo" />
+            <div className={classes.div}>
+              <img src={LogoImg} alt="MediRepo" className={classes.img} />
+            </div>
             <Typography align="center" variant="h6">
               {t("welcome")}, {name}
             </Typography>
