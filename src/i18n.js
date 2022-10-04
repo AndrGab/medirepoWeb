@@ -131,6 +131,7 @@ const resources = {
       couldNotDelete: "Could not delete",
     },
   },
+
   pt: {
     translation: {
       medicalReport: "Boletim Médico",
@@ -241,6 +242,7 @@ const resources = {
       couldNotDelete: "Não foi possível apagar",
     },
   },
+
   es: {
     translation: {
       medicalReport: "Informe médico",
@@ -354,6 +356,7 @@ const resources = {
       couldNotDelete: "No se ha podido eliminar.",
     },
   },
+
   fr: {
     translation: {
       medicalReport: "Rapport médical",
@@ -478,6 +481,7 @@ i18n
       escapeValue: false,
     },
     detection: options,
+    fallbackLng: "en",
   });
 
 export default i18n;
