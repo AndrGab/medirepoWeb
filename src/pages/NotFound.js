@@ -1,9 +1,52 @@
-import image from "../assets/404.jpg";
+import React from "react";
+import { withRouter } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import image from "../assets/Monster404.svg";
+import Grid from "@material-ui/core/Grid";
+import Link from "@material-ui/core/Link";
+import { useTranslation } from "react-i18next";
 
-export default function NotFound() {
+const useStyles = makeStyles((theme) => ({
+  img: {
+    width: "30%",
+    marginRight: theme.spacing(2),
+  },
+  div: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+}));
+
+function NotFound() {
+  const classes = useStyles();
+  const { t } = useTranslation();
+
   return (
-    <div style={"display: flex; justify-content: center; align-items: center;"}>
-      <img src={image} width={"70%"} height={"70%"} />
+    <div>
+      <div className={classes.div}>
+        <img alt="Page not Found" src={image} className={classes.img} />
+      </div>
+
+      <Grid
+        alignItems="center"
+        direction="column"
+        justifyContent="center"
+        container
+      >
+        <Grid item xs>
+          <Link href="/patients/login" variant="body2">
+            {t("patientFamilyLogin")}
+          </Link>
+        </Grid>
+        <Grid item xs>
+          <Link href="/hospitals/login" variant="body2">
+            {t("hospitalLogin")}
+          </Link>
+        </Grid>
+      </Grid>
     </div>
   );
 }
+export default withRouter(NotFound);

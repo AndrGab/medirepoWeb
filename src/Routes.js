@@ -22,7 +22,6 @@ export default function Routes() {
           path="/"
           render={() => <Redirect to="/patients/login" />}
         />
-        <Route exact path="*" render={() => <NotFound />} />
 
         <PrivateRoute path="/patients/bulletin" component={Bulletin} />
         <PrivateRoute path="/hospitals/app" component={Layout} />
@@ -35,6 +34,7 @@ export default function Routes() {
           path="/hospitals/fastlogin/:id/:resetToken"
           component={FastLogin}
         />
+        <Route exact path="*" render={() => <NotFound />} />
       </Switch>
     </BrowserRouter>
   );

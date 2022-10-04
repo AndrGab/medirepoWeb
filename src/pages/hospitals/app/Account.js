@@ -82,7 +82,7 @@ function Account() {
           },
         });
         setIsLoading(false);
-        toast.success("Alteração gravada com sucesso");
+        toast.success("Done!");
       } catch (err) {
         setIsLoading(false);
 
