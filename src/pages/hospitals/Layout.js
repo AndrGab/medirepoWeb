@@ -34,6 +34,7 @@ import SettingsPage from "./app/Settings";
 import AccountPage from "./app/Account";
 import DashboardPage from "./app/Dashboard";
 import BulletinPage from "./app/Bulletin";
+import NotFound from "../NotFound";
 import { useDarkState } from "../../context/ThemeContext";
 import { useTranslation } from "react-i18next";
 
@@ -222,6 +223,7 @@ export default function Layout() {
             <Route exact path="/hospitals/app/bulletin" render={BulletinPage} />
             <Route exact path="/hospitals/app/settings" render={SettingsPage} />
             <Route exact path="/hospitals/app/account" render={AccountPage} />
+            <Route exact path="*" render={() => <NotFound />} />
           </Switch>
         ) : (
           signOut(userDispatch, history)

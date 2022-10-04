@@ -36,13 +36,8 @@ function NotFound() {
         container
       >
         <Grid item xs>
-          <Link href="/patients/login" variant="body2">
-            {t("patientFamilyLogin")}
-          </Link>
-        </Grid>
-        <Grid item xs>
-          <Link href="/hospitals/login" variant="body2">
-            {t("hospitalLogin")}
+          <Link href="/" variant="body2">
+            {t("medicalReport")}
           </Link>
         </Grid>
       </Grid>
