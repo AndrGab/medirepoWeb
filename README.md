@@ -45,6 +45,26 @@ This is a personal project to help hospitals to share Daily Medical Reports with
     https://medirepo.vercel.app/
   </a>
   
+## Guide to set up locally
+
+1. Fork the project and then clone it to your computer
+```
+git clone git@github.com:<your-user-name>/medirepoWeb.git
+```
+
+2. Install libs
+```
+npm install
+```
+
+3. Start the project
+```
+npm start
+```
+
+PS: You can create an environment variable like ``` .env-sample ``` file in the project root folder to set the backend host.
+
+  
 # 🎃 HacktoberFest 2022 🎃
 
 If you came here for Hacktoberfest 🦇️:
