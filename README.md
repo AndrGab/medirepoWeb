@@ -34,7 +34,7 @@ Access the API repository:
 https://github.com/AndrGab/MediRepo
   </a>
 
-## MediRepo
+## MediRepo 📝
 
 Most hospitals are restricting visitors for COVID-19 Patients.
 This is a personal project to help hospitals to share Daily Medical Reports with those patients' families.
@@ -73,7 +73,7 @@ Celebrate [Hacktoberfest](https://hacktoberfest.com/) by getting involved in the
 
 This repository is open to all members of the GitHub community. Any member may contribute to this project without being a collaborator.
 
-## Contributions
+## Contributions 🤝
 
 You can contribute to this project including:
 
@@ -90,7 +90,7 @@ Feel free to contribute!
 
 [https://hacktoberfest.com/](https://hacktoberfest.com/)
 
-## Getting started
+## Getting started ✨
 
 - Fork this repository (Click the Fork button in the top right of this page, click your Profile Image)
 - Clone your fork down to your local machine
@@ -119,7 +119,7 @@ git push origin branch-name
 
 - **Please ⭐️ STAR this repository** if you had fun!
 
-## Features
+## Features 📜
 
 With Medirepo, hospitals can register and add daily patient reports to the platform.
 At the time of admission, it is necessary to provide the Patient Code and Password to family members to have access to these bulletins.
@@ -128,7 +128,7 @@ At the time of admission, it is necessary to provide the Patient Code and Passwo
 - Through the platform, it is possible to include new bulletins, delete, print reports...
 - Extras: Dark Mode for better viewing of the platform.
 
-## Screenshots
+## Screenshots 🖼️
 
 Patient Login:
 
