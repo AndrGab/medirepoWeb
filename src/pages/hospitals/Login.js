@@ -4,7 +4,6 @@ import Button from "@material-ui/core/Button";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
@@ -91,8 +90,7 @@ function Login() {
       </div>
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
-          <ExitToAppIcon color="primary" />
-          <Typography color="primary" component="h6" variant="button">
+          <Typography color="primary" component="h1" variant="h4">
             {t("login")}
           </Typography>
           <form className={classes.form} noValidate onSubmit={handleLogin}>
