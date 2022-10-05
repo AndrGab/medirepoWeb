@@ -7,7 +7,6 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import Link from "@material-ui/core/Link";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
@@ -114,9 +113,8 @@ function SignIn() {
       </div>{" "}
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
-          <ExitToAppIcon color="primary" />
-          <Typography color="primary" component="h6" variant="button">
-            LOGIN
+          <Typography color="primary" component="h1" variant="h4">
+            Patient Sign In
           </Typography>{" "}
           <form className={classes.form} noValidate onSubmit={handleLogin}>
             <TextField
