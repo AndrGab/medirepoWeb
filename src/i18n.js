@@ -21,7 +21,7 @@ const options = {
   lookupFromSubdomainIndex: 0,
 };
 
-const resources = {
+export const resources = {
   en: {
     translation: {
       medicalReport: "Medical Report",
