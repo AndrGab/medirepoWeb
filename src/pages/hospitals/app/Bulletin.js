@@ -142,6 +142,7 @@ function Bulletin() {
       });
       BulletinsDelete(bulletinList);
     },
+    download: rows.length ? true : 'disabled',
     textLabels: {
       body: {
         noMatch: t("bulletinsNotFound"),
