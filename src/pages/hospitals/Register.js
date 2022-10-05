@@ -3,7 +3,6 @@ import { useHistory, withRouter } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import TextField from "@material-ui/core/TextField";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
@@ -109,8 +108,8 @@ function RegisterHospital() {
       </div>
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
-          <ExitToAppIcon color="primary" />
-          <Typography color="primary" component="h6" variant="h6">
+
+          <Typography color="primary" component="h1" variant="h4">
             {t("addHospital")}
           </Typography>
 

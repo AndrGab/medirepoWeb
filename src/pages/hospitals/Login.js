@@ -91,7 +91,7 @@ function Login() {
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           <Typography color="primary" component="h1" variant="h4">
-            {t("Hospital Sign In")}
+            {t("login")}
           </Typography>
           <form className={classes.form} noValidate onSubmit={handleLogin}>
             <TextField
