@@ -59,7 +59,7 @@ export const localesList = [
   { locale: "en", description: "English" },
   { locale: "es", description: "Español" },
   { locale: "fi", description: "Finnish" },
-  { locale: "fr", description: "France" },
+  { locale: "fr", description: "Français" },
   { locale: "id", description: "Indonesian" },
   { locale: "mr", description: "Marathi" },
   { locale: "pl", description: "Polish" },
