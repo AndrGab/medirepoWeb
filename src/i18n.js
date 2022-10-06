@@ -16,6 +16,7 @@ import contentPt from "./locales/pt/content.json";
 import contentTa from "./locales/ta/content.json";
 import contentPa from "./locales/pa/content.json";
 import contentHi from "./locales/hi/content.json";
+import contentBn from "./locales/bn/content.json";
 
 const options = {
   order: [
@@ -50,6 +51,7 @@ export const resources = {
   ta: contentTa,
   pa: contentPa,
   hi: contentHi,
+  bn: contentBn,
 };
 
 // Feel free to translate the language name
@@ -57,9 +59,9 @@ export const localesList = [
   { locale: "cn", description: "Mandarin" },
   { locale: "de", description: "German" },
   { locale: "en", description: "English" },
-  { locale: "es", description: "Spanish" },
+  { locale: "es", description: "Español" },
   { locale: "fi", description: "Finnish" },
-  { locale: "fr", description: "France" },
+  { locale: "fr", description: "Français" },
   { locale: "id", description: "Indonesian" },
   { locale: "mr", description: "Marathi" },
   { locale: "pl", description: "Polish" },
@@ -68,6 +70,7 @@ export const localesList = [
   { locale: "pa", description: "Punjabi" },
   { locale: "hi", description: "Hindi" },
   { locale: "ar", description: "Arabic" },
+  { locale: "bn", description: "Bengali" },
 ];
 
 i18n
