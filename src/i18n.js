@@ -18,6 +18,7 @@ import contentPa from "./locales/pa/content.json";
 import contentHi from "./locales/hi/content.json";
 import contentBn from "./locales/bn/content.json";
 import contentAr from "./locales/ar/content.json";
+import contentAr from "./locales/no/content.json";
 
 
 const options = {
@@ -55,6 +56,7 @@ const resources = {
   hi: contentHi,
   bn: contentBn,
   ar: contentAr,
+  no: contentNo,
 
 };
 
@@ -75,6 +77,7 @@ export const localesList = [
   { locale: "hi", description: "Hindi" },
   { locale: "ar", description: "Arabic" },
   { locale: "bn", description: "Bengali" },
+  { locale: "no", description: "Norsk" },
 ];
 
 i18n
