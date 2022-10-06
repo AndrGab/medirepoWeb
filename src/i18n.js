@@ -67,6 +67,7 @@ export const localesList = [
   { locale: "ta", description: "Tamil" },
   { locale: "pa", description: "Punjabi" },
   { locale: "hi", description: "Hindi" },
+  { locale: "ar", description: "Arabic" },
 ];
 
 i18n
