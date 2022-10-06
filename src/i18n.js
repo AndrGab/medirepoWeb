@@ -1,3 +1,5 @@
+/** @format */
+
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
@@ -12,6 +14,8 @@ import contentMr from "./locales/mr/content.json";
 import contentPl from "./locales/pl/content.json";
 import contentPt from "./locales/pt/content.json";
 import contentTa from "./locales/ta/content.json";
+import contentPa from "./locales/pa/content.json";
+import contentHi from "./locales/hi/content.json";
 
 const options = {
   order: [
@@ -44,6 +48,8 @@ export const resources = {
   pl: contentPl,
   pt: contentPt,
   ta: contentTa,
+  pa: contentPa,
+  hi: contentHi,
 };
 
 // Feel free to translate the language name
@@ -59,6 +65,8 @@ export const localesList = [
   { locale: "pl", description: "Polish" },
   { locale: "pt", description: "Português" },
   { locale: "ta", description: "Tamil" },
+  { locale: "pa", description: "Punjabi" },
+  { locale: "hi", description: "Hindi" },
 ];
 
 i18n
