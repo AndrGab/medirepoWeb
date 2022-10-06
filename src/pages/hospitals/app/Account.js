@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, withRouter } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { Card, CardHeader, Box } from "@material-ui/core";
+import { Card, CardHeader, Box, CircularProgress } from "@material-ui/core";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
@@ -58,6 +58,7 @@ function Account() {
   const history = useHistory();
   const classes = useStyles();
   var [isLoading, setIsLoading] = useState(false);
+  const [dataLoading, setDataLoading] = useState(false);
   var [name, setName] = useState("");
   var [email, setEmail] = useState("");
   const token = localStorage.getItem("token");
@@ -107,6 +108,7 @@ function Account() {
   }
 
   useEffect(() => {
+    setDataLoading(true);
     api
       .get("hospitals", {
         headers: {
@@ -116,6 +118,7 @@ function Account() {
       .then((response) => {
         setName(response.data.hospital.name);
         setEmail(response.data.hospital.email);
+        setDataLoading(false); // seting data loader to false after fetching data from API
       })
       .catch((error) => {
         if (error.response) {
@@ -129,66 +132,80 @@ function Account() {
     <div>
       <Container component="main">
         <div className={classes.paper}>
-          <form className={classes.form} noValidate onSubmit={handleRegister}>
-            <Card className={classes.card}>
-              <CardHeader
-                titleTypographyProps={{ variant: "h6" }}
-                title={t("hospitalInfo")}
-                subheader={t("dataUpdate")}
-              />
+          {dataLoading ? (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+                height: "100%",
+              }}
+            >
+              <CircularProgress />
+            </div>
+          ) : (
+            <form className={classes.form} noValidate onSubmit={handleRegister}>
+              <Card className={classes.card}>
+                <CardHeader
+                  titleTypographyProps={{ variant: "h6" }}
+                  title={t("hospitalInfo")}
+                  subheader={t("dataUpdate")}
+                />
 
-              <TextField
-                InputLabelProps={{ shrink: true }}
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="name"
-                label={t("hospitalName")}
-                name="name"
-                autoFocus
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <TextField
-                InputLabelProps={{ shrink: true }}
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                type="email"
-                label={t("email")}
-                name="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
+                <TextField
+                  InputLabelProps={{ shrink: true }}
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="name"
+                  label={t("hospitalName")}
+                  name="name"
+                  autoFocus
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <TextField
+                  InputLabelProps={{ shrink: true }}
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  type="email"
+                  label={t("email")}
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
 
-              {isLoading ? (
-                <LinearProgress className={classes.progress} />
-              ) : (
-                <>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "flex-end",
-                      p: 2,
-                    }}
-                  >
-                    <Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      color="primary"
-                      className={classes.submit}
+                {isLoading ? (
+                  <LinearProgress className={classes.progress} />
+                ) : (
+                  <>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        p: 2,
+                      }}
                     >
-                      {t("update")}
-                    </Button>
-                  </Box>
-                </>
-              )}
-            </Card>
-          </form>
+                      <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
+                      >
+                        {t("update")}
+                      </Button>
+                    </Box>
+                  </>
+                )}
+              </Card>
+            </form>
+          )}
         </div>
       </Container>
     </div>
