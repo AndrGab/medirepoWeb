@@ -90,8 +90,8 @@ function Login() {
       </div>
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
-          <Typography color="primary" component="h1" variant="h4">
-            {t("login")}
+          <Typography color="primary" component="h6" variant="button">
+            HOSPITAL LOGIN
           </Typography>
           <form className={classes.form} noValidate onSubmit={handleLogin}>
             <TextField
@@ -133,7 +133,7 @@ function Login() {
             <Grid alignItems="center" container>
               <Grid item xs={12}>
                 <Link href="/hospitals/reset" variant="body2">
-                  {t("forgotPassword")}
+                  {t("forgotPassword")}?
                 </Link>
               </Grid>
               <Grid item xs={12}>
