@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import i18n from "i18next";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from '@material-ui/core/IconButton';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import TranslateIcon from '@material-ui/icons/Translate';
+import IconButton from "@material-ui/core/IconButton";
+import MenuItem from "@material-ui/core/MenuItem";
+import Menu from "@material-ui/core/Menu";
+import TranslateIcon from "@material-ui/icons/Translate";
 import MedirepoIconW from "../../assets/medirepo-white.png";
 import MedirepoIconB from "../../assets/medirepo-black.png";
 import { useHistory, withRouter } from "react-router-dom";
@@ -19,9 +19,7 @@ import {
 } from "../../context/UserContext";
 import { useDarkState } from "../../context/ThemeContext";
 import { useTranslation } from "react-i18next";
-import { resources } from '../../i18n';
-
-const languages = Object.keys(resources);
+import { localesList } from "../../i18n";
 
 const useStyles = makeStyles((theme) => ({
   img: {
@@ -51,10 +49,10 @@ function AppBarMediRepo(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const handelLanguage = (lang) => {
+  const handleLanguage = (lang) => {
     i18n.changeLanguage(lang);
     handleClose();
-  }
+  };
 
   return (
     <AppBar color="inherit" position="static">
@@ -80,24 +78,25 @@ function AppBarMediRepo(props) {
           id="menu-appbar"
           anchorEl={anchorEl}
           anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
+            vertical: "top",
+            horizontal: "right",
           }}
           keepMounted
           transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
+            vertical: "top",
+            horizontal: "right",
           }}
           open={open}
           onClose={handleClose}
         >
-          {languages.map(lang =>
+          {localesList.map((localesList) => (
             <MenuItem
-              key={lang}
-              onClick={() => handelLanguage(lang)}>
-              {lang}
+              key={localesList.locale}
+              onClick={() => handleLanguage(localesList.locale)}
+            >
+              {localesList.description}
             </MenuItem>
-          )}
+          ))}
         </Menu>
         {isAuthenticated && (
           <Button

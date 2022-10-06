@@ -84,8 +84,8 @@ function FastLogin() {
       </div>
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
-          <Typography color="primary" component="h1" variant="h4">
-            Fast Login
+          <Typography color="primary" component="h6" variant="button">
+            FAST LOGIN
           </Typography>
         </div>
       </Container>

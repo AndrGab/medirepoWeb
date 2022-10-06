@@ -113,9 +113,9 @@ function SignIn() {
       </div>{" "}
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
-          <Typography color="primary" component="h1" variant="h4">
-            Patient Login
-          </Typography>{" "}
+          <Typography color="primary" component="h6" variant="button">
+            PATIENT LOGIN
+          </Typography>
           <form className={classes.form} noValidate onSubmit={handleLogin}>
             <TextField
               variant="outlined"
@@ -158,7 +158,7 @@ function SignIn() {
                 htmlFor="nascimento"
                 id="simple-select-outlined-label"
               >
-                Hospital{" "}
+                Hospital
               </InputLabel>
               <Select
                 labelId="simple-select-outlined-label"
