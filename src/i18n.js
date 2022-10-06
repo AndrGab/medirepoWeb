@@ -16,8 +16,8 @@ import contentPa from "./locales/pa/content.json";
 import contentHi from "./locales/hi/content.json";
 import contentBn from "./locales/bn/content.json";
 import contentAr from "./locales/ar/content.json";
+import contentGu from "./locales/gu/content.json";
 import contentNo from "./locales/no/content.json";
-
 
 const options = {
   order: [
@@ -54,8 +54,8 @@ const resources = {
   hi: contentHi,
   bn: contentBn,
   ar: contentAr,
+  gu: contentGu,
   no: contentNo,
-
 };
 
 // Feel free to translate the language name
@@ -75,6 +75,7 @@ export const localesList = [
   { locale: "hi", description: "Hindi" },
   { locale: "ar", description: "Arabic" },
   { locale: "bn", description: "Bengali" },
+  { locale: "gu", description: "Gujarati" },
   { locale: "no", description: "Norsk" },
 ];
 
