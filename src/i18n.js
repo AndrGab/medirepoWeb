@@ -17,6 +17,8 @@ import contentTa from "./locales/ta/content.json";
 import contentPa from "./locales/pa/content.json";
 import contentHi from "./locales/hi/content.json";
 import contentBn from "./locales/bn/content.json";
+import contentAr from "./locales/ar/content.json";
+
 
 const options = {
   order: [
@@ -37,7 +39,7 @@ const options = {
   lookupFromSubdomainIndex: 0,
 };
 
-export const resources = {
+const resources = {
   cn: contentCn,
   de: contentDe,
   en: contentEn,
@@ -52,6 +54,8 @@ export const resources = {
   pa: contentPa,
   hi: contentHi,
   bn: contentBn,
+  ar: contentAr,
+
 };
 
 // Feel free to translate the language name
@@ -69,6 +73,7 @@ export const localesList = [
   { locale: "ta", description: "Tamil" },
   { locale: "pa", description: "Punjabi" },
   { locale: "hi", description: "Hindi" },
+  { locale: "ar", description: "Arabic" },
   { locale: "bn", description: "Bengali" },
 ];
 
