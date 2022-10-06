@@ -57,7 +57,7 @@ export const localesList = [
   { locale: "cn", description: "Mandarin" },
   { locale: "de", description: "German" },
   { locale: "en", description: "English" },
-  { locale: "es", description: "Spanish" },
+  { locale: "es", description: "Español" },
   { locale: "fi", description: "Finnish" },
   { locale: "fr", description: "France" },
   { locale: "id", description: "Indonesian" },
