@@ -1,5 +1,3 @@
-/** @format */
-
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
@@ -18,7 +16,7 @@ import contentPa from "./locales/pa/content.json";
 import contentHi from "./locales/hi/content.json";
 import contentBn from "./locales/bn/content.json";
 import contentAr from "./locales/ar/content.json";
-import contentAr from "./locales/no/content.json";
+import contentNo from "./locales/no/content.json";
 
 
 const options = {
