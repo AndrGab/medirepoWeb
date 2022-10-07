@@ -1,28 +1,57 @@
 <h1 align="center">
-  <img alt="Logo" src="https://user-images.githubusercontent.com/57791712/119592166-52709080-bdae-11eb-8bfe-f9b0a68f4950.png">
+  <img alt="Logo" src="https://user-images.githubusercontent.com/57791712/194556500-f4291b47-325e-43b2-adb6-e224152fd327.png">
 </h1>
 
 <h3 align="center">
   React Application for Daily Medical Reports
 </h3>
 <p align="center">Making communication easier for Hospitals and Patients' Families.</p>
-<p align="center">This front-end application is part of my personal project called MediRepo which consumes an Elixir API for practising this functional language.</p>
+<p align="center">This front-end application is part of a project called MediRepo which consumes an Elixir API for practising this functional language.</p>
 
+<p align="center">With the help of the Github community, this project is available in 15+ languages (increasing)</p>
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Andrgab/medirepoWeb?color=6485e3&logo=React">
-
-  <a href="https://www.linkedin.com/in/andrgab/" target="_blank" rel="noopener noreferrer">
-    <img alt="Made by" src="https://img.shields.io/badge/made%20by-Andre%20Gabriel-ff69b4?logo=linkedin">
-  </a>
-  
+<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/andrgab/medirepoweb">
   <a href="https://img.shields.io/github/deployments/andrgab/medirepoWeb/Production?label=Vercel&logo=Vercel" target="_blank" rel="noopener noreferrer">
     <img alt="vercel" src="https://img.shields.io/github/deployments/andrgab/medirepoWeb/Production?label=Vercel&logo=Vercel">
   </a>
-  
   <img alt="GitHub" src="https://img.shields.io/github/license/Andrgab/medirepoWeb?color=ff69b4">
 </p>
 
-# Medirepo - Daily Medical Report API
+<p align="center">
+    <img alt="vercel" src="https://user-images.githubusercontent.com/57791712/194555927-9c107aef-3682-4af5-b712-fe9478930b4e.png">
+</p>
+
+## MediRepo
+
+Most hospitals are restricting visitors for COVID-19 Patients.
+This is a project to help hospitals to share Daily Medical Reports with those patients' families.
+
+## Live Demo
+
+<a href="https://medirepo.vercel.app/" target="_blank" rel="noopener noreferrer">
+    https://medirepo.vercel.app/
+  </a>
+
+## How to use MediRepo
+
+### Hospitals
+
+1. Create an account
+2. Add a medical report to a patient
+3. Share the Patient Code and Attendance Code (this is the password) to the patient's family
+
+Using the same patient Code and attendance Code, only the last medical report will be shared.
+
+With Medirepo API you can send medical reports to the application easier, set up your main application to communicate with our REST API.
+
+### Patient's Family
+
+1. Log in with code and password received
+2. Enter the patient birthday
+3. :tada: See the information about your loved one :heart:
+
+## Medirepo (REST API)
 
 See postman documentation:
 
@@ -34,17 +63,6 @@ Access the API repository:
 https://github.com/AndrGab/MediRepo
   </a>
 
-## MediRepo 📝
-
-Most hospitals are restricting visitors for COVID-19 Patients.
-This is a personal project to help hospitals to share Daily Medical Reports with those patients' families.
-
-## LIVE DEMO
-
-<a href="https://medirepo.vercel.app/" target="_blank" rel="noopener noreferrer">
-    https://medirepo.vercel.app/
-  </a>
-  
 ## Guide to set up locally
 
 1. Fork the project and then clone it to your computer
@@ -67,59 +85,34 @@ npm start
 
 PS: You can create an environment variable like `.env-sample` file in the project root folder to set the backend host.
 
-# 🎃 HacktoberFest 2022 🎃
+## Contributing
 
-If you came here for Hacktoberfest 🦇️:
-
-Celebrate [Hacktoberfest](https://hacktoberfest.com/) by getting involved in the open source community by completing some tasks in this project.
-
-This repository is open to all members of the GitHub community. Any member may contribute to this project without being a collaborator.
-
-## Contributions 🤝
+See you [contributing guidelines](CONTRIBUTING.md) and our [Code of condute.](CODE_OF_CONDUCT.md)
 
 You can contribute to this project including:
 
 - new features;
 - architectural improvements;
-- including i18n functions and translating these messages into your native language;
+- translating messages into your native language;
+- searching bugs;
 - adding test coverage;
+- starring the project :star:
 
 Feel free to contribute!
 
-## What is Hacktoberfest?
+## HacktoberFest
+
+If you came here for Hacktoberfest:
+
+Celebrate [Hacktoberfest](https://hacktoberfest.com/) by getting involved in the open source community by completing some tasks in this project.
+
+This repository is open to all members of the GitHub community. Any member may contribute to this project without being a collaborator.
+
+### What is Hacktoberfest?
 
 🎃 HacktoberFest is digitalocean’s annual event that encourages people to contribute to open source throughout October. Much of modern tech infrastructure—including some of digitalocean’s own products—relies on open-source projects built and maintained by passionate people who often don’t have the staff or budgets to do much more than keeping the project alive. 🎃 HacktoberFest is all about giving back to those projects, sharpening skills, and celebrating all things open source, especially the people that make open source so special.
 
 [https://hacktoberfest.com/](https://hacktoberfest.com/)
-
-## Getting started ✨
-
-- Fork this repository (Click the Fork button in the top right of this page, click your Profile Image)
-- Clone your fork down to your local machine
-
-```markdown
-git clone https://github.com/your-username/hacktoberfest.git
-```
-
-- Create a branch
-
-```markdown
-git checkout -b branch-name
-```
-
-- Make your changes (Be creative!)
-- Commit and push
-
-```markdown
-git add .
-git commit -m 'Commit message'
-git push origin branch-name
-```
-
-- Create a new pull request from your forked repository (Click the `New Pull Request` button located at the top of your repo)
-- Wait for your PR review and merge approval!
-
-- **Please ⭐️ STAR this repository** if you had fun!
 
 ## Features 📜
 
@@ -130,44 +123,26 @@ At the time of admission, it is necessary to provide the Patient Code and Passwo
 - Through the platform, it is possible to include new bulletins, delete, print reports...
 - Extras: Dark Mode for better viewing of the platform.
 
-## Screenshots 🖼️
-
-Patient Login:
-
-![image](https://user-images.githubusercontent.com/57791712/127754661-4279dcd2-8252-45ac-adea-3684f0e28972.png)
-
-Viewing Bulletins:
-
-![image](https://user-images.githubusercontent.com/57791712/127754690-51a1033e-eb33-4c91-8ea2-08270263678a.png)
-
-Application in operation:
-
-![medirepo](https://user-images.githubusercontent.com/57791712/127754803-54cae4a3-7161-4fe6-989c-c4d6f962ec25.gif)
-
-Registration of New Hospitals:
-
-![image](https://user-images.githubusercontent.com/57791712/127754708-11d59452-8848-4e54-92cc-b3c18ff9e7d5.png)
-
-Dark Mode:
-
-![image](https://user-images.githubusercontent.com/57791712/127754886-bd8a0c29-ba86-4988-a139-fd13ba1ac602.png)
-
 ## Feedback
 
 If you have any feedback, please reach out to me at andrgab@gmail.com
 
-## Credits
-
-<a href="https://storyset.com/medical">Medical illustrations by Storyset</a>
-
 ## Author
 
-Made with :purple_heart: by [@andrgab](https://www.github.com/andrgab)
+Made with :purple_heart:
+
+ <a href="https://www.linkedin.com/in/andrgab/" target="_blank" rel="noopener noreferrer">
+    <img alt="Made by" src="https://img.shields.io/badge/made%20by-Andre%20Gabriel-ff69b4?logo=linkedin">
+ </a>
 
 ## Contributors
 
 <a href="https://github.com/andrgab/medirepoWeb/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=andrgab/medirepoWeb" />
 </a>
+
+## Credits
+
+Illustrations by [Storyset](https://storyset.com/)
 
 Contributors image made with [contrib.rocks](https://contrib.rocks).
