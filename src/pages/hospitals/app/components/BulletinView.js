@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from "react";
-import { withRouter, useHistory } from "react-router-dom";
-import { TextField, Card, CardHeader } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import api from "../../../../services/Api";
-import { toast } from "react-toastify";
-import { useUserDispatch, signOut } from "../../../../context/UserContext";
-import { useTranslation } from "react-i18next";
+import React, { useState, useEffect } from 'react';
+import { withRouter, useHistory } from 'react-router-dom';
+import { TextField, Card, CardHeader } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import api from '../../../../services/Api';
+import { toast } from 'react-toastify';
+import { useUserDispatch, signOut } from '../../../../context/UserContext';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   card: {
-    paddingTop: "10px",
-    paddingLeft: "20px",
-    paddingRight: "20px",
-    paddingBottom: "20px",
+    paddingTop: '10px',
+    paddingLeft: '20px',
+    paddingRight: '20px',
+    paddingBottom: '20px',
   },
   img: {
     width: 100,
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   formControl: {
-    width: "100%",
+    width: '100%',
     marginTop: theme.spacing(1),
     minWidth: 120,
   },
@@ -44,15 +44,15 @@ function BulletinView(props) {
   var userDispatch = useUserDispatch();
   const history = useHistory();
   const classes = useStyles();
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
   var [listBulletin, setlistBulletin] = useState([]);
   const { t } = useTranslation();
 
   useEffect(() => {
     api
-      .get("/bulletins/" + bulletinId, {
+      .get('/bulletins/' + bulletinId, {
         headers: {
-          Authorization: "Bearer " + token,
+          Authorization: 'Bearer ' + token,
         },
       })
       .then((response) => {
@@ -62,13 +62,13 @@ function BulletinView(props) {
         if (error.response) {
           console.log(error.response.status);
           if (error.response.status === 401) {
-            toast.warning(t("accessDenied"));
+            toast.warning(t('accessDenied'));
             signOut(userDispatch, history);
           }
         } else if (error.request) {
           console.log(error.request);
         } else {
-          console.log("Error", error.message);
+          console.log('Error', error.message);
         }
         console.log(error.config);
       });
@@ -79,11 +79,7 @@ function BulletinView(props) {
       <Container component="main" maxWidth="md">
         <div className={classes.paper}>
           <Card className={classes.card}>
-            <CardHeader
-              titleTypographyProps={{ variant: "h6" }}
-              title={t("medicalReport")}
-              subheader={t("dailyMedicalReport")}
-            />
+            <CardHeader titleTypographyProps={{ variant: 'h6' }} title={t('medicalReport')} subheader={t('dailyMedicalReport')} />
 
             {listBulletin.map((listBul) => (
               <Grid container spacing={3}>
@@ -91,7 +87,7 @@ function BulletinView(props) {
                   <TextField
                     id="Nome"
                     name="Nome"
-                    label={t("patientName")}
+                    label={t('patientName')}
                     fullWidth
                     variant="outlined"
                     InputProps={{
@@ -105,7 +101,7 @@ function BulletinView(props) {
                     id="dtnasc"
                     name="dtnasc"
                     type="date"
-                    label={t("birthday")}
+                    label={t('birthday')}
                     fullWidth
                     variant="outlined"
                     InputProps={{
@@ -118,7 +114,7 @@ function BulletinView(props) {
                   <TextField
                     id="geral"
                     name="geral"
-                    label={t("generalCondition")}
+                    label={t('generalCondition')}
                     fullWidth
                     variant="outlined"
                     InputProps={{
@@ -131,7 +127,7 @@ function BulletinView(props) {
                   <TextField
                     id="pressao"
                     name="pressao"
-                    label={t("bloodPressure")}
+                    label={t('bloodPressure')}
                     fullWidth
                     variant="outlined"
                     InputProps={{
@@ -144,7 +140,7 @@ function BulletinView(props) {
                   <TextField
                     id="consciencia"
                     name="consciencia"
-                    label={t("consciousnessLevel")}
+                    label={t('consciousnessLevel')}
                     fullWidth
                     variant="outlined"
                     InputProps={{
@@ -157,7 +153,7 @@ function BulletinView(props) {
                   <TextField
                     id="febre"
                     name="febre"
-                    label={t("fever")}
+                    label={t('fever')}
                     fullWidth
                     variant="outlined"
                     InputProps={{
@@ -170,7 +166,7 @@ function BulletinView(props) {
                   <TextField
                     id="respiracao"
                     name="respiracao"
-                    label={t("respiration")}
+                    label={t('respiration')}
                     fullWidth
                     variant="outlined"
                     InputProps={{
@@ -183,7 +179,7 @@ function BulletinView(props) {
                   <TextField
                     id="diurese"
                     name="diurese"
-                    label={t("diuresis")}
+                    label={t('diuresis')}
                     fullWidth
                     variant="outlined"
                     InputProps={{
@@ -196,7 +192,7 @@ function BulletinView(props) {
                   <TextField
                     id="obs"
                     name="obs"
-                    label={t("observations")}
+                    label={t('observations')}
                     fullWidth
                     variant="outlined"
                     InputProps={{
@@ -209,7 +205,7 @@ function BulletinView(props) {
                   <TextField
                     id="medico"
                     name="medico"
-                    label={t("doctorName")}
+                    label={t('doctorName')}
                     fullWidth
                     variant="outlined"
                     InputProps={{
@@ -222,7 +218,7 @@ function BulletinView(props) {
                   <TextField
                     id="data"
                     name="data"
-                    label={t("signedAt")}
+                    label={t('signedAt')}
                     fullWidth
                     type="date"
                     variant="outlined"

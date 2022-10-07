@@ -1,44 +1,44 @@
-import React, { useState, useEffect } from "react";
-import { useHistory, withRouter } from "react-router-dom";
-import Button from "@material-ui/core/Button";
-import { Card, CardHeader, Box, CircularProgress } from "@material-ui/core";
-import LinearProgress from "@material-ui/core/LinearProgress";
-import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import { useUserDispatch, signOut } from "../../../context/UserContext";
-import api from "../../../services/Api";
-import { toast } from "react-toastify";
-import { useTranslation } from "react-i18next";
+import React, { useState, useEffect } from 'react';
+import { useHistory, withRouter } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import { Card, CardHeader, Box, CircularProgress } from '@material-ui/core';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import { useUserDispatch, signOut } from '../../../context/UserContext';
+import api from '../../../services/Api';
+import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    width: "100%",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '100%',
   },
   card: {
-    paddingTop: "0px",
-    paddingLeft: "20px",
-    paddingRight: "20px",
-    paddingBottom: "10px",
+    paddingTop: '0px',
+    paddingLeft: '20px',
+    paddingRight: '20px',
+    paddingBottom: '10px',
   },
   img: {
     width: 100,
     marginRight: theme.spacing(2),
   },
   form: {
-    width: "100%",
+    width: '100%',
     marginTop: theme.spacing(1),
   },
   submit: {
-    width: "120px",
+    width: '120px',
     margin: theme.spacing(3, 0, 2),
   },
   formControl: {
-    width: "100%",
+    width: '100%',
     marginTop: theme.spacing(1),
     minWidth: 120,
   },
@@ -59,9 +59,9 @@ function Account() {
   const classes = useStyles();
   var [isLoading, setIsLoading] = useState(false);
   const [dataLoading, setDataLoading] = useState(false);
-  var [name, setName] = useState("");
-  var [email, setEmail] = useState("");
-  const token = localStorage.getItem("token");
+  var [name, setName] = useState('');
+  var [email, setEmail] = useState('');
+  const token = localStorage.getItem('token');
 
   const { t } = useTranslation();
 
@@ -74,31 +74,31 @@ function Account() {
     };
 
     if (!!name && !!email) {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem('token');
       setIsLoading(true);
       try {
-        await api.put("hospitals", data, {
+        await api.put('hospitals', data, {
           headers: {
-            Authorization: "Bearer " + token,
+            Authorization: 'Bearer ' + token,
           },
         });
         setIsLoading(false);
-        toast.success("Done!");
+        toast.success('Done!');
       } catch (err) {
         setIsLoading(false);
 
         if (!!err.response.data.message.email) {
-          toast.warning(t("emailSavingError"));
+          toast.warning(t('emailSavingError'));
         }
         if (!!err.response.data.message.name) {
-          toast.warning(t("nameSize"));
+          toast.warning(t('nameSize'));
         }
         if (!!err.response.data.message.password) {
-          toast.warning(t("passwordSize"));
+          toast.warning(t('passwordSize'));
         }
 
         if (err.response.status === 401) {
-          toast.warning(t("accessDenied"));
+          toast.warning(t('accessDenied'));
           signOut(userDispatch, history);
         }
 
@@ -110,9 +110,9 @@ function Account() {
   useEffect(() => {
     setDataLoading(true);
     api
-      .get("hospitals", {
+      .get('hospitals', {
         headers: {
-          Authorization: "Bearer " + token,
+          Authorization: 'Bearer ' + token,
         },
       })
       .then((response) => {
@@ -122,7 +122,7 @@ function Account() {
       })
       .catch((error) => {
         if (error.response) {
-          toast.warning(t("accessDenied"));
+          toast.warning(t('accessDenied'));
           signOut(userDispatch, history);
         }
       });
@@ -135,11 +135,11 @@ function Account() {
           {dataLoading ? (
             <div
               style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-                height: "100%",
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+                height: '100%',
               }}
             >
               <CircularProgress />
@@ -147,11 +147,7 @@ function Account() {
           ) : (
             <form className={classes.form} noValidate onSubmit={handleRegister}>
               <Card className={classes.card}>
-                <CardHeader
-                  titleTypographyProps={{ variant: "h6" }}
-                  title={t("hospitalInfo")}
-                  subheader={t("dataUpdate")}
-                />
+                <CardHeader titleTypographyProps={{ variant: 'h6' }} title={t('hospitalInfo')} subheader={t('dataUpdate')} />
 
                 <TextField
                   InputLabelProps={{ shrink: true }}
@@ -160,7 +156,7 @@ function Account() {
                   required
                   fullWidth
                   id="name"
-                  label={t("hospitalName")}
+                  label={t('hospitalName')}
                   name="name"
                   autoFocus
                   value={name}
@@ -174,7 +170,7 @@ function Account() {
                   fullWidth
                   id="email"
                   type="email"
-                  label={t("email")}
+                  label={t('email')}
                   name="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -186,19 +182,13 @@ function Account() {
                   <>
                     <Box
                       sx={{
-                        display: "flex",
-                        justifyContent: "flex-end",
+                        display: 'flex',
+                        justifyContent: 'flex-end',
                         p: 2,
                       }}
                     >
-                      <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                      >
-                        {t("update")}
+                      <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+                        {t('update')}
                       </Button>
                     </Box>
                   </>

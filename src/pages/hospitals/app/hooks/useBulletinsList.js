@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import { toast } from "react-toastify";
-import api from "../../../../services/Api";
-import { useUserDispatch, signOut } from "../../../../context/UserContext";
-import { useTranslation } from "react-i18next";
+import { toast } from 'react-toastify';
+import api from '../../../../services/Api';
+import { useUserDispatch, signOut } from '../../../../context/UserContext';
+import { useTranslation } from 'react-i18next';
 
 export function useBulletinsList() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
   var [rows, setRows] = useState([]);
   var userDispatch = useUserDispatch();
   const history = useHistory();
@@ -16,9 +16,9 @@ export function useBulletinsList() {
 
   useEffect(() => {
     api
-      .get("/bulletins/list", {
+      .get('/bulletins/list', {
         headers: {
-          Authorization: "Bearer " + token,
+          Authorization: 'Bearer ' + token,
         },
       })
       .then((response) => {
@@ -27,16 +27,16 @@ export function useBulletinsList() {
       .catch((error) => {
         if (error.response) {
           if (error.response.status === 401) {
-            toast.warning(t("accessDenied"));
+            toast.warning(t('accessDenied'));
             signOut(userDispatch, history);
           }
           if (error.response.status === 404) {
-            toast.warning(t("bulletinsNotFound"));
+            toast.warning(t('bulletinsNotFound'));
           }
         } else if (error.request) {
           console.log(error.request);
         } else {
-          console.log("Error", error.message);
+          console.log('Error', error.message);
         }
         console.log(error.config);
       });

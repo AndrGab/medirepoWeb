@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import api from "../../../../services/Api";
-import { useTranslation } from "react-i18next";
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import api from '../../../../services/Api';
+import { useTranslation } from 'react-i18next';
 
 export function useHospitalList() {
   var [listHosp, setlistHosp] = useState([]);
@@ -10,13 +10,13 @@ export function useHospitalList() {
 
   useEffect(() => {
     api
-      .get("/hospitals/list")
+      .get('/hospitals/list')
       .then((response) => {
         setlistHosp(response.data.hospital);
       })
       .catch((err) => {
         console.log(err);
-        toast.error(t("loadHospitalsError"));
+        toast.error(t('loadHospitalsError'));
       });
   }, [t]);
   hospitalNumber = listHosp.length;

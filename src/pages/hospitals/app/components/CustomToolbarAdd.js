@@ -1,8 +1,8 @@
-import React from "react";
-import IconButton from "@material-ui/core/IconButton";
-import Tooltip from "@material-ui/core/Tooltip";
-import AddIcon from "@material-ui/icons/Add";
-import { withStyles } from "@material-ui/core/styles";
+import React from 'react';
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
+import AddIcon from '@material-ui/icons/Add';
+import { withStyles } from '@material-ui/core/styles';
 
 const defaultToolbarStyles = {
   iconButton: {},
@@ -23,6 +23,4 @@ class CustomToolbarAdd extends React.Component {
   }
 }
 
-export default withStyles(defaultToolbarStyles, { name: "CustomToolbarAdd" })(
-  CustomToolbarAdd
-);
+export default withStyles(defaultToolbarStyles, { name: 'CustomToolbarAdd' })(CustomToolbarAdd);
