@@ -1,13 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { UserProvider } from "./context/UserContext";
-import { ThemeProvider } from "./context/ThemeContext";
-import { ToastContainer } from "react-toastify";
-import "./i18n";
-import "react-toastify/dist/ReactToastify.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { UserProvider } from './context/UserContext';
+import { ThemeProvider } from './context/ThemeContext';
+import { ToastContainer } from 'react-toastify';
+import './i18n';
+import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.render(
   <UserProvider>
@@ -26,6 +26,6 @@ ReactDOM.render(
       />
     </ThemeProvider>
   </UserProvider>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
 reportWebVitals();

@@ -1,27 +1,23 @@
-import React from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import { useUserState } from "./context/UserContext";
-import Bulletin from "./pages/patients/Bulletin";
-import Login from "./pages/patients/Login";
-import LoginHosp from "./pages/hospitals/Login";
-import NotFound from "./pages/NotFound";
-import Layout from "./pages/hospitals/Layout";
-import ResetToken from "./pages/hospitals/ResetToken";
-import FastLogin from "./pages/hospitals/FastLogin";
-import RegisterHosp from "./pages/hospitals/Register";
+import React from 'react';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { useUserState } from './context/UserContext';
+import Bulletin from './pages/patients/Bulletin';
+import Login from './pages/patients/Login';
+import LoginHosp from './pages/hospitals/Login';
+import NotFound from './pages/NotFound';
+import Layout from './pages/hospitals/Layout';
+import ResetToken from './pages/hospitals/ResetToken';
+import FastLogin from './pages/hospitals/FastLogin';
+import RegisterHosp from './pages/hospitals/Register';
 
 export default function Routes() {
   var { isAuthenticated } = useUserState();
-  var token_id = localStorage.getItem("token_id");
+  var token_id = localStorage.getItem('token_id');
 
   return (
     <BrowserRouter>
       <Switch>
-        <Route
-          exact
-          path="/"
-          render={() => <Redirect to="/patients/login" />}
-        />
+        <Route exact path="/" render={() => <Redirect to="/patients/login" />} />
 
         <PrivateRoute path="/patients/bulletin" component={Bulletin} />
         <PrivateRoute path="/hospitals/app" component={Layout} />
@@ -30,10 +26,7 @@ export default function Routes() {
         <PublicRoute path="/hospitals/login" component={LoginHosp} />
         <PublicRoute path="/hospitals/reset" component={ResetToken} />
         <PublicRoute path="/hospitals/register" component={RegisterHosp} />
-        <PublicRoute
-          path="/hospitals/fastlogin/:id/:resetToken"
-          component={FastLogin}
-        />
+        <PublicRoute path="/hospitals/fastlogin/:id/:resetToken" component={FastLogin} />
         <Route exact path="*" render={() => <NotFound />} />
       </Switch>
     </BrowserRouter>
@@ -51,8 +44,7 @@ export default function Routes() {
           ) : (
             <Redirect
               to={{
-                pathname:
-                  token_id === "1" ? "/patients/login" : "/hospitals/login",
+                pathname: token_id === '1' ? '/patients/login' : '/hospitals/login',
                 state: {
                   from: props.location,
                 },
@@ -72,10 +64,7 @@ export default function Routes() {
           isAuthenticated ? (
             <Redirect
               to={{
-                pathname:
-                  token_id === "1"
-                    ? "/patients/bulletin"
-                    : "/hospitals/app/dashboard",
+                pathname: token_id === '1' ? '/patients/bulletin' : '/hospitals/app/dashboard',
               }}
             />
           ) : (
