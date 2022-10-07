@@ -49,6 +49,7 @@ const resources = {
   ar: contentAr,
   gu: contentGu,
   no: contentNo,
+  te: contentTe,
 };
 
 // Feel free to translate the language name
