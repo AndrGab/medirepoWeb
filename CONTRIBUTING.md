@@ -1,4 +1,4 @@
-# Contributing to Medirepoweb
+# Contributing to MedirepoWeb
 
 First off, thanks for taking the time to contribute! ❤️
 
@@ -6,12 +6,12 @@ All types of contributions are encouraged and valued. Please make sure to read t
 
 And if you like the project, but just don't have time to contribute, that's fine. There are other easy ways to support the project and show your appreciation, which we would also be very happy about:
 
-- Star the project⭐
-- share with others📈
+- Star the project ⭐
+- share with others 📈
 
 ## Opening an issue
 
-Thank you for taking the time to open an issue, your feedback helps make Hacktoberfest better.😇
+Thank you for taking the time to open an issue, your feedback helps us to be better 😇
 
 Here are a few things that will help us help resolve your issues:
 
@@ -46,3 +46,9 @@ git push origin branch-name
 
 - Create a new pull request from your forked repository (Click the `New Pull Request` button located at the top of your repo)
 - Wait for your PR review and merge approval!
+
+## Hacktoberfest
+
+Every year we open our application to Hacktoberfest.
+So, if you want to participate in Hacktoberfest just make pull requests in October.
+See better information at https://hacktoberfest.com/

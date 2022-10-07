@@ -72,7 +72,7 @@ export const localesList = [
   { locale: 'bn', description: 'Bengali' },
   { locale: 'gu', description: 'Gujarati' },
   { locale: 'no', description: 'Norsk' },
-  { locale: 'ka', description: 'Kannada' },  
+  { locale: 'ka', description: 'Kannada' },
   { locale: 'te', description: 'Telugu' },
 ];
 
