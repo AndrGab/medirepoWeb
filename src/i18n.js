@@ -18,6 +18,8 @@ import contentBn from './locales/bn/content.json';
 import contentAr from './locales/ar/content.json';
 import contentGu from './locales/gu/content.json';
 import contentNo from './locales/no/content.json';
+import contentTe from './locales/te/content.json';
+
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -47,6 +49,7 @@ const resources = {
   ar: contentAr,
   gu: contentGu,
   no: contentNo,
+  te: contentTe,
 };
 
 // Feel free to translate the language name
@@ -68,6 +71,7 @@ export const localesList = [
   { locale: 'bn', description: 'Bengali' },
   { locale: 'gu', description: 'Gujarati' },
   { locale: 'no', description: 'Norsk' },
+  { locale: 'te', description: 'Telugu' },
 ];
 
 i18n
