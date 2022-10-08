@@ -20,6 +20,7 @@ import contentGu from './locales/gu/content.json';
 import contentNo from './locales/no/content.json';
 import contentKa from './locales/ka/content.json';
 import contentTe from './locales/te/content.json';
+import contentSv from './locales/sv/content.json';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -51,6 +52,7 @@ const resources = {
   no: contentNo,
   ka: contentKa,
   te: contentTe,
+  sv: contentSv,
 };
 
 // Feel free to translate the language name
@@ -74,6 +76,7 @@ export const localesList = [
   { locale: 'no', description: 'Norsk' },
   { locale: 'ka', description: 'Kannada' },
   { locale: 'te', description: 'Telugu' },
+  { locale: 'sv', description: 'Swedish' },
 ];
 
 i18n
