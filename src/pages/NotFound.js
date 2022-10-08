@@ -3,8 +3,8 @@ import { withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import image from '../assets/Monster404.svg';
 import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
 import { useTranslation } from 'react-i18next';
+import RouterLink from '../components/RouterLink/RouterLink';
 
 const useStyles = makeStyles((theme) => ({
   img: {
@@ -31,9 +31,9 @@ function NotFound() {
 
       <Grid alignItems="center" direction="column" justifyContent="center" container>
         <Grid item xs>
-          <Link href="/" variant="body2">
+          <RouterLink to="/">
             {t('medicalReport')}
-          </Link>
+          </RouterLink>
         </Grid>
       </Grid>
     </div>

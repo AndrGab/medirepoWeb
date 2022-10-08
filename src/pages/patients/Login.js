@@ -6,7 +6,6 @@ import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,6 +16,7 @@ import api from '../../services/Api';
 import { toast } from 'react-toastify';
 import AppBarMediRepo from '../components/AppBarMediRepo';
 import { useTranslation } from 'react-i18next';
+import RouterLink from '../../components/RouterLink/RouterLink';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -184,14 +184,12 @@ function SignIn() {
             )}{' '}
             <Grid alignItems="center" container>
               <Grid item xs>
-                <Link href="#" onClick={notify} variant="body2">
+                <RouterLink to="#" onClick={notify}>
                   {t('forgotPassword')}?
-                </Link>
+                </RouterLink>
               </Grid>
               <Grid item>
-                <Link href="/hospitals/login" variant="body2">
-                  {t('hospitalLogin')}
-                </Link>
+                <RouterLink to="/hospitals/login">{t('hospitalLogin')}</RouterLink>
               </Grid>
             </Grid>
           </form>
