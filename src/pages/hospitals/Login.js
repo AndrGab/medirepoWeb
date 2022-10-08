@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory, withRouter } from 'react-router-dom';
+import { Link as RouterLink, useHistory, withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import TextField from '@material-ui/core/TextField';
@@ -126,17 +126,17 @@ function Login() {
             )}
             <Grid alignItems="center" container>
               <Grid item xs={12}>
-                <Link href="/hospitals/reset" variant="body2">
+                <Link component={RouterLink} to="/hospitals/reset" variant="body2">
                   {t('forgotPassword')}?
                 </Link>
               </Grid>
               <Grid item xs={12}>
-                <Link href="/hospitals/register" variant="body2">
+                <Link component={RouterLink} to="/hospitals/register" variant="body2">
                   {t('addHospital')}
                 </Link>
               </Grid>
               <Grid item xs={12}>
-                <Link href="/patients/login" variant="body2">
+                <Link component={RouterLink} to="/patients/login" variant="body2">
                   {t('patientFamilyLogin')}
                 </Link>
               </Grid>

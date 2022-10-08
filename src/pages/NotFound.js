@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link as RouterLink, withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import image from '../assets/Monster404.svg';
 import Grid from '@material-ui/core/Grid';
@@ -31,7 +31,7 @@ function NotFound() {
 
       <Grid alignItems="center" direction="column" justifyContent="center" container>
         <Grid item xs>
-          <Link href="/" variant="body2">
+          <Link component={RouterLink} to="/" variant="body2">
             {t('medicalReport')}
           </Link>
         </Grid>
