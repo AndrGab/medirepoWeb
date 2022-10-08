@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link as RouterLink, useHistory, withRouter } from 'react-router-dom';
+import { useHistory, withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,6 +12,7 @@ import api from '../../services/Api';
 import { toast } from 'react-toastify';
 import AppBarMediRepo from '../components/AppBarMediRepo';
 import { useTranslation } from 'react-i18next';
+import RouterLink from '../../components/RouterLink/RouterLink';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -126,19 +126,19 @@ function Login() {
             )}
             <Grid alignItems="center" container>
               <Grid item xs={12}>
-                <Link component={RouterLink} to="/hospitals/reset" variant="body2">
+                <RouterLink to="/hospitals/reset">
                   {t('forgotPassword')}?
-                </Link>
+                </RouterLink>
               </Grid>
               <Grid item xs={12}>
-                <Link component={RouterLink} to="/hospitals/register" variant="body2">
+                <RouterLink to="/hospitals/register">
                   {t('addHospital')}
-                </Link>
+                </RouterLink>
               </Grid>
               <Grid item xs={12}>
-                <Link component={RouterLink} to="/patients/login" variant="body2">
+                <RouterLink to="/patients/login">
                   {t('patientFamilyLogin')}
-                </Link>
+                </RouterLink>
               </Grid>
             </Grid>
           </form>

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link as RouterLink, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -13,6 +12,7 @@ import api from '../../services/Api';
 import { toast } from 'react-toastify';
 import AppBarMediRepo from '../components/AppBarMediRepo';
 import { useTranslation } from 'react-i18next';
+import RouterLink from '../../components/RouterLink/RouterLink';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -108,9 +108,7 @@ function ResetToken() {
             )}
             <Grid alignItems="center" container>
               <Grid item>
-                <Link component={RouterLink} to="/hospitals/login" variant="body2">
-                  {t('hospitalLogin')}
-                </Link>
+                <RouterLink to="/hospitals/login">{t('hospitalLogin')}</RouterLink>
               </Grid>
             </Grid>
           </form>
