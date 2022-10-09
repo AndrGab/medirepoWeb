@@ -24,6 +24,7 @@ import contentSv from './locales/sv/content.json';
 import contentMl from './locales/ml/content.json';
 import contentUk from './locales/uk/content.json';
 import contentJp from './locales/jp/content.json';
+import contentHe from './locales/he/content.json';
 
 
 const options = {
@@ -60,6 +61,7 @@ const resources = {
   ml: contentMl,
   uk: contentUk,
   jp: contentJp,
+  he: contentHe,
 };
 
 // Feel free to translate the language name
@@ -87,6 +89,7 @@ export const localesList = [
   { locale: 'ml', description: 'Malayalam' },
   { locale: 'uk', description: 'Ukraine' },
   { locale: 'jp', description: 'Japanese' },
+  { locale: 'he', description: 'Hebrew' },
 ];
 
 i18n
