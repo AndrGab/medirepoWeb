@@ -21,6 +21,7 @@ import contentNo from './locales/no/content.json';
 import contentKa from './locales/ka/content.json';
 import contentTe from './locales/te/content.json';
 import contentUk from './locales/uk/content.json';
+import contentJp from './locales/jp/content.json';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -53,6 +54,7 @@ const resources = {
   ka: contentKa,
   te: contentTe,
   uk: contentUk,
+  jp: contentJp,
 };
 
 // Feel free to translate the language name
@@ -77,6 +79,7 @@ export const localesList = [
   { locale: 'ka', description: 'Kannada' },
   { locale: 'te', description: 'Telugu' },
   { locale: 'uk', description: 'Ukraine' },
+  { locale: 'jp', description: 'Japanese' },
 ];
 
 i18n
