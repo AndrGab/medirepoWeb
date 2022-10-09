@@ -20,6 +20,7 @@ import contentGu from './locales/gu/content.json';
 import contentNo from './locales/no/content.json';
 import contentKa from './locales/ka/content.json';
 import contentTe from './locales/te/content.json';
+import contentSv from './locales/sv/content.json';
 import contentMl from './locales/ml/content.json';
 import contentUk from './locales/uk/content.json';
 import contentJp from './locales/jp/content.json';
@@ -55,6 +56,7 @@ const resources = {
   no: contentNo,
   ka: contentKa,
   te: contentTe,
+  sv: contentSv,
   ml: contentMl,
   uk: contentUk,
   jp: contentJp,
@@ -81,6 +83,7 @@ export const localesList = [
   { locale: 'no', description: 'Norsk' },
   { locale: 'ka', description: 'Kannada' },
   { locale: 'te', description: 'Telugu' },
+  { locale: 'sv', description: 'Swedish' },
   { locale: 'ml', description: 'Malayalam' },
   { locale: 'uk', description: 'Ukraine' },
   { locale: 'jp', description: 'Japanese' },
