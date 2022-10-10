@@ -25,6 +25,7 @@ import contentMl from './locales/ml/content.json';
 import contentUk from './locales/uk/content.json';
 import contentJp from './locales/jp/content.json';
 import contentHe from './locales/he/content.json';
+import contentTr from './locales/tr/content.json';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -61,6 +62,7 @@ const resources = {
   uk: contentUk,
   jp: contentJp,
   he: contentHe,
+  tr: contentTr;
 };
 
 // Feel free to translate the language name
@@ -88,6 +90,7 @@ export const localesList = [
   { locale: 'sv', description: 'Swedish' },
   { locale: 'ta', description: 'Tamil' },
   { locale: 'te', description: 'Telugu' },
+  { locale: 'tr', description: 'Turkish' },
   { locale: 'uk', description: 'Ukraine' },
 ];
 
