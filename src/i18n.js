@@ -26,6 +26,7 @@ import contentUk from './locales/uk/content.json';
 import contentJp from './locales/jp/content.json';
 import contentHe from './locales/he/content.json';
 import contentNl from './locales/nl/content.json';
+import contentTr from './locales/tr/content.json';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -63,6 +64,7 @@ const resources = {
   jp: contentJp,
   he: contentHe,
   nl: contentNl,
+  tr: contentTr,
 };
 
 // Feel free to translate the language name
@@ -71,6 +73,7 @@ export const localesList = [
   { locale: 'bn', description: 'Bengali' },
   { locale: 'cn', description: 'Mandarin' },
   { locale: 'de', description: 'German' },
+  { locale: 'nl', description: 'Dutch' },
   { locale: 'en', description: 'English' },
   { locale: 'es', description: 'Español' },
   { locale: 'fi', description: 'Finnish' },
@@ -90,8 +93,8 @@ export const localesList = [
   { locale: 'sv', description: 'Swedish' },
   { locale: 'ta', description: 'Tamil' },
   { locale: 'te', description: 'Telugu' },
+  { locale: 'tr', description: 'Turkish' },
   { locale: 'uk', description: 'Ukraine' },
-  { locale: 'nl', description: 'Dutch' }
 ];
 
 i18n
