@@ -62,7 +62,7 @@ const resources = {
   uk: contentUk,
   jp: contentJp,
   he: contentHe,
-  tr: contentTr;
+  tr: contentTr,
 };
 
 // Feel free to translate the language name
