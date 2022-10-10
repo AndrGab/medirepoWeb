@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import i18n from 'i18next';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';

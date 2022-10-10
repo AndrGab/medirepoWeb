@@ -26,7 +26,6 @@ import contentUk from './locales/uk/content.json';
 import contentJp from './locales/jp/content.json';
 import contentHe from './locales/he/content.json';
 
-
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
   lookupQuerystring: 'lng',
@@ -66,30 +65,30 @@ const resources = {
 
 // Feel free to translate the language name
 export const localesList = [
+  { locale: 'ar', description: 'Arabic' },
+  { locale: 'bn', description: 'Bengali' },
   { locale: 'cn', description: 'Mandarin' },
   { locale: 'de', description: 'German' },
   { locale: 'en', description: 'English' },
   { locale: 'es', description: 'Español' },
   { locale: 'fi', description: 'Finnish' },
   { locale: 'fr', description: 'Français' },
+  { locale: 'gu', description: 'Gujarati' },
+  { locale: 'he', description: 'Hebrew' },
+  { locale: 'hi', description: 'Hindi' },
   { locale: 'id', description: 'Indonesian' },
+  { locale: 'jp', description: 'Japanese' },
+  { locale: 'ka', description: 'Kannada' },
+  { locale: 'ml', description: 'Malayalam' },
   { locale: 'mr', description: 'Marathi' },
+  { locale: 'no', description: 'Norsk' },
+  { locale: 'pa', description: 'Punjabi' },
   { locale: 'pl', description: 'Polish' },
   { locale: 'pt', description: 'Português' },
-  { locale: 'ta', description: 'Tamil' },
-  { locale: 'pa', description: 'Punjabi' },
-  { locale: 'hi', description: 'Hindi' },
-  { locale: 'ar', description: 'Arabic' },
-  { locale: 'bn', description: 'Bengali' },
-  { locale: 'gu', description: 'Gujarati' },
-  { locale: 'no', description: 'Norsk' },
-  { locale: 'ka', description: 'Kannada' },
-  { locale: 'te', description: 'Telugu' },
   { locale: 'sv', description: 'Swedish' },
-  { locale: 'ml', description: 'Malayalam' },
+  { locale: 'ta', description: 'Tamil' },
+  { locale: 'te', description: 'Telugu' },
   { locale: 'uk', description: 'Ukraine' },
-  { locale: 'jp', description: 'Japanese' },
-  { locale: 'he', description: 'Hebrew' },
 ];
 
 i18n
