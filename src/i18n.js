@@ -27,6 +27,7 @@ import contentJp from './locales/jp/content.json';
 import contentHe from './locales/he/content.json';
 import contentNl from './locales/nl/content.json';
 import contentTr from './locales/tr/content.json';
+import contentSm from './locales/sm/content.json';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -65,6 +66,7 @@ const resources = {
   he: contentHe,
   nl: contentNl,
   tr: contentTr,
+  sm: contentSm
 };
 
 // Feel free to translate the language name
@@ -90,6 +92,7 @@ export const localesList = [
   { locale: 'pa', description: 'Punjabi' },
   { locale: 'pl', description: 'Polish' },
   { locale: 'pt', description: 'Português' },
+  { locale: 'sm', description: 'Samoan' },
   { locale: 'sv', description: 'Swedish' },
   { locale: 'ta', description: 'Tamil' },
   { locale: 'te', description: 'Telugu' },
