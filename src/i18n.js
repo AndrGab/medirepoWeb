@@ -28,6 +28,7 @@ import contentHe from './locales/he/content.json';
 import contentNl from './locales/nl/content.json';
 import contentTr from './locales/tr/content.json';
 import contentSm from './locales/sm/content.json';
+import contentAs from './locales/as/content.json';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -66,12 +67,14 @@ const resources = {
   he: contentHe,
   nl: contentNl,
   tr: contentTr,
-  sm: contentSm
+  sm: contentSm,
+  as: contextAs,
 };
 
 // Feel free to translate the language name
 export const localesList = [
   { locale: 'ar', description: 'Arabic' },
+  { locale: 'as', description: 'Assamese' },
   { locale: 'bn', description: 'Bengali' },
   { locale: 'cn', description: 'Mandarin' },
   { locale: 'de', description: 'German' },
