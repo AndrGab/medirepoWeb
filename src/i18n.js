@@ -68,7 +68,7 @@ const resources = {
   nl: contentNl,
   tr: contentTr,
   sm: contentSm,
-  as: contextAs,
+  as: contentAs,
 };
 
 // Feel free to translate the language name
