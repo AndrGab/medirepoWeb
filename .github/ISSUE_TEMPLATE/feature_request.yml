@@ -44,7 +44,7 @@ body:
     attributes:
       label: '👀 Have you spent some time to check if this feature request has been raised before?'
       options:
-        - label: "I checked and didn't find similar issue"
+        - label: "I checked and didn't find a similar issue"
           required: true
   - type: checkboxes
     id: read-contributing
@@ -56,9 +56,9 @@ body:
   - type: checkboxes
     id: read-code-of-conduct
     attributes:
-      label: '🏢 Have you read the Code of condute'
+      label: '🏢 Have you read the Code of conduct'
       options:
-        - label: 'I have read the [Code of condute](https://github.com/andrgab/medirepoweb/blob/main/CODE_OF_CONDUCT.md)'
+        - label: 'I have read the [Code of conduct](https://github.com/andrgab/medirepoweb/blob/main/CODE_OF_CONDUCT.md)'
           required: true
   - type: dropdown
     id: willing-to-submit-pr
