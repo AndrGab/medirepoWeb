@@ -29,6 +29,7 @@ import contentNl from './locales/nl/content.json';
 import contentTr from './locales/tr/content.json';
 import contentSm from './locales/sm/content.json';
 import contentAs from './locales/as/content.json';
+import contentUr from './locales/ur/content.json';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -69,6 +70,7 @@ const resources = {
   tr: contentTr,
   sm: contentSm,
   as: contentAs,
+  ur: contentUr,
 };
 
 // Feel free to translate the language name
@@ -101,6 +103,7 @@ export const localesList = [
   { locale: 'te', description: 'Telugu' },
   { locale: 'tr', description: 'Turkish' },
   { locale: 'uk', description: 'Ukraine' },
+  { locale: 'ur', description: 'Urdu' },
 ];
 
 i18n
