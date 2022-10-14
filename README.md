@@ -8,7 +8,7 @@
 <p align="center">Making communication easier for Hospitals and Patients' Families.</p>
 <p align="center">This front-end application is part of a project called MediRepo which consumes an Elixir API for practising this functional language.</p>
 
-<p align="center">With the help of the Github community, this project is available in 15+ languages (increasing)</p>
+<p align="center">With the help of the Github community, this project is available in 25+ languages (increasing)</p>
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Andrgab/medirepoWeb?color=6485e3&logo=React">
 <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/andrgab/medirepoweb">

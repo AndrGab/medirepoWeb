@@ -26,6 +26,10 @@ import contentUk from './locales/uk/content.json';
 import contentJp from './locales/jp/content.json';
 import contentHe from './locales/he/content.json';
 import contentHa from './locales/ha/content.json';
+import contentNl from './locales/nl/content.json';
+import contentTr from './locales/tr/content.json';
+import contentSm from './locales/sm/content.json';
+import contentAs from './locales/as/content.json';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -63,14 +67,20 @@ const resources = {
   jp: contentJp,
   he: contentHe,
   ha: contentHa,
+  nl: contentNl,
+  tr: contentTr,
+  sm: contentSm,
+  as: contentAs,
 };
 
 // Feel free to translate the language name
 export const localesList = [
   { locale: 'ar', description: 'Arabic' },
+  { locale: 'as', description: 'Assamese' },
   { locale: 'bn', description: 'Bengali' },
   { locale: 'cn', description: 'Mandarin' },
   { locale: 'de', description: 'German' },
+  { locale: 'nl', description: 'Dutch' },
   { locale: 'en', description: 'English' },
   { locale: 'es', description: 'Español' },
   { locale: 'fi', description: 'Finnish' },
@@ -88,9 +98,11 @@ export const localesList = [
   { locale: 'pa', description: 'Punjabi' },
   { locale: 'pl', description: 'Polish' },
   { locale: 'pt', description: 'Português' },
+  { locale: 'sm', description: 'Samoan' },
   { locale: 'sv', description: 'Swedish' },
   { locale: 'ta', description: 'Tamil' },
   { locale: 'te', description: 'Telugu' },
+  { locale: 'tr', description: 'Turkish' },
   { locale: 'uk', description: 'Ukraine' },
 ];
 
