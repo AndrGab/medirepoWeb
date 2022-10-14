@@ -19,6 +19,9 @@ const useModalStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
     width: '80%',
+    [theme.breakpoints.up('md')]: {
+      width: 'fit-content',
+    },
     backgroundColor: theme.palette.background.paper,
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
@@ -248,7 +251,7 @@ function Bulletin() {
         aria-describedby="simple-modal-description"
         style={{ overflow: 'scroll' }}
       >
-        <div style={modalStyle} className={classes.paper}>
+        <div style={modalStyle} className={classes.paper} data-hh={'fjfj'}>
           <BulletinsView bulletinId={selected} />
         </div>
       </Modal>
