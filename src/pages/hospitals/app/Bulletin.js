@@ -251,7 +251,7 @@ function Bulletin() {
         aria-describedby="simple-modal-description"
         style={{ overflow: 'scroll' }}
       >
-        <div style={modalStyle} className={classes.paper} data-hh={'fjfj'}>
+        <div style={modalStyle} className={classes.paper}>
           <BulletinsView bulletinId={selected} />
         </div>
       </Modal>
