@@ -55,7 +55,7 @@ With Medirepo API you can send medical reports to the application easier, set up
 
 See postman documentation:
 
-[![postman](https://img.shields.io/badge/documentation%20in-postman-orange?logo=postman)](https://documenter.getpostman.com/view/15643514/TzzBpFsL)
+[![postman](https://img.shields.io/badge/documentation%20in-postman-orange?logo=postman)](https://documenter.getpostman.com/view/15643514/TzzBpFsL) [![Join the chat at https://gitter.im/medirepoWeb/community](https://badges.gitter.im/medirepoWeb/community.svg)](https://gitter.im/medirepoWeb/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Access the API repository:
 
