@@ -100,6 +100,7 @@ export const localesList = [
   { locale: 'id', description: 'Indonesian' },
   { locale: 'jp', description: 'Japanese' },
   { locale: 'ka', description: 'Kannada' },
+  { locale: 'ko', description: 'Korean' },
   { locale: 'ml', description: 'Malayalam' },
   { locale: 'mr', description: 'Marathi' },
   { locale: 'np', description: 'Nepali' },
@@ -115,7 +116,6 @@ export const localesList = [
   { locale: 'tr', description: 'Turkish' },
   { locale: 'uk', description: 'Ukraine' },
   { locale: 'ur', description: 'Urdu' },
-  { locale: 'ko', description: 'Korean' },
 ];
 
 i18n
