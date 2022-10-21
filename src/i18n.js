@@ -36,6 +36,7 @@ import contentNp from './locales/np/content.json';
 import contentOr from './locales/or/content.json';
 import contentKo from './locales/ko/content.json';
 import contentVi from './locales/vi/content.json';
+import contentSl from './locales/sl/content.json';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -83,6 +84,7 @@ const resources = {
   or: contentOr,
   ko: contentKo,
   vi: contentVi,
+  sl: contentSl,
 };
 
 // Feel free to translate the language name
@@ -122,6 +124,7 @@ export const localesList = [
   { locale: 'uk', description: 'Ukraine' },
   { locale: 'ur', description: 'Urdu' },
   { locale: 'vi', description: 'Vietnamese' },
+  { locale: 'sl', description: 'Slovenian' },
 ];
 
 i18n
