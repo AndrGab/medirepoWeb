@@ -82,7 +82,7 @@ const resources = {
   np: contentNp,
   or: contentOr,
   ko: contentKo,
-  vi: contentKo,
+  vi: contentVi,
 };
 
 // Feel free to translate the language name
