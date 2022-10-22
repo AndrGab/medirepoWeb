@@ -123,6 +123,7 @@ function SignIn() {
             PATIENT LOGIN
           </Typography>
 
+          {/* Show alert if the required inputs are incomplete */}
           {isFormInComplete && (
             <Box width="100%" mt={3}>
               <Alert severity="error">{t('fillRequiredFields')}</Alert>
