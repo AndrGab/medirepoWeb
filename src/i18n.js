@@ -35,6 +35,7 @@ import contentUr from './locales/ur/content.json';
 import contentNp from './locales/np/content.json';
 import contentOr from './locales/or/content.json';
 import contentKo from './locales/ko/content.json';
+import contentZhCN from './locales/zh_CN/content.json';
 import contentMa from './locales/ma/content.json';
 import contentVi from './locales/vi/content.json';
 import contentSl from './locales/sl/content.json';
@@ -84,6 +85,7 @@ const resources = {
   np: contentNp,
   or: contentOr,
   ko: contentKo,
+  'zh-CN': contentZhCN,
   ma: contentMa,
   vi: contentVi,
   sl: contentSl,
@@ -94,6 +96,7 @@ export const localesList = [
   { locale: 'ar', description: 'Arabic' },
   { locale: 'as', description: 'Assamese' },
   { locale: 'bn', description: 'Bengali' },
+  { locale: 'zh-CN', description: 'Chinese' },
   { locale: 'cn', description: 'Mandarin' },
   { locale: 'de', description: 'German' },
   { locale: 'nl', description: 'Dutch' },
