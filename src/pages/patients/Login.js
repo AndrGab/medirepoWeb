@@ -170,8 +170,10 @@ function SignIn() {
                 onChange={(e) => setHospital(e.target.value)}
               >
                 <option aria-label="None" value="" />
-                {listHosps.map((listHosp) => (
-                  <option value={listHosp.id}> {listHosp.name} </option>
+                {listHosps.map((listHosp, index) => (
+                  <option key={index} value={listHosp.id}>
+                    {listHosp.name}
+                  </option>
                 ))}
               </Select>
             </FormControl>
