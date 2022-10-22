@@ -35,6 +35,7 @@ import contentUr from './locales/ur/content.json';
 import contentNp from './locales/np/content.json';
 import contentOr from './locales/or/content.json';
 import contentKo from './locales/ko/content.json';
+import contentMa from './locales/ma/content.json';
 import contentVi from './locales/vi/content.json';
 import contentSl from './locales/sl/content.json';
 
@@ -83,6 +84,7 @@ const resources = {
   np: contentNp,
   or: contentOr,
   ko: contentKo,
+  ma: contentMa,
   vi: contentVi,
   sl: contentSl,
 };
@@ -108,6 +110,7 @@ export const localesList = [
   { locale: 'jp', description: 'Japanese' },
   { locale: 'ka', description: 'Kannada' },
   { locale: 'ko', description: 'Korean' },
+  { locale: 'ma', description: 'Maithili' },
   { locale: 'ml', description: 'Malayalam' },
   { locale: 'mr', description: 'Marathi' },
   { locale: 'np', description: 'Nepali' },
