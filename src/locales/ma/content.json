@@ -48,7 +48,7 @@
     "loadHospitalsError": "अस्पताल सूची लोड करबामे असमर्थ. बादमे प्रयास करू.",
     "emailSavingError": "ईमेल सहेजबामे त्रुटि: अमान्य प्रारूप अथवा कोनो आन कंपनी द्वारा प्रयोग कएल गेल",
     "passwordSize": "पासवर्ड कम सँ कम 6 वर्ण लंबा हेबाक चाही",
-    "hospitalInfo": "अस्पताल जानकारी"
+    "hospitalInfo": "अस्पताल जानकारी",
     "email": "ई-मेल",
     "hospitalName": "अस्पताल के नाम",
     "password": "पासवर्ड",
@@ -80,7 +80,7 @@
     "differentPassword": "प्रविष्ट गुप्तशब्द मेल नहि खाइत अछि",
     "updatedPassword": "गुप्तशब्द अद्यतन",
     "repeatPassword": "गुप्तशब्द दोहराउ",
-    "darkMode": "डार्क मोड", 1
+    "darkMode": "डार्क मोड",
     "viewSettings": "सेटिंग्स देखू",
     "wrongIDOrToken": "अहाँक आईडी या टोकन मे किछु गलत अछि",
     "account": "खाता",

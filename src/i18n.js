@@ -11,7 +11,7 @@ import contentFr from './locales/fr/content.json';
 import contentId from './locales/id/content.json';
 import contentMr from './locales/mr/content.json';
 import contentPl from './locales/pl/content.json';
-import contentPt from './locales/pt/content.json';
+import contentPtBR from './locales/pt_BR/content.json';
 import contentTa from './locales/ta/content.json';
 import contentPa from './locales/pa/content.json';
 import contentHi from './locales/hi/content.json';
@@ -60,7 +60,7 @@ const resources = {
   id: contentId,
   mr: contentMr,
   pl: contentPl,
-  pt: contentPt,
+  'pt-BR': contentPtBR,
   ta: contentTa,
   pa: contentPa,
   hi: contentHi,
@@ -118,7 +118,7 @@ export const localesList = [
   { locale: 'or', description: 'Odia' },
   { locale: 'pa', description: 'Punjabi' },
   { locale: 'pl', description: 'Polish' },
-  { locale: 'pt', description: 'Português' },
+  { locale: 'pt-BR', description: 'Português' },
   { locale: 'sm', description: 'Samoan' },
   { locale: 'sv', description: 'Swedish' },
   { locale: 'ta', description: 'Tamil' },
