@@ -153,7 +153,7 @@ function SignIn() {
               autoComplete={t('birthday')}
               onChange={(e) => setDtnasc(e.target.value)}
             />
-            <FormControl className={classes.formControl} variant="outlined">
+            <FormControl required className={classes.formControl} variant="outlined">
               <InputLabel htmlFor="nascimento" id="simple-select-outlined-label">
                 Hospital
               </InputLabel>
@@ -166,7 +166,7 @@ function SignIn() {
                   name: 'hospital',
                   id: 'hospital_id',
                 }}
-                input={<OutlinedInput shrink="true" labelWidth={62} name="hospital" id="simple-select-outline" />}
+                input={<OutlinedInput shrink="true" labelWidth={70} name="hospital" id="simple-select-outline" />}
                 onChange={(e) => setHospital(e.target.value)}
               >
                 <option aria-label="None" value="" />
