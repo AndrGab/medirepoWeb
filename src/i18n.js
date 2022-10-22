@@ -34,7 +34,7 @@ import contentUr from './locales/ur/content.json';
 import contentNp from './locales/np/content.json';
 import contentOr from './locales/or/content.json';
 import contentKo from './locales/ko/content.json';
-import contentCh from './locales/ch/content.json';
+import contentZhCN from './locales/zh_CN/content.json';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -80,7 +80,7 @@ const resources = {
   np: contentNp,
   or: contentOr,
   ko: contentKo,
-  ch: contentCh,
+  'zh-CN': contentZhCN,
 };
 
 // Feel free to translate the language name
@@ -88,6 +88,7 @@ export const localesList = [
   { locale: 'ar', description: 'Arabic' },
   { locale: 'as', description: 'Assamese' },
   { locale: 'bn', description: 'Bengali' },
+  { locale: 'zh-CN', description: 'Chinese' },
   { locale: 'cn', description: 'Mandarin' },
   { locale: 'de', description: 'German' },
   { locale: 'nl', description: 'Dutch' },
@@ -118,7 +119,6 @@ export const localesList = [
   { locale: 'tr', description: 'Turkish' },
   { locale: 'uk', description: 'Ukraine' },
   { locale: 'ur', description: 'Urdu' },
-  { locale: 'ch', description: 'Chinese' },
 ];
 
 i18n
