@@ -4,13 +4,14 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import contentCn from './locales/cn/content.json';
 import contentDe from './locales/de/content.json';
 import contentEn from './locales/en/content.json';
+import contentEo from './locales/eo/content.json';
 import contentEs from './locales/es/content.json';
 import contentFi from './locales/fi/content.json';
 import contentFr from './locales/fr/content.json';
 import contentId from './locales/id/content.json';
 import contentMr from './locales/mr/content.json';
 import contentPl from './locales/pl/content.json';
-import contentPt from './locales/pt/content.json';
+import contentPtBR from './locales/pt_BR/content.json';
 import contentTa from './locales/ta/content.json';
 import contentPa from './locales/pa/content.json';
 import contentHi from './locales/hi/content.json';
@@ -35,6 +36,9 @@ import contentNp from './locales/np/content.json';
 import contentOr from './locales/or/content.json';
 import contentKo from './locales/ko/content.json';
 import contentZhCN from './locales/zh_CN/content.json';
+import contentMa from './locales/ma/content.json';
+import contentVi from './locales/vi/content.json';
+import contentSl from './locales/sl/content.json';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -50,13 +54,14 @@ const resources = {
   cn: contentCn,
   de: contentDe,
   en: contentEn,
+  eo: contentEo,
   es: contentEs,
   fi: contentFi,
   fr: contentFr,
   id: contentId,
   mr: contentMr,
   pl: contentPl,
-  pt: contentPt,
+  'pt-BR': contentPtBR,
   ta: contentTa,
   pa: contentPa,
   hi: contentHi,
@@ -81,6 +86,9 @@ const resources = {
   or: contentOr,
   ko: contentKo,
   'zh-CN': contentZhCN,
+  ma: contentMa,
+  vi: contentVi,
+  sl: contentSl,
 };
 
 // Feel free to translate the language name
@@ -93,6 +101,7 @@ export const localesList = [
   { locale: 'de', description: 'German' },
   { locale: 'nl', description: 'Dutch' },
   { locale: 'en', description: 'English' },
+  { locale: 'eo', description: 'Esperanto' },
   { locale: 'es', description: 'Español' },
   { locale: 'fi', description: 'Finnish' },
   { locale: 'fr', description: 'Français' },
@@ -104,6 +113,7 @@ export const localesList = [
   { locale: 'jp', description: 'Japanese' },
   { locale: 'ka', description: 'Kannada' },
   { locale: 'ko', description: 'Korean' },
+  { locale: 'ma', description: 'Maithili' },
   { locale: 'ml', description: 'Malayalam' },
   { locale: 'mr', description: 'Marathi' },
   { locale: 'np', description: 'Nepali' },
@@ -111,7 +121,7 @@ export const localesList = [
   { locale: 'or', description: 'Odia' },
   { locale: 'pa', description: 'Punjabi' },
   { locale: 'pl', description: 'Polish' },
-  { locale: 'pt', description: 'Português' },
+  { locale: 'pt-BR', description: 'Português' },
   { locale: 'sm', description: 'Samoan' },
   { locale: 'sv', description: 'Swedish' },
   { locale: 'ta', description: 'Tamil' },
@@ -119,6 +129,8 @@ export const localesList = [
   { locale: 'tr', description: 'Turkish' },
   { locale: 'uk', description: 'Ukraine' },
   { locale: 'ur', description: 'Urdu' },
+  { locale: 'vi', description: 'Vietnamese' },
+  { locale: 'sl', description: 'Slovenian' },
 ];
 
 i18n
