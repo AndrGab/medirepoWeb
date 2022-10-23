@@ -232,7 +232,7 @@ function BulletinAdd() {
                 </Grid>
 
                 <Grid item xs={12} sm={4}>
-                  <FormControl className={classes.formControl} variant="outlined">
+                  <FormControl required className={classes.formControl} variant="outlined">
                     <InputLabel htmlFor={t('generalCondition')} id="simple-select-outlined-label">
                       {t('generalCondition')}{' '}
                     </InputLabel>
@@ -245,7 +245,7 @@ function BulletinAdd() {
                         name: t('generalCondition'),
                         id: 'geral',
                       }}
-                      input={<OutlinedInput shrink="true" labelWidth={92} name="geral" id="simple-select-outline" />}
+                      input={<OutlinedInput shrink="true" labelWidth={145} name="geral" id="simple-select-outline" />}
                       onChange={(e) => setGeral(e.target.value)}
                     >
                       <option aria-label="None" value="" />
@@ -257,7 +257,7 @@ function BulletinAdd() {
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                  <FormControl className={classes.formControl} variant="outlined">
+                  <FormControl required className={classes.formControl} variant="outlined">
                     <InputLabel htmlFor={t('bloodPressure')} id="simple-select-outlined-label">
                       {t('bloodPressure')}
                     </InputLabel>
@@ -281,7 +281,7 @@ function BulletinAdd() {
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                  <FormControl className={classes.formControl} variant="outlined">
+                  <FormControl required className={classes.formControl} variant="outlined">
                     <InputLabel htmlFor={t('consciousnessLevel')} id="simple-select-outlined-label">
                       {t('consciousnessLevel')}
                     </InputLabel>
@@ -294,7 +294,7 @@ function BulletinAdd() {
                         name: t('conciousnessLevel'),
                         id: 'consciencia',
                       }}
-                      input={<OutlinedInput shrink="true" labelWidth={150} name="consciencia" id="simple-select-outline" />}
+                      input={<OutlinedInput shrink="true" labelWidth={165} name="consciencia" id="simple-select-outline" />}
                       onChange={(e) => setConsciencia(e.target.value)}
                     >
                       <option aria-label="None" value="" />
@@ -304,7 +304,7 @@ function BulletinAdd() {
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                  <FormControl className={classes.formControl} variant="outlined">
+                  <FormControl required className={classes.formControl} variant="outlined">
                     <InputLabel htmlFor={t('fever')} id="simple-select-outlined-label">
                       {t('fever')}
                     </InputLabel>
@@ -317,7 +317,7 @@ function BulletinAdd() {
                         name: t('fever'),
                         id: 'febre',
                       }}
-                      input={<OutlinedInput shrink="true" labelWidth={45} name="febre" id="simple-select-outline" />}
+                      input={<OutlinedInput shrink="true" labelWidth={50} name="febre" id="simple-select-outline" />}
                       onChange={(e) => setFebre(e.target.value)}
                     >
                       <option aria-label="None" value="" />
@@ -327,7 +327,7 @@ function BulletinAdd() {
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                  <FormControl className={classes.formControl} variant="outlined">
+                  <FormControl required className={classes.formControl} variant="outlined">
                     <InputLabel htmlFor={t('respiration')} id="simple-select-outlined-label">
                       {t('respiration')}
                     </InputLabel>
@@ -340,7 +340,7 @@ function BulletinAdd() {
                         name: t('respiration'),
                         id: 'respiracao',
                       }}
-                      input={<OutlinedInput shrink="true" labelWidth={85} name="respiracao" id="simple-select-outline" />}
+                      input={<OutlinedInput shrink="true" labelWidth={95} name="respiracao" id="simple-select-outline" />}
                       onChange={(e) => setRespiracao(e.target.value)}
                     >
                       <option aria-label="None" value="" />
@@ -350,7 +350,7 @@ function BulletinAdd() {
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                  <FormControl className={classes.formControl} variant="outlined">
+                  <FormControl required className={classes.formControl} variant="outlined">
                     <InputLabel htmlFor={t('diuresis')} id="simple-select-outlined-label">
                       {t('diuresis')}
                     </InputLabel>
@@ -363,7 +363,7 @@ function BulletinAdd() {
                         name: t('diuresis'),
                         id: 'diurese',
                       }}
-                      input={<OutlinedInput shrink="true" labelWidth={62} name="diurese" id="simple-select-outline" />}
+                      input={<OutlinedInput shrink="true" labelWidth={70} name="diurese" id="simple-select-outline" />}
                       onChange={(e) => setDiurese(e.target.value)}
                     >
                       <option aria-label="None" value="" />
