@@ -17,8 +17,6 @@ import { toast } from 'react-toastify';
 import AppBarMediRepo from '../components/AppBarMediRepo';
 import { useTranslation } from 'react-i18next';
 import RouterLink from '../../components/RouterLink/RouterLink';
-import { Alert } from '@material-ui/lab';
-import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -66,7 +64,6 @@ function SignIn() {
   var [listHosps, setlistHosp] = useState([]);
   const { t } = useTranslation();
   const notify = () => toast.info(t('askPatientLogin'));
-  const [isFormInComplete, setIsFormInComplete] = useState(false);
 
   const history = useHistory();
 
@@ -93,7 +90,6 @@ function SignIn() {
     };
 
     if (!!login && !!password && !!dt_nasc && !!id) {
-      setIsFormInComplete(false);
       setIsLoading(true);
       try {
         const response = await api.post('patients/signin', data);
@@ -108,7 +104,7 @@ function SignIn() {
         toast.dark(t('authenticationRequired'));
       }
     } else {
-      setIsFormInComplete(true);
+      toast.warning(t('fillRequiredFields'));
     }
   }
 
@@ -122,14 +118,6 @@ function SignIn() {
           <Typography color="primary" component="h1" variant="button">
             PATIENT LOGIN
           </Typography>
-
-          {/* Show alert if the required inputs are incomplete */}
-          {isFormInComplete && (
-            <Box width="100%" mt={3}>
-              <Alert severity="error">{t('fillRequiredFields')}</Alert>
-            </Box>
-          )}
-
           <form className={classes.form} noValidate onSubmit={handleLogin}>
             <TextField
               variant="outlined"
