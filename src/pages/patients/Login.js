@@ -103,6 +103,8 @@ function SignIn() {
         setIsLoading(false);
         toast.dark(t('authenticationRequired'));
       }
+    } else {
+      toast.warning(t('fillRequiredFields'));
     }
   }
 

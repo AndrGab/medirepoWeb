@@ -100,6 +100,7 @@
     "askPatientLogin": "The credentials are informed by the hospital. Ask in the reception.",
     "logout": "Logout",
     "bulletinsDeleted": "bulletin(s) successfully deleted",
-    "couldNotDelete": "Could not delete"
+    "couldNotDelete": "Could not delete",
+    "fillRequiredFields": "Please fill all the required inputs."
   }
 }
