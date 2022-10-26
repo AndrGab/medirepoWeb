@@ -5,6 +5,7 @@
 <h3 align="center">
   React Application for Daily Medical Reports
 </h3>
+
 <p align="center">Making communication easier for Hospitals and Patients' Families.</p>
 <p align="center">This front-end application is part of a project called MediRepo which consumes an Elixir API for practising this functional language.</p>
 
@@ -23,7 +24,6 @@
 </p>
 
 ## MediRepo
-
 
 [![Join the chat at https://gitter.im/medirepoWeb/community](https://badges.gitter.im/medirepoWeb/community.svg)](https://gitter.im/medirepoWeb/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -58,7 +58,7 @@ With Medirepo API you can send medical reports to the application easier, set up
 
 See postman documentation:
 
-[![postman](https://img.shields.io/badge/documentation%20in-postman-orange?logo=postman)](https://documenter.getpostman.com/view/15643514/TzzBpFsL) 
+[![postman](https://img.shields.io/badge/documentation%20in-postman-orange?logo=postman)](https://documenter.getpostman.com/view/15643514/TzzBpFsL)
 
 Access the API repository:
 
