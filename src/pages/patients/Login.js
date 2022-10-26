@@ -104,7 +104,7 @@ function SignIn() {
         toast.dark(t('authenticationRequired'));
       }
     } else {
-      toast.warning(t('fillRequiredFields'));
+      toast.dark(t('fillRequiredFields'));
     }
   }
 
