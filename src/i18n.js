@@ -39,6 +39,7 @@ import contentZhCN from './locales/zh_CN/content.json';
 import contentMa from './locales/ma/content.json';
 import contentVi from './locales/vi/content.json';
 import contentSl from './locales/sl/content.json';
+import contentDa from './locales/da/content.json';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -89,6 +90,7 @@ const resources = {
   ma: contentMa,
   vi: contentVi,
   sl: contentSl,
+  da: contentDa,
 };
 
 // Feel free to translate the language name
@@ -98,6 +100,7 @@ export const localesList = [
   { locale: 'bn', description: 'Bengali' },
   { locale: 'zh-CN', description: 'Chinese' },
   { locale: 'cn', description: 'Mandarin' },
+  { locale: 'da', description: 'Danish' },
   { locale: 'de', description: 'German' },
   { locale: 'nl', description: 'Dutch' },
   { locale: 'en', description: 'English' },
