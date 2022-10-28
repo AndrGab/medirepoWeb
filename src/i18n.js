@@ -41,6 +41,7 @@ import contentMa from './locales/ma/content.json';
 import contentVi from './locales/vi/content.json';
 import contentSl from './locales/sl/content.json';
 import contentDa from './locales/da/content.json';
+import contentAm from './locales/am/content.json';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -93,10 +94,12 @@ const resources = {
   vi: contentVi,
   sl: contentSl,
   da: contentDa,
+  am: contentAm,
 };
 
 // Feel free to translate the language name
 export const localesList = [
+  { locale: 'am', description: 'Amharic' },
   { locale: 'ar', description: 'Arabic' },
   { locale: 'as', description: 'Assamese' },
   { locale: 'bn', description: 'Bengali' },
