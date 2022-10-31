@@ -15,6 +15,7 @@ import contentPl from './locales/pl/content.json';
 import contentPtBR from './locales/pt_BR/content.json';
 import contentTa from './locales/ta/content.json';
 import contentPa from './locales/pa/content.json';
+import contentHu from './locales/hu/content.json';
 import contentHi from './locales/hi/content.json';
 import contentBn from './locales/bn/content.json';
 import contentAr from './locales/ar/content.json';
@@ -76,6 +77,7 @@ const resources = {
   no: contentNo,
   ka: contentKa,
   te: contentTe,
+  hu: contentHu,
   sv: contentSv,
   ml: contentMl,
   uk: contentUk,
@@ -118,6 +120,7 @@ export const localesList = [
   { locale: 'gu', description: 'Gujarati' },
   { locale: 'ha', description: 'Hausa' },
   { locale: 'he', description: 'Hebrew' },
+  { locale: 'hu', description: 'Hungarian' },
   { locale: 'hi', description: 'Hindi' },
   { locale: 'id', description: 'Indonesian' },
   { locale: 'it', description: 'Italian' },
