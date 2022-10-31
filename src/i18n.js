@@ -30,6 +30,7 @@ import contentHe from './locales/he/content.json';
 import contentHa from './locales/ha/content.json';
 import contentNl from './locales/nl/content.json';
 import contentTr from './locales/tr/content.json';
+import contentRu from './locales/ru/content.json';
 import contentSm from './locales/sm/content.json';
 import contentAs from './locales/as/content.json';
 import contentUr from './locales/ur/content.json';
@@ -83,6 +84,7 @@ const resources = {
   ha: contentHa,
   nl: contentNl,
   tr: contentTr,
+  ru: contentRu,
   sm: contentSm,
   as: contentAs,
   ur: contentUr,
@@ -131,6 +133,7 @@ export const localesList = [
   { locale: 'pa', description: 'Punjabi' },
   { locale: 'pl', description: 'Polish' },
   { locale: 'pt-BR', description: 'Português' },
+  { locale: 'ru', description: 'Russian' },
   { locale: 'sm', description: 'Samoan' },
   { locale: 'sv', description: 'Swedish' },
   { locale: 'ta', description: 'Tamil' },
