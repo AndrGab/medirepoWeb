@@ -41,6 +41,7 @@ import contentZhCN from './locales/zh_CN/content.json';
 import contentMa from './locales/ma/content.json';
 import contentVi from './locales/vi/content.json';
 import contentSl from './locales/sl/content.json';
+import contentSl from './locales/si/content.json';
 import contentDa from './locales/da/content.json';
 import contentAm from './locales/am/content.json';
 
@@ -95,6 +96,7 @@ const resources = {
   ma: contentMa,
   vi: contentVi,
   sl: contentSl,
+  si: contentSi,
   da: contentDa,
   am: contentAm,
 };
@@ -135,6 +137,8 @@ export const localesList = [
   { locale: 'pt-BR', description: 'Português' },
   { locale: 'ru', description: 'Russian' },
   { locale: 'sm', description: 'Samoan' },
+  { locale: 'sl', description: 'Slovenian' },
+  { locale: 'si', description: 'Sinhalese' },
   { locale: 'sv', description: 'Swedish' },
   { locale: 'ta', description: 'Tamil' },
   { locale: 'te', description: 'Telugu' },
@@ -142,7 +146,6 @@ export const localesList = [
   { locale: 'uk', description: 'Ukraine' },
   { locale: 'ur', description: 'Urdu' },
   { locale: 'vi', description: 'Vietnamese' },
-  { locale: 'sl', description: 'Slovenian' },
 ];
 
 i18n
