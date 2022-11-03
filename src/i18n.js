@@ -41,7 +41,7 @@ import contentZhCN from './locales/zh_CN/content.json';
 import contentMa from './locales/ma/content.json';
 import contentVi from './locales/vi/content.json';
 import contentSl from './locales/sl/content.json';
-import contentSl from './locales/si/content.json';
+import contentSi from './locales/si/content.json';
 import contentDa from './locales/da/content.json';
 import contentAm from './locales/am/content.json';
 
