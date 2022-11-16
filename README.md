@@ -90,7 +90,7 @@ PS: You can create an environment variable like `.env-sample` file in the projec
 
 ## Contributing
 
-See you [contributing guidelines](CONTRIBUTING.md) and our [Code of condute.](CODE_OF_CONDUCT.md)
+See [contributing guidelines](CONTRIBUTING.md) and our [Code of condute.](CODE_OF_CONDUCT.md)
 
 You can contribute to this project including:
 
