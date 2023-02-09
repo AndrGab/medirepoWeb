@@ -46,8 +46,7 @@
     "dailyMedicalReport": "Ĉiutaga Medicina Raporto",
     "bulletinsNotFound": "Bultenoj Ne Trovitaj",
     "loadHospitalsError": "Ne eblas ŝarĝi la listo de Hospitaloj. Provu poste.",
-    "emailSavingError":
-      "Eraro dum konservi retpoŝton: nevalida formato aŭ uzata de alia kompanio",
+    "emailSavingError": "Eraro dum konservi retpoŝton: nevalida formato aŭ uzata de alia kompanio",
     "passwordSize": "Pasvorto devas havi almenaŭ 6 signojn longa",
     "hospitalInfo": "Hospitalaj Informoj",
     "email": "Retpoŝto",
@@ -77,8 +76,7 @@
     "mediRepoWelcome": "Via Platformo pri Administrado de Medicinaj Raportoj",
     "welcome": "Bonvenon",
     "hospitalsNumber": "Nombro de Hospitaloj sur la platformo",
-    "activeBulletinsNumber":
-      "Nombro de Aktivaj Medicinaj Bultenoj por via Hospitalo",
+    "activeBulletinsNumber": "Nombro de Aktivaj Medicinaj Bultenoj por via Hospitalo",
     "differentPassword": "Enmetitaj pasvortoj ne kongruas",
     "updatedPassword": "Pasvorto ĝisdatigita",
     "repeatPassword": "Ripetu la pasvorto",
@@ -98,10 +96,8 @@
     "accessTokenSent": "Alirĵetono estis sendis al Vian Retpoŝton",
     "send": "Sendi",
     "hospitalLogin": "Ensalutoj de Hospitaloj, alklaku ĉi tie",
-    "authenticationRequired":
-      "Aŭtentigo bezonata. Uzu la ricevita Ensaluto/Pasvorto",
-    "askPatientLogin":
-      "La akreditaĵoj estas informitajn de la hospitalon. Demandu en la akceptejo.",
+    "authenticationRequired": "Aŭtentigo bezonata. Uzu la ricevita Ensaluto/Pasvorto",
+    "askPatientLogin": "La akreditaĵoj estas informitajn de la hospitalon. Demandu en la akceptejo.",
     "logout": "Elsaluti",
     "bulletinsDeleted": "bulteno(j) sukcese forigita(j).",
     "couldNotDelete": "Ne eblis forigi"
