@@ -1,18 +1,30 @@
-<h1 align="center">
+<p align="center">
   <img alt="Logo" src="https://user-images.githubusercontent.com/57791712/194556500-f4291b47-325e-43b2-adb6-e224152fd327.png">
-</h1>
+</p>
 
-<h3 align="center">
-  React Application for Daily Medical Reports
-</h3>
+<h3 align="center">Application for Daily Medical Reports</h3>
 
-<p align="center">Making communication easier for Hospitals and Patients' Families.</p>
-<p align="center">This front-end application is part of a project called MediRepo which consumes an Elixir API for practising this functional language.</p>
+<p align="center">
+ Simplifying Communication for Hospitals and Patients' Families
+</p>
 
-<p align="center">With the help of the Github community, this project is available in 25+ languages (increasing)</p>
+<p align="center">
+  This front-end application is an integral part of the MediRepo project.
+</p>
+
+<p align="center">
+  <a href="https://github.com/AndrGab/MediRepo" target="_blank" rel="noopener noreferrer">
+    Check out the backend project on GitHub
+  </a>
+</p>
+
+<p align="center">
+  With the collaboration of the GitHub community, this project is now available in 44 languages (and counting).
+</p>
+
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Andrgab/medirepoWeb?color=6485e3&logo=React">
-<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/andrgab/medirepoweb">
+  <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/andrgab/medirepoweb">
   <a href="https://img.shields.io/github/deployments/andrgab/medirepoWeb/Production?label=Vercel&logo=Vercel" target="_blank" rel="noopener noreferrer">
     <img alt="vercel" src="https://img.shields.io/github/deployments/andrgab/medirepoWeb/Production?label=Vercel&logo=Vercel">
   </a>
@@ -20,123 +32,115 @@
 </p>
 
 <p align="center">
-    <img alt="vercel" src="https://user-images.githubusercontent.com/57791712/194555927-9c107aef-3682-4af5-b712-fe9478930b4e.png">
+  <img alt="vercel" src="https://user-images.githubusercontent.com/57791712/194555927-9c107aef-3682-4af5-b712-fe9478930b4e.png">
 </p>
 
-## MediRepo
+## About MediRepo
 
-[![Join the chat at https://gitter.im/medirepoWeb/community](https://badges.gitter.im/medirepoWeb/community.svg)](https://gitter.im/medirepoWeb/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-Most hospitals are restricting visitors for COVID-19 Patients.
-This is a project to help hospitals to share Daily Medical Reports with those patients' families.
+In the context of COVID-19, many hospitals have had to restrict visitors, leaving patients' families anxious for information about their loved ones. MediRepo is an innovative solution designed to bridge this communication gap by allowing hospitals to share daily medical reports with patients' families.
 
 ## Live Demo
 
+Explore the live demo of MediRepo:
+
 <a href="https://medirepo.vercel.app/" target="_blank" rel="noopener noreferrer">
-    https://medirepo.vercel.app/
-  </a>
+  Visit the Live Demo
+</a>
 
-## How to use MediRepo
+## How to Use MediRepo
 
-### Hospitals
+### For Hospitals
 
-1. Create an account
-2. Add a medical report to a patient
-3. Share the Patient Code and Attendance Code (this is the password) to the patient's family
+1. **Create an Account:** Get started by creating an account.
+2. **Add Medical Reports:** Upload medical reports for patients.
+3. **Share Patient Code:** Share the Patient Code and Attendance Code (which acts as a password) with the patient's family.
 
-Using the same patient Code and attendance Code, only the last medical report will be shared.
+By using the same Patient Code and Attendance Code, only the latest medical report will be accessible. You can also utilize the Medirepo API to streamline the process of sending medical reports to the application and integrate it with your primary hospital application.
 
-With Medirepo API you can send medical reports to the application easier, set up your main application to communicate with our REST API.
+### For Patients' Families
 
-### Patient's Family
-
-1. Log in with code and password received
-2. Enter the patient birthday
-3. :tada: See the information about your loved one :heart:
+1. **Log In:** Access the application using the provided Patient Code and Attendance Code (password).
+2. **Enter Patient's Birthday:** Provide the patient's birthday for verification.
+3. **Discover Information:** :tada: Access and view medical information about your :heart: loved one.
 
 ## Medirepo (REST API)
 
-See postman documentation:
+Explore the Postman documentation for the Medirepo REST API:
 
 [![postman](https://img.shields.io/badge/documentation%20in-postman-orange?logo=postman)](https://documenter.getpostman.com/view/15643514/TzzBpFsL)
 
-Access the API repository:
+Access the API repository on GitHub:
 
-<a href="https://github.com/AndrGab/MediRepo" target="_blank" rel="noopener noreferrer">
-https://github.com/AndrGab/MediRepo
+  <a href="https://github.com/AndrGab/MediRepo" target="_blank" rel="noopener noreferrer">
+    Check out the backend project on GitHub
   </a>
 
-## Guide to set up locally
+## Local Setup Guide
 
-1. Fork the project and then clone it to your computer
+1. **Fork and Clone:** Fork the project and clone it to your local machine.
 
-```
+```bash
 git clone git@github.com:<your-user-name>/medirepoWeb.git
 ```
 
-2. Install libs
+2. **Install Dependencies:** Install the required libraries.
 
-```
+```bash
 npm install
 ```
 
-3. Start the project
+3. **Start the Project:** Launch the application.
 
-```
+```bash
 npm start
 ```
 
-PS: You can create an environment variable like `.env-sample` file in the project root folder to set the backend host.
+Note: You can create an environment variable file (e.g., `.env-sample`) in the project's root folder to configure the backend host.
 
 ## Contributing
 
-See [contributing guidelines](CONTRIBUTING.md) and our [Code of condute.](CODE_OF_CONDUCT.md)
+We welcome contributions to MediRepo. Please review our [contributing guidelines](CONTRIBUTING.md) and our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-You can contribute to this project including:
+You can contribute to this project in various ways, including:
 
-- new features;
-- architectural improvements;
-- translating messages into your native language;
-- searching bugs;
-- adding test coverage;
-- starring the project :star:
+- Implementing new features
+- Making architectural improvements
+- Translating messages into your native language
+- Identifying and fixing bugs
+- Adding test coverage
+- Showing your support by starring the project ⭐
 
 Feel free to contribute!
 
 ## HacktoberFest
 
-If you came here for Hacktoberfest:
+If you're participating in Hacktoberfest, you're in the right place! 
 
-Celebrate [Hacktoberfest](https://hacktoberfest.com/) by getting involved in the open source community by completing some tasks in this project.
+Celebrate [Hacktoberfest](https://hacktoberfest.com/) by engaging with the open source community and completing tasks within this project.
 
-This repository is open to all members of the GitHub community. Any member may contribute to this project without being a collaborator.
+This repository is open to all GitHub community members, and you can contribute without being a formal collaborator.
 
 ### What is Hacktoberfest?
 
-🎃 HacktoberFest is digitalocean’s annual event that encourages people to contribute to open source throughout October. Much of modern tech infrastructure—including some of digitalocean’s own products—relies on open-source projects built and maintained by passionate people who often don’t have the staff or budgets to do much more than keeping the project alive. 🎃 HacktoberFest is all about giving back to those projects, sharpening skills, and celebrating all things open source, especially the people that make open source so special.
+🎃 HacktoberFest is an annual event hosted by DigitalOcean that encourages people to contribute to open source projects throughout October. Many modern tech infrastructures, including some of DigitalOcean's own products, rely on open-source projects maintained by passionate individuals with limited resources. HacktoberFest is all about giving back to these projects, improving your skills, and celebrating the open-source community.
 
-[https://hacktoberfest.com/](https://hacktoberfest.com/)
+Learn more at [https://hacktoberfest.com/](https://hacktoberfest.com/).
 
 ## Features 📜
 
-With Medirepo, hospitals can register and add daily patient reports to the platform.
-At the time of admission, it is necessary to provide the Patient Code and Password to family members to have access to these bulletins.
+With Medirepo, hospitals can register and add daily patient reports to the platform. Upon admission, hospitals provide the Patient Code and Password to family members for access to these reports.
 
-- The latest bulletin will always be available.
-- Through the platform, it is possible to include new bulletins, delete, print reports...
-- Extras: Dark Mode for better viewing of the platform.
+- The latest report is always available.
+- You can add, delete, and print reports through the platform.
+- Enjoy the Extras: Dark Mode for improved viewing.
 
 ## Feedback
 
-If you have any feedback, please reach out to me at andrgab@gmail.com
+If you have any feedback or suggestions, please don't hesitate to reach out to me at andrgab@gmail.com.
 
 ## Author
 
-Made with :purple_heart:
-
- <a href="https://www.linkedin.com/in/andrgab/" target="_blank" rel="noopener noreferrer">
-    <img alt="Made by" src="https://img.shields.io/badge/made%20by-Andre%20Gabriel-ff69b4?logo=linkedin">
- </a>
+Made with 💜 by [Andre Gabriel](https://www.linkedin.com/in/andrgab/).
 
 ## Contributors
 
@@ -146,6 +150,6 @@ Made with :purple_heart:
 
 ## Credits
 
-Illustrations by [Storyset](https://storyset.com/)
+Illustrations by [Storyset](https://storyset.com/).
 
-Contributors image made with [contrib.rocks](https://contrib.rocks).
+Contributors' image created with [contrib.rocks](https://contrib.rocks).
