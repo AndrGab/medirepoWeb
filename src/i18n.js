@@ -45,6 +45,7 @@ import contentSl from './locales/sl/content.json';
 import contentSi from './locales/si/content.json';
 import contentDa from './locales/da/content.json';
 import contentAm from './locales/am/content.json';
+import contentTh from './locales/th/content.json';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -101,6 +102,7 @@ const resources = {
   si: contentSi,
   da: contentDa,
   am: contentAm,
+  th: contentTh,
 };
 
 // Feel free to translate the language name
@@ -145,6 +147,7 @@ export const localesList = [
   { locale: 'sv', description: 'Swedish' },
   { locale: 'ta', description: 'Tamil' },
   { locale: 'te', description: 'Telugu' },
+  { locale: 'th', description: 'Thai' },
   { locale: 'tr', description: 'Turkish' },
   { locale: 'uk', description: 'Ukraine' },
   { locale: 'ur', description: 'Urdu' },
