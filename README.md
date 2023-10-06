@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  With the collaboration of the GitHub community, this project is now available in 44 languages (and counting).
+  With the collaboration of the GitHub community, this project is now available in 45 languages (and counting).
 </p>
 
 <p align="center">
