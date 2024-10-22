@@ -12,6 +12,7 @@ import api from '../../services/Api';
 import AppBarMediRepo from '../components/AppBarMediRepo';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
 import RouterLink from '../../components/RouterLink/RouterLink';
 
 const useStyles = makeStyles((theme) => ({
@@ -61,6 +62,21 @@ function RegisterHospital() {
 
   const history = useHistory();
 
+  // Zod schema for validation
+  const registerSchema = z.object({
+    name: z.string().min(1, { message: t('nameRequired') }), // Name is required
+    email: z.string().email({ message: t('InvalidEmail') }), // Email validation
+    password: z.string()
+      .min(8, { message: t('passwordSize') }) // Minimum length
+      .regex(/[A-Z]/, { message: t('PasswordUppercase') }) // Must contain an uppercase letter
+      .regex(/\d/, { message: t('PasswordNumber') }) // Must contain a number
+      .regex(/[!@#$%^&*]/, { message: t('PasswordSpecialChar') }), // Must contain a special character
+    contraSenha: z.string().min(1, { message: t('confirmPasswordRequired') }) // Confirm password field
+  }).refine(data => data.password === data.contraSenha, {
+    message: t('differentPassword'),
+    path: ['contraSenha'] // This will show the error at contraSenha field
+  });
+
   async function handleRegister(e) {
     e.preventDefault();
 
@@ -68,16 +84,14 @@ function RegisterHospital() {
       name,
       password,
       email,
+      contraSenha,
     };
 
-    if (password !== contraSenha) {
-      toast.warning(t('differentPassword'));
-    }
-
-    if (!!name && password === contraSenha && !!email && !!password) {
+    try{
+      registerSchema.parse(data);
       setIsLoading(true);
       try {
-        const response = await api.post('hospitals', data);
+        const response = await api.post('hospitals', { name, password, email });
         var token = response.data.token;
 
         loginHosp(userDispatch, token);
@@ -88,18 +102,26 @@ function RegisterHospital() {
 
         if (!!err.response.data.message.email) {
           toast.warning(t('emailSavingError'));
+          return;
         }
         if (!!err.response.data.message.name) {
           toast.warning(t('nameSize'));
+          return;
         }
         if (!!err.response.data.message.password) {
           toast.warning(t('passwordSize'));
+          return;
         }
 
-        console.log(err);
-      }
+      console.log(err);
+    }
+  } catch(err){
+    if (err instanceof z.ZodError) {
+      const firstError = err.issues[0];
+      toast.warning(firstError.message);
     }
   }
+} 
 
   return (
     <div>
