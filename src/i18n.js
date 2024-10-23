@@ -46,6 +46,10 @@ import contentSi from './locales/si/content.json';
 import contentDa from './locales/da/content.json';
 import contentAm from './locales/am/content.json';
 import contentTh from './locales/th/content.json';
+import contentMn from './locales/mn/content.json';
+import contentSr from './locales/sr/content.json';
+import contentLa from './locales/la/content.json';
+import contentSq from './locales/sq/content.json';
 
 const options = {
   order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
@@ -103,6 +107,10 @@ const resources = {
   da: contentDa,
   am: contentAm,
   th: contentTh,
+  mn: contentMn,
+  sr: contentSr,
+  la: contentLa,
+  sq: contentSq
 };
 
 // Feel free to translate the language name
@@ -152,6 +160,10 @@ export const localesList = [
   { locale: 'uk', description: 'Ukraine' },
   { locale: 'ur', description: 'Urdu' },
   { locale: 'vi', description: 'Vietnamese' },
+  { locale: 'mn', description: 'Mongolian' },
+  { locale: 'sr', description: 'Serbian' },
+  { locale: 'la', description: 'Latin' },
+  { locale: 'sq', description: 'Albanian' },
 ];
 
 i18n
